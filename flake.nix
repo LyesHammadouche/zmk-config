@@ -6,14 +6,13 @@
   outputs = { nixpkgs, ... }: {
     devShells.x86_64-linux.default = let
       pkgs = nixpkgs.legacyPackages.x86_64-linux;
-      keymap-drawer_version = "0.22.0";
     in pkgs.mkShell {
-      packages = with pkgs; [ python313 uv entr feh ];
+      packages = with pkgs; [ python313 keymap-drawer entr feh ];
 
       shellHook = ''
-        uv venv
-        source .venv/bin/activate
-        uv pip install keymap-drawer==${keymap-drawer_version}
+        echo
+        printf "⌨️ \e[38;5;195mZMK Config\033[0m\n"
+        echo
       '';
     };
   };
