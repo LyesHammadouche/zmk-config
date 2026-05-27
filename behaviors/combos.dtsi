@@ -33,7 +33,7 @@ ZMK_COMBO(printscreen, &kp PRINTSCREEN, RT3 RT4, QWE COL ERG)
 ZMK_COMBO(capsword, &caps_word, LM1 RM1, QWE QAC COL CAC ERG EAC)
 
 // CAPS LOCK - Both HR Controls, active on base & accent layers
-ZMK_COMBO(capslock, &kp CAPSLOCK, LM2 RM2, QWE QAC COL CAC ERG EAC)
+ZMK_COMBO(capslock, &kp CAPSLOCK, LM2 RM2, QWE QAC COL CAC ERG EAC GAM)
 
 // TMUX Prefix - active on base layer
 ZMK_COMBO(tmux, &kp TMUX, LM2 LM3, QWE COL ERG, HR_TIMEOUT)
@@ -48,7 +48,10 @@ ZMK_COMBO(tmux_session, &TMUX_SESSION, LM2 LM3 LM4, QWE COL ERG, HR_TIMEOUT)
 ZMK_COMBO(toggle_mouse, &tog MOU, LT1 LT4, QWE MOU COL ERG)
 
 // Toggle Game Layer - active on base and game layer
-ZMK_COMBO(toggle_game, &tog GAM, RT1 RT4, QWE GAM COL ERG)
+ZMK_COMBO(toggle_game, &tog GAM, LH1 RH1, QWE GAM COL ERG)
+
+// Toggle Nav Layer from Game (ESC + N1 + N2)
+ZMK_COMBO(game_nav_toggle, &tog NAV, LH2 RM0 RM1, GAM)
 
 /***********************
   SYMBOL LAYER
