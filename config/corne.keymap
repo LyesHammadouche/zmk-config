@@ -72,6 +72,11 @@
             key-positions = <9 10 11>;
             layers = <0 1 2>;
         };
+
+        layer_1+2 {
+            bindings = <&to 4>;
+            key-positions = <36 41>;
+        };
     };
 
     keymap {
