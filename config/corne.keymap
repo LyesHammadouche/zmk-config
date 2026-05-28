@@ -106,10 +106,10 @@
 
         fr_accents_signs {
             bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
-                        &trans  &trans  &trans    &trans  &trans  &trans
+&kp  &kp  &kp  &kp  &kp  &kp    &kp              &kp              &kp  &kp       &kp           &kp
+&kp  &kp  &kp  &kp  &kp  &kp    &kp              &kp KP_NUMBER_5  &kp  &kp       &kp UP_ARROW  &kp
+&kp  &kp  &kp  &kp  &kp  &kp    &kp              &kp              &kp  &kp LEFT  &kp DOWN      &kp RIGHT
+               &kp  &kp  &kp    &kp KP_NUMBER_0  &kp              &kp
             >;
         };
 
