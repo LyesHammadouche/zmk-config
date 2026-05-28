@@ -97,19 +97,19 @@
 
         num_layer {
             bindings = <
-&kp F1        &kp F2                             &kp F3                               &mt LA(F4) F4  &kp F5        &kp F6            &kp F7     &kp F8     &kp F9   &kp F10   &kp F11    &kp PRINTSCREEN
-&kp N0        &kp NUMBER_1                       &kp NUMBER_2                         &kp NUMBER_3   &kp NUMBER_4  &kp N5            &kp N6     &kp N7     &kp N8   &kp N9    &kp MINUS  &kp EQUAL
-&kp QUESTION  &mt LEFT_BRACKET LEFT_PARENTHESIS  &mt RIGHT_BRACKET RIGHT_PARENTHESIS  &kp AT_SIGN    &kp TILDE     &kp BSLH          &kp SLASH  &kp COMMA  &kp DOT  &kp SEMI  &kp SQT    &kp EXCL
-                                                                                      &none          &kp LCTRL     &kp LEFT_SHIFT    &none      &kp RET    &none
+&kp F1        &kp F2                             &kp F3                               &mt LA(F4) F4  &kp F5        &kp F6            &kp F7     &kp F8     &kp F9         &kp F10   &kp F11    &kp PRINTSCREEN
+&kp N0        &kp NUMBER_1                       &kp NUMBER_2                         &kp NUMBER_3   &kp NUMBER_4  &kp N5            &kp N6     &kp N7     &kp N8         &kp N9    &kp MINUS  &kp EQUAL
+&kp QUESTION  &mt LEFT_BRACKET LEFT_PARENTHESIS  &mt RIGHT_BRACKET RIGHT_PARENTHESIS  &kp AT_SIGN    &kp TILDE     &kp BSLH          &kp SLASH  &kp COMMA  &kp DOT        &kp SEMI  &kp SQT    &kp EXCL
+                                                                                      &trans         &kp LCTRL     &kp LEFT_SHIFT    &trans     &kp RET    &kp RIGHT_ALT
             >;
         };
 
         fr_accents_signs {
             bindings = <
-&kp INSERT       &kp HOME        &kp PAGE_UP    &kp DLLR       &kp LA(LBKT)  &kp LA(RBKT)    &mt KP_NUMLOCK KP_NUMBER_7  &kp KP_NUMBER_8  &kp KP_NUMBER_9  &kp FSLH   &kp BSLH  &kp ESC
-&kp DEL          &kp END         &kp PAGE_DOWN  &kp HASH       &kp LBKT      &kp RBKT        &kp KP_NUMBER_4             &kp KP_NUMBER_5  &kp KP_NUMBER_6  &kp LT     &kp GT    &kp PRCNT
-&kp PRINTSCREEN  &kp LEFT_SHIFT  &kp LCTRL      &kp LS(MINUS)  &kp LPAR      &kp RPAR        &kp KP_NUMBER_1             &kp KP_NUMBER_2  &kp KP_NUMBER_3  &kp MINUS  &kp PLUS  &kp STAR
-                                                &none          &none         &trans          &kp KP_NUMBER_0             &kp KP_DOT       &none
+&kp INSERT       &kp HOME        &kp PAGE_UP    &kp DLLR        &kp LA(LEFT_BRACE)  &kp LA(RIGHT_BRACE)    &mt KP_NUMLOCK KP_NUMBER_7  &kp KP_NUMBER_8  &kp KP_NUMBER_9  &kp FSLH   &kp BSLH  &kp ESC
+&kp DEL          &kp END         &kp PAGE_DOWN  &kp HASH        &kp LBKT            &kp RBKT               &kp KP_NUMBER_4             &kp KP_NUMBER_5  &kp KP_NUMBER_6  &kp LT     &kp GT    &kp PRCNT
+&kp PRINTSCREEN  &kp LEFT_SHIFT  &kp LCTRL      &kp LS(MINUS)   &kp LPAR            &kp RPAR               &kp KP_NUMBER_1             &kp KP_NUMBER_2  &kp KP_NUMBER_3  &kp MINUS  &kp PLUS  &kp STAR
+                                                &kp LEFT_SHIFT  &kp LCTRL           &trans                 &kp KP_NUMBER_0             &kp KP_DOT       &trans
             >;
         };
 
@@ -124,10 +124,10 @@
 
         game_mod {
             bindings = <
-&kp TAB   &kp Q  &kp W  &kp E  &kp R  &kp T      &kp N1  &kp N2  &kp N3  &kp N4  &kp N5  &kp ESC
-&kp LSHFT &kp A  &kp S  &kp D  &kp F  &kp G      &kp N6  &kp N7  &kp N8  &kp N9  &kp N0  &none
-&kp LCTRL &kp Z  &kp X  &kp C  &kp V  &kp B      &kp Y   &kp H   &kp M   &kp J   &none   &none
-                           &kp LALT  &kp SPACE  &kp ENTER    &kp ESC  &kp M   &none
+&kp TAB    &kp Q  &kp W  &kp E     &kp R      &kp T        &kp N1   &kp N2  &kp N3  &kp N4  &kp N5  &kp ESC
+&kp LSHFT  &kp A  &kp S  &kp D     &kp F      &kp G        &kp N6   &kp N7  &kp N8  &kp N9  &kp N0  &none
+&kp LCTRL  &kp Z  &kp X  &kp C     &kp V      &kp B        &kp Y    &kp H   &kp M   &kp J   &none   &none
+                         &kp LALT  &kp SPACE  &kp ENTER    &kp ESC  &kp M   &none
             >;
         };
     };
