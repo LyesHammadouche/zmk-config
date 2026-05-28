@@ -21,7 +21,7 @@
         combo_cut {
             timeout-ms = <40>;
             bindings = <&kp X>;
-            key-positions = <16 17>;
+            key-positions = <3 4>;
             layers = <0>;
         };
 
@@ -35,7 +35,7 @@
         combo_paste {
             timeout-ms = <40>;
             bindings = <&kp V>;
-            key-positions = <17 21>;
+            key-positions = <17 16>;
             layers = <0>;
         };
 
@@ -49,7 +49,7 @@
         combo_capsword {
             timeout-ms = <40>;
             bindings = <&caps_word>;
-            key-positions = <9 29>;
+            key-positions = <29 30>;
             layers = <0>;
         };
 
@@ -69,22 +69,8 @@
         combo_nav_toggle {
             timeout-ms = <40>;
             bindings = <&tog 3>;
-            key-positions = <18 19>;
+            key-positions = <9 10 11>;
             layers = <0 1 2>;
-        };
-
-        combo_num_toggle {
-            timeout-ms = <40>;
-            bindings = <&tog 1>;
-            key-positions = <30 31>;
-            layers = <0 1 2 3>;
-        };
-
-        combo_fr_toggle {
-            timeout-ms = <40>;
-            bindings = <&tog 2>;
-            key-positions = <39 40>;
-            layers = <0 1>;
         };
     };
 
