@@ -5,7 +5,7 @@
 
 / {
     behaviors {
-        // Tap-dance: right thumb — 1 tap = RALT, 2 taps = RGUI (Windows key)
+        // Tap-dance: right thumb -- 1 tap = RALT, 2 taps = RGUI (Windows key)
 
         alt_gui: alt_gui {
             compatible = "zmk,behavior-tap-dance";
@@ -91,7 +91,7 @@
     keymap {
         compatible = "zmk,keymap";
 
-        // Layer 0 — QWERTY (base)
+        // Layer 0 -- QWERTY (base)
 
         default_layer {
             bindings = <
@@ -102,7 +102,7 @@
             >;
         };
 
-        // Layer 1 — Numbers & Symbols
+        // Layer 1 -- Numbers & Symbols
 
         num_layer {
             bindings = <
@@ -113,7 +113,7 @@
             >;
         };
 
-        // Layer 2 — Symbols & Special
+        // Layer 2 -- Symbols & Special
 
         fr_accents_signs {
             bindings = <
@@ -124,11 +124,11 @@
             >;
         };
 
-        // Layer 3 — Navigation
+        // Layer 3 -- Navigation
 
         nav_layer {
             bindings = <
-&none      &out OUT_TOG  &none       &none         &none         &none         &none      &kp PSCRN  &kp UP     &kp SLCK   &kp K_PLAY_PAUSE  &none
+&none      &out OUT_TOG  &none       &none         &none         &none         &none      &kp PSCRN  &kp UP     &kp SLCK   &kp PAUSE_BREAK  &none
 &none      &kp LGUI      &kp C_PREV  &kp C_PP      &kp C_NEXT    &none         &none      &kp LEFT   &kp DOWN   &kp RIGHT  &kp INS           &none
 &kp LSHFT  &bt BT_PRV    &bt BT_NXT  &kp C_VOL_DN  &kp C_VOL_UP  &kp C_MUTE    &kp HOME   &kp PG_DN  &kp PG_UP  &kp END    &kp APP           &kp RSHFT
                                      &none         &none         &trans        &kp ENTER  &kp RET    &none
