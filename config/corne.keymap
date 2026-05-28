@@ -77,7 +77,7 @@
         combo_num_toggle {
             timeout-ms = <40>;
             bindings = <&tog 3>;
-            key-positions = <39 40>;
+            key-positions = <30 31>;
             layers = <0 1 3>;
         };
     };
