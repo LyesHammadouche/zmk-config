@@ -104,9 +104,9 @@
 
         fr_accents_signs {
             bindings = <
-&kp INSERT       &kp HOME        &kp PAGE_UP    &kp LS(DLLR)   &kp LA(LBKT)  &kp LA(RBKT)    &mt KP_NUMLOCK KP_NUMBER_7  &kp KP_NUMBER_8  &kp KP_NUMBER_9  &kp FSLH    &kp BSLH    &kp ESC
-&kp DEL          &kp END         &kp PAGE_DOWN  &kp LS(POUND)  &kp LBKT      &kp RBKT        &kp KP_NUMBER_4             &kp KP_NUMBER_5  &kp KP_NUMBER_6  &kp LS(LT)  &kp LS(GT)  &kp LS(PRCNT)
-&kp PRINTSCREEN  &kp LEFT_SHIFT  &kp LCTRL      &kp LS(UNDER)  &kp LS(LPAR)  &kp LS(RPAR)    &kp KP_NUMBER_1             &kp KP_NUMBER_2  &kp KP_NUMBER_3  &kp MINUS   &kp PLUS    &kp STAR
+&kp INSERT       &kp HOME        &kp PAGE_UP    &kp DLLR   &kp LA(LBKT)  &kp LA(RBKT)    &mt KP_NUMLOCK KP_NUMBER_7  &kp KP_NUMBER_8  &kp KP_NUMBER_9  &kp FSLH    &kp BSLH    &kp ESC
+&kp DEL          &kp END         &kp PAGE_DOWN  &kp HASH  &kp LBKT      &kp RBKT        &kp KP_NUMBER_4             &kp KP_NUMBER_5  &kp KP_NUMBER_6  &kp LT  &kp GT  &kp PRCNT
+&kp PRINTSCREEN  &kp LEFT_SHIFT  &kp LCTRL      &kp LS(MINUS)  &kp LPAR  &kp RPAR    &kp KP_NUMBER_1             &kp KP_NUMBER_2  &kp KP_NUMBER_3  &kp MINUS   &kp PLUS    &kp STAR
                                                 &none          &none         &trans          &kp KP_NUMBER_0             &kp KP_DOT       &none
             >;
         };
