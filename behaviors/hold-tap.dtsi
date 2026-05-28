@@ -1,15 +1,12 @@
-/* Home Row Mods */
-#define KEYS_L LT0 LT1 LT2 LT3 LT4 LT5 LM0 LM1 LM2 LM3 LM4 LM5 LB0 LB1 LB2 LB3 LB4 LB5  // left-hand keys
-#define KEYS_R RT0 RT1 RT2 RT3 RT4 RT5 RM0 RM1 RM2 RM3 RM4 RM5 RB0 RB1 RB2 RB3 RB4 RB5  // right-hand keys
-#define THUMBS LH2 LH1 LH0 RH0 RH1 RH2 // thumb keys
+/* Home Row Mods — timerless, balanced */
+/* NOTE: with dedicated mods on outer column + thumbs, HRMs are no longer
+   needed on the alpha keys.  Keep the definitions for potential future use
+   but the base layers use plain &kp for all alpha keys now. */
+#define KEYS_L LT0 LT1 LT2 LT3 LT4 LT5 LM0 LM1 LM2 LM3 LM4 LM5 LB0 LB1 LB2 LB3 LB4 LB5
+#define KEYS_R RT0 RT1 RT2 RT3 RT4 RT5 RM0 RM1 RM2 RM3 RM4 RM5 RB0 RB1 RB2 RB3 RB4 RB5
+#define THUMBS LH2 LH1 LH0 RH0 RH1 RH2
 
-#define hrm_tap_term 150
-#define hrm_quick_tap 125
-
-/* Timerless Home Row Mods */
-/* https://github.com/urob/zmk-config#timeless-homerow-mods */
-
-/* left-hand HRMs */
+/* Left-hand HRM — kept for accent / future layers */
 ZMK_HOLD_TAP(hml,
     flavor = "balanced";
     tapping-term-ms = <280>;
@@ -20,7 +17,7 @@ ZMK_HOLD_TAP(hml,
     hold-trigger-on-release;
 )
 
-/* right-hand HRMs */
+/* Right-hand HRM — kept for accent / future layers */
 ZMK_HOLD_TAP(hmr,
     flavor = "balanced";
     tapping-term-ms = <280>;
@@ -29,49 +26,4 @@ ZMK_HOLD_TAP(hmr,
     bindings = <&kp>, <&kp>;
     hold-trigger-key-positions = <KEYS_L THUMBS>;
     hold-trigger-on-release;
-)
-
-// homerow mods for è (Colemak)
-ZMK_HOLD_TAP(hrmeg,
-    flavor = "balanced";
-    tapping-term-ms = <hrm_tap_term>;
-    quick-tap-ms = <hrm_quick_tap>;
-    global-quick-tap;
-    bindings = <&kp>, <&E_GR_C>;
-)
-
-// homerow mods for î (Colemak)
-ZMK_HOLD_TAP(hrmic,
-    flavor = "balanced";
-    tapping-term-ms = <hrm_tap_term>;
-    quick-tap-ms = <hrm_quick_tap>;
-    global-quick-tap;
-    bindings = <&kp>, <&I_CI_C>;
-)
-
-// homerow mods for î (QWERTY)
-ZMK_HOLD_TAP(hrmiq,
-    flavor = "balanced";
-    tapping-term-ms = <hrm_tap_term>;
-    quick-tap-ms = <hrm_quick_tap>;
-    global-quick-tap;
-    bindings = <&kp>, <&I_CI_Q>;
-)
-
-// homerow mods for è (QWERTY)
-ZMK_HOLD_TAP(hrme,
-    flavor = "balanced";
-    tapping-term-ms = <hrm_tap_term>;
-    quick-tap-ms = <hrm_quick_tap>;
-    global-quick-tap;
-    bindings = <&kp>, <&E_GR_Q>;
-)
-
-// homerow mods for ê (Ergo-L)
-ZMK_HOLD_TAP(hrmec,
-    flavor = "balanced";
-    tapping-term-ms = <hrm_tap_term>;
-    quick-tap-ms = <hrm_quick_tap>;
-    global-quick-tap;
-    bindings = <&kp>, <&E_CI_E>;
 )

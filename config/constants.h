@@ -4,19 +4,13 @@
 #define ___ &trans
 #define XXX &none
 
-// Layers
-// Must match order in which they are defined
-#define COL 0
-#define CAC 1
-#define QWE 2
-#define QAC 3
-#define ERG 4
-#define EAC 5
-#define SYM 6
-#define NAV 7
-#define NUM 8
-#define MOU 9
-#define GAM 10
+// Layers — order must match keymap definition
+#define AZR 0   // AZERTY (base)
+#define QWE 1   // QWERTY
+#define NAV 2   // Navigation
+#define NUM 3   // Numbers
+#define SYM 4   // Symbols
+#define GAM 5   // Game (optional, future)
 
 // Modifier keys
 #define GL LGUI
@@ -32,6 +26,3 @@
 #define WINDOWS 0
 #define LINUX 1
 #define MAC_OS 2
-
-// Apps
-#define TMUX LC(LA(J)) // Tmux -> Ctrl + Alt + J
