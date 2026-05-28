@@ -104,21 +104,21 @@
             >;
         };
 
-        nav_layer {
-            bindings = <
-&none      &out OUT_TOG  &none       &none         &none         &none     &none      &none      &none      &none      &none     &none
-&none      &kp LGUI      &kp C_PREV  &kp C_PP      &kp C_NEXT    &none     &kp LEFT   &kp DOWN   &kp UP     &kp RIGHT  &kp INS   &none
-&kp LSHFT  &bt BT_PRV    &bt BT_NXT  &kp C_VOL_DN  &kp C_VOL_UP  &none     &kp HOME   &kp PG_DN  &kp PG_UP  &kp END    &kp SLCK  &kp RSHFT
-                                     &none         &none         &trans    &kp ENTER  &kp RET    &none
-            >;
-        };
-
-        layer_4 {
+        fr_accents {
             bindings = <
 &trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
 &trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
 &trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
                         &trans  &trans  &trans    &trans  &trans  &trans
+            >;
+        };
+
+        nav_layer {
+            bindings = <
+&none      &out OUT_TOG  &none       &none         &none         &none         &none      &none      &kp UP_ARROW  &none      &none     &none
+&none      &kp LGUI      &kp C_PREV  &kp C_PP      &kp C_NEXT    &none         &none      &kp LEFT   &kp DOWN      &kp RIGHT  &kp INS   &none
+&kp LSHFT  &bt BT_PRV    &bt BT_NXT  &kp C_VOL_DN  &kp C_VOL_UP  &kp K_MUTE    &kp HOME   &kp PG_DN  &kp PG_UP     &kp END    &kp SLCK  &kp RSHFT
+                                     &none         &none         &trans        &kp ENTER  &kp RET    &none
             >;
         };
     };
