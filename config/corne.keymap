@@ -124,10 +124,10 @@
 
         game_mod {
             bindings = <
-&kp TAB    &kp Q  &kp W  &kp E     &kp R      &kp T        &kp N1   &kp N2  &kp N3  &kp N4  &kp N5  &kp ESC
-&kp LSHFT  &kp A  &kp S  &kp D     &kp F      &kp G        &kp N6   &kp N7  &kp N8  &kp N9  &kp N0  &none
-&kp LCTRL  &kp Z  &kp X  &kp C     &kp V      &kp B        &kp Y    &kp H   &kp M   &kp J   &none   &none
-                         &kp LALT  &kp SPACE  &kp ENTER    &kp ESC  &kp M   &none
+&kp TAB    &kp Q  &kp W  &kp E     &kp R      &kp T        &kp N1   &kp N2        &kp N3         &kp N4  &kp N5  &kp ESC
+&kp LSHFT  &kp A  &kp S  &kp D     &kp F      &kp G        &kp N6   &kp N7        &kp N8         &kp N9  &kp N0  &kp RIGHT_SHIFT
+&kp LCTRL  &kp Z  &kp X  &kp C     &kp V      &kp B        &kp Y    &kp H         &kp N          &kp J   &none   &kp RCTRL
+                         &kp LALT  &kp SPACE  &kp ENTER    &kp ESC  &kp CAPSLOCK  &kp RIGHT_ALT
             >;
         };
     };
