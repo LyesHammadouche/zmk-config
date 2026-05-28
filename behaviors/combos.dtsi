@@ -1,39 +1,34 @@
-// Combos for AZERTY/QWERTY Corne 42-key
+// Combos for Corne 42-key — QWERTY/AZERTY layout
 #undef COMBO_TERM
 #define COMBO_TERM 40
-#define HR_TIMEOUT 30
 
 /***********************
-  ALL ALPHA LAYERS
+  BOTH ALPHA LAYERS
 ***********************/
 
-// CUT - Ctrl + X — V + B on left bottom row
-ZMK_COMBO(cut, &kp LC(X), LB4 LB5, AZR QWE)
+// CUT - Ctrl + X — V + B hold (bottom row left outer)
+ZMK_COMBO(cut, &kp X, LB4 LB5, QWE AZR)
 
-// COPY - Ctrl + C — C + V on left bottom row
-ZMK_COMBO(copy, &kp LC(C), LB3 LB4, AZR QWE)
+// COPY - Ctrl + C — C + V hold
+ZMK_COMBO(copy, &kp C, LB3 LB4, QWE AZR)
 
-// PASTE - Ctrl + V — X + C on left bottom row
-ZMK_COMBO(paste, &kp LC(V), LB2 LB3, AZR QWE)
+// PASTE - Ctrl + V — B + N hold (split across halves)
+ZMK_COMBO(paste, &kp V, LB5 RT0, QWE AZR)
 
-// CAPS LOCK — D + K (middle fingers, home row, both hands)
-ZMK_COMBO(capslock, &kp CAPSLOCK, LM3 RM2, AZR QWE)
+// CAPS LOCK — S + L (ring fingers, home row)
+ZMK_COMBO(capslock, &kp CLCK, LM2 RM3, QWE AZR)
 
-// CAPS WORD — S + L (ring fingers, home row)
-ZMK_COMBO(capsword, &caps_word, LM2 RM3, AZR QWE)
-
-// AZERTY → QWERTY — F + H (index fingers, home row)
-ZMK_COMBO(layout_to_qwe, &to QWE, LM4 RM0, AZR)
+// CAPS WORD — D + K (middle fingers, home row)
+ZMK_COMBO(capsword, &caps_word, LM3 RM2, QWE AZR)
 
 // QWERTY → AZERTY — F + H (index fingers, home row)
 ZMK_COMBO(layout_to_azr, &to AZR, LM4 RM0, QWE)
 
+// AZERTY → QWERTY — F + H (index fingers, home row)
+ZMK_COMBO(layout_to_qwe, &to QWE, LM4 RM0, AZR)
+
 // NAV toggle — both left thumbs
-ZMK_COMBO(nav_toggle, &tog NAV, LH0 LH1, AZR QWE NAV)
+ZMK_COMBO(nav_toggle, &tog NAV, LH0 LH1, QWE AZR NAV)
 
-/***********************
-  NUMBERS LAYER
-***********************/
-
-// Fat arrow — on NAV layer
-ZMK_COMBO(fat_arrow, &FAT_ARROW, LM1 LM2, NAV)
+// NUM toggle — both right thumbs
+ZMK_COMBO(num_toggle, &tog NUM, RH0 RH1, QWE AZR NUM)

@@ -10,59 +10,66 @@
 #include "zmk-helpers/key-labels/42.h"
 #include "../behaviors/soft-off.dtsi"
 #include "../behaviors/hold-tap.dtsi"
-#include "../behaviors/thumb-mods.dtsi"
 #include "../behaviors/macros.dtsi"
 #include "../behaviors/mod-morph.dtsi"
 #include "../behaviors/combos.dtsi"
 
-/////////////////////////////////////////////////////////////////////////////
-// LAYER 0 — AZERTY (base)
-/////////////////////////////////////////////////////////////////////////////
-// Design: dedicated ESC / TAB / SHIFT on left outer column,
-//         CTL & ALT on left thumbs, ALT/dbl-tap-GUI on right outer column.
-//
-// ╭─────────┬─────┬─────┬─────┬─────┬─────╮ ╭─────┬─────┬─────┬─────┬─────┬───────╮
-// │  ESC    │  A  │  Z  │  E  │  R  │  T  │ │  Y  │  U  │  I  │  O  │  P  │  XXX   │
-// ├─────────┼─────┼─────┼─────┼─────┼─────┤ ├─────┼─────┼─────┼─────┼─────┼───────┤
-// │  TAB    │  Q  │  S  │  D  │  F  │  G  │ │  H  │  J  │  K  │  L  │  M  │ alt*  │
-// ├─────────┼─────┼─────┼─────┼─────┼─────┤ ├─────┼─────┼─────┼─────┼─────┼───────┤
-// │  SFT    │  W  │  X  │  C  │  V  │  B  │ │  N  │  ,  │  ;  │  :  │  !  │  XXX   │
-// ╰─────────┴─────┴─────┼─────┼─────┼─────┤ ├─────┼─────┼─────┼─────┴─────┴───────╯
-//                       │ CTL │ ALT │NAV← │ │→NUM │ENT  │alt* │
-//                       ╰─────┴─────┴─────╯ ╰─────┴─────┴─────╯
-//  CTL  = hold LCTL / tap Space
-//  ALT  = hold LALT / tap Backspace
-//  NAV← = hold NAV layer / tap Enter
-//  →NUM = hold NUM layer / tap Tab
-//  ENT  = Enter
-//  alt* = tap ALT(RALT) / double-tap → Windows/GUI
+// Tap-dance: right ALT — 1 tap = RALT, 2 taps = RGUI (Windows key)
+/ {
+    behaviors {
+        alt_gui: alt_gui {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&kp RALT>, <&kp RGUI>;
+        };
+    };
+};
 
-ZMK_LAYER(AZERTY,
+/////////////////////////////////////////////////////////////////////////////
+// LAYER 0 — QWERTY (base)
+/////////////////////////////////////////////////////////////////////////////
+// Layout matching visual config:
+//
+// ╭─────┬─────┬─────┬─────┬─────┬─────╮ ╭─────┬─────┬─────┬─────┬─────┬──────╮
+// │ ESC │  Q  │  W  │  E  │  R  │  T  │ │  Y  │  U  │  I  │  O  │  P  │ BkSp │
+// ├─────┼─────┼─────┼─────┼─────┼─────┤ ├─────┼─────┼─────┼─────┼─────┼──────┤
+// │ SFT │  A  │  S  │  D  │  F  │  G  │ │  H  │  J  │  K  │  L  │  ;  │ SFT  │
+// ├─────┼─────┼─────┼─────┼─────┼─────┤ ├─────┼─────┼─────┼─────┼─────┼──────┤
+// │ CTL │  Z  │  X  │  C  │  V  │  B  │ │  N  │  M  │  '  │  .  │  /  │ DEL  │
+// ╰─────┴─────┴─────┼─────┼─────┼─────┤ ├─────┼─────┼─────┼─────┴─────┴──────╯
+//                   │ XXX │ XXX │ ALT │ │ RET │ GUI │ XXX │
+//                   ╰─────┴─────┴─────╯ ╰─────┴─────┴─────╯
+//  ALT  = hold NAV layer / tap ALT
+//  RET  = tap Enter / double-tap → GUI (Windows key)
+
+ZMK_LAYER(QWERTY,
 // ╭───────────┬───────────┬───────────┬───────────┬────────────┬───────────╮ ╭───────────┬─────────────┬─────────────┬────────────┬────────────┬───────────╮
-     &kp ESC      &kp A       &kp Z       &kp E       &kp R        &kp T          &kp Y       &kp U         &kp I         &kp O        &kp P       XXX
+     &kp ESC      &kp Q       &kp W       &kp E       &kp R        &kp T          &kp Y       &kp U         &kp I         &kp O        &kp P       &kp BSPC
 // ├───────────┼───────────┼───────────┼───────────┼────────────┼───────────┤ ├───────────┼─────────────┼─────────────┼────────────┼────────────┼───────────┤
-     &kp TAB      &kp Q       &kp S       &kp D       &kp F        &kp G          &kp H       &kp J         &kp K         &kp L        &kp M       &right_alt_gui
+     &kp LSHFT    &kp A       &kp S       &kp D       &kp F        &kp G          &kp H       &kp J         &kp K         &kp L        &kp SEMI    &kp RSHFT
 // ├───────────┼───────────┼───────────┼───────────┼────────────┼───────────┤ ├───────────┼─────────────┼─────────────┼────────────┼────────────┼───────────┤
-     &kp LSHFT    &kp W       &kp X       &kp C       &kp V        &kp B          &kp N       &kp COMMA     &kp SEMI      &kp COLON    &kp EXCL    XXX
+     &kp LCTRL    &kp Z       &kp X       &kp C       &kp V        &kp B          &kp N       &kp M         &kp SQT       &kp DOT      &kp FSLH    &kp DEL
 // ╰───────────┴───────────┴───────────┼───────────┼────────────┼───────────┤ ├───────────┼─────────────┼─────────────┼────────────┴────────────┴───────────╯
-                                     &hm_ctl CL SPACE &hm_alt AL BSPC &lt NAV RET     &lt NUM TAB   &kp RET       &right_alt_gui
+                                     XXX          XXX          &lt NAV LALT    &alt_gui     &kp RGUI     XXX
 //                                 ╰───────────┴────────────┴────────────╯ ╰───────────┴─────────────┴─────────────╯
 )
 
 /////////////////////////////////////////////////////////////////////////////
-// LAYER 1 — QWERTY
+// LAYER 1 — AZERTY
 /////////////////////////////////////////////////////////////////////////////
-// Same thumb/mod layout as AZERTY, only alpha positions change.
+// Same mods/thumbs as QWERTY, only alpha positions change.
+// AZERTY layout: A Z E R T Y U I O P / Q S D F G H J K L M / W X C V B N , ; : !
 
-ZMK_LAYER(QWERTY,
+ZMK_LAYER(AZERTY,
 // ╭───────────┬───────────┬───────────┬───────────┬────────────┬───────────╮ ╭───────────┬─────────────┬─────────────┬────────────┬────────────┬───────────╮
-     &kp ESC      &kp Q       &kp W       &kp E       &kp R        &kp T          &kp Y       &kp U         &kp I         &kp O        &kp P       XXX
+     &kp ESC      &kp A       &kp Z       &kp E       &kp R        &kp T          &kp Y       &kp U         &kp I         &kp O        &kp P       &kp BSPC
 // ├───────────┼───────────┼───────────┼───────────┼────────────┼───────────┤ ├───────────┼─────────────┼─────────────┼────────────┼────────────┼───────────┤
-     &kp TAB      &kp A       &kp S       &kp D       &kp F        &kp G          &kp H       &kp J         &kp K         &kp L        &kp SEMI    &right_alt_gui
+     &kp LSHFT    &kp Q       &kp S       &kp D       &kp F        &kp G          &kp H       &kp J         &kp K         &kp L        &kp M       &kp RSHFT
 // ├───────────┼───────────┼───────────┼───────────┼────────────┼───────────┤ ├───────────┼─────────────┼─────────────┼────────────┼────────────┼───────────┤
-     &kp LSHFT    &kp Z       &kp X       &kp C       &kp V        &kp B          &kp N       &kp M         &kp COMMA     &kp DOT      &kp FSLH    XXX
+     &kp LCTRL    &kp W       &kp X       &kp C       &kp V        &kp B          &kp N       &kp COMMA     &kp SEMI      &kp COLON    &kp EXCL    &kp DEL
 // ╰───────────┴───────────┴───────────┼───────────┼────────────┼───────────┤ ├───────────┼─────────────┼─────────────┼────────────┴────────────┴───────────╯
-                                     &hm_ctl CL SPACE &hm_alt AL BSPC &lt NAV RET     &lt NUM TAB   &kp RET       &right_alt_gui
+                                     XXX          XXX          &lt NAV LALT    &alt_gui     &kp RGUI     XXX
 //                                 ╰───────────┴────────────┴────────────╯ ╰───────────┴─────────────┴─────────────╯
 )
 
@@ -77,7 +84,7 @@ ZMK_LAYER(Nav,
 // ├───────────┼───────────┼───────────┼───────────┼────────────┼───────────┤ ├───────────┼─────────────┼─────────────┼────────────┼────────────┼───────────┤
      XXX          &bt BT_PRV  &bt BT_NXT &kp C_VOL_DN &kp C_VOL_UP XXX            &kp HOME    &kp PG_DN     &kp PG_UP     &kp END      &kp SLCK    XXX
 // ╰───────────┴───────────┴───────────┼───────────┼────────────┼───────────┤ ├───────────┼─────────────┼─────────────┼────────────┴────────────┴───────────╯
-                                     &hm_ctl CL SPACE &hm_alt AL BSPC ___              ___          &kp RET       XXX
+                                     XXX          XXX          ___              ___          &kp RET       XXX
 //                                 ╰───────────┴────────────┴────────────╯ ╰───────────┴─────────────┴─────────────╯
 )
 
@@ -92,6 +99,6 @@ ZMK_LAYER(Numbers,
 // ├───────────┼───────────┼───────────┼───────────┼────────────┼───────────┤ ├───────────┼─────────────┼─────────────┼────────────┼────────────┼───────────┤
      XXX          &kp MINUS   &kp EQUAL   &kp LBKT    &kp RBKT     &kp BSLH       &kp GRAVE   &kp COMMA     &kp DOT       &kp SEMI     &kp SQT     XXX
 // ╰───────────┴───────────┴───────────┼───────────┼────────────┼───────────┤ ├───────────┼─────────────┼─────────────┼────────────┴────────────┴───────────╯
-                                     &hm_ctl CL SPACE &hm_alt AL BSPC ___              ___          &kp RET       XXX
+                                     XXX          XXX          ___              ___          &kp RET       XXX
 //                                 ╰───────────┴────────────┴────────────╯ ╰───────────┴─────────────┴─────────────╯
 )
