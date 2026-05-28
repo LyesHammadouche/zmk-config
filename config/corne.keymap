@@ -106,10 +106,10 @@
 
         num_layer {
             bindings = <
-&kp F1        &kp F2                             &kp F3                               &mt LA(F4) F4  &kp F5        &kp F6      &kp F7     &kp F8     &kp F9   &kp F10   &kp F11    &kp F12
-&kp N0        &kp NUMBER_1                       &kp NUMBER_2                         &kp NUMBER_3   &kp NUMBER_4  &kp N5      &kp N6     &kp N7     &kp N8   &kp N9    &kp MINUS  &kp EQUAL
-&kp QUESTION  &mt LEFT_BRACKET LEFT_PARENTHESIS  &mt RIGHT_BRACKET RIGHT_PARENTHESIS  &kp AT_SIGN    &kp TILDE     &kp BSLH    &kp SLASH  &kp COMMA  &kp DOT  &kp SEMI  &kp SQT    &kp EXCL
-                                                                                      &none          &none         &trans      &none      &kp RET    &none
+&kp F1        &kp F2                             &kp F3                               &mt LA(F4) F4  &kp F5               &kp F6      &kp F7     &kp F8        &kp F9       &kp F10   &kp F11    &kp F12
+&kp N0        &kp NUMBER_1                       &kp NUMBER_2                         &kp NUMBER_3   &kp NUMBER_4         &kp N5      &kp N6     &kp N7        &kp N8       &kp N9    &kp MINUS  &kp EQUAL
+&kp QUESTION  &mt LEFT_BRACKET LEFT_PARENTHESIS  &mt RIGHT_BRACKET RIGHT_PARENTHESIS  &kp CARET      &mt TILDE AMPERSAND  &kp BSLH    &kp SLASH  &kp COMMA     &kp DOT      &kp SEMI  &kp SQT    &kp EXCL
+                                                                                      &none          &kp AT               &trans      &none      &kp ASTERISK  &kp PERCENT
             >;
         };
 
@@ -117,10 +117,10 @@
 
         fr_accents_signs {
             bindings = <
-&none      &none      &none      &none      &none      &none        &none      &kp DOLLAR  &kp PRCNT  &kp LBRC  &kp RBRC  &none
-&none      &none      &none      &none      &none      &none        &none      &kp PIPE    &kp HASH    &kp LBKT   &kp RBKT  &none
-&none      &none      &none      &none      &none      &none        &none      &kp AMPS    &kp ASTRK   &kp LPAR     &kp RPAR    &none
-                                  &none      &none      &trans       &kp N0     &none       &none
+&none  &none  &none  &none  &none  &none     &none   &kp DOLLAR  &kp PRCNT  &kp LBRC  &kp RBRC  &none
+&none  &none  &none  &none  &none  &none     &none   &kp PIPE    &kp HASH   &kp LBKT  &kp RBKT  &none
+&none  &none  &none  &none  &none  &none     &none   &kp AMPS    &kp ASTRK  &kp LPAR  &kp RPAR  &none
+                     &none  &none  &trans    &kp N0  &none       &none
             >;
         };
 
@@ -128,10 +128,10 @@
 
         nav_layer {
             bindings = <
-&none      &out OUT_TOG  &none       &none         &none         &none         &none      &kp PSCRN   &kp UP      &kp SLCK   &kp PAUSE_BREAK  &none
-&none      &kp LGUI      &kp C_PREV  &kp C_PP      &kp C_NEXT    &none         &none      &kp LEFT    &kp DOWN    &kp RIGHT  &kp INS           &none
-&kp LSHFT  &bt BT_PRV    &bt BT_NXT  &kp C_VOL_DN  &kp C_VOL_UP  &kp C_MUTE    &kp HOME   &kp PG_DN   &kp PG_UP   &kp END    &kp APP           &kp RSHFT
-                                     &none         &none         &trans        &kp ENTER  &kp RET     &none
+&none      &out OUT_TOG  &none       &none         &none         &none         &none      &kp PSCRN  &kp UP     &kp SLCK   &kp PAUSE_BREAK  &none
+&none      &kp LGUI      &kp C_PREV  &kp C_PP      &kp C_NEXT    &none         &none      &kp LEFT   &kp DOWN   &kp RIGHT  &kp INS          &none
+&kp LSHFT  &bt BT_PRV    &bt BT_NXT  &kp C_VOL_DN  &kp C_VOL_UP  &kp C_MUTE    &kp HOME   &kp PG_DN  &kp PG_UP  &kp END    &kp APP          &kp RSHFT
+                                     &none         &none         &trans        &kp ENTER  &kp RET    &none
             >;
         };
     };
