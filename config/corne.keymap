@@ -68,16 +68,23 @@
 
         combo_nav_toggle {
             timeout-ms = <40>;
-            bindings = <&tog 1>;
+            bindings = <&tog 3>;
             key-positions = <18 19>;
-            layers = <0 1>;
+            layers = <0 1 2>;
         };
 
         combo_num_toggle {
             timeout-ms = <40>;
-            bindings = <&tog 0>;
+            bindings = <&tog 1>;
             key-positions = <30 31>;
-            layers = <0>;
+            layers = <0 1 2 3>;
+        };
+
+        combo_fr_toggle {
+            timeout-ms = <40>;
+            bindings = <&tog 2>;
+            key-positions = <39 40>;
+            layers = <0 1>;
         };
     };
 
@@ -95,6 +102,8 @@
             >;
         };
 
+        // Layer 1 — Numbers & Symbols
+
         num_layer {
             bindings = <
 &kp F1        &kp F2                             &kp F3                               &mt LA(F4) F4  &kp F5        &kp F6      &kp F7     &kp F8     &kp F9   &kp F10   &kp F11    &kp F12
@@ -104,21 +113,25 @@
             >;
         };
 
+        // Layer 2 — Symbols & Special
+
         fr_accents_signs {
             bindings = <
-&kp  &kp  &kp  &kp  &kp  &kp    &kp              &kp              &kp  &kp       &kp           &kp
-&kp  &kp  &kp  &kp  &kp  &kp    &kp              &kp KP_NUMBER_5  &kp  &kp       &kp UP_ARROW  &kp
-&kp  &kp  &kp  &kp  &kp  &kp    &kp              &kp              &kp  &kp LEFT  &kp DOWN      &kp RIGHT
-               &kp  &kp  &kp    &kp KP_NUMBER_0  &kp              &kp
+&none      &none      &none      &none      &none      &none        &none      &kp DOLLAR  &kp PRCNT  &kp LCURLY  &kp RCURLY  &none
+&none      &none      &none      &none      &none      &none        &none      &kp PIPE    &kp HASH    &kp LBRC     &kp RBRC    &none
+&none      &none      &none      &none      &none      &none        &none      &kp AMPS    &kp ASTRK   &kp LPAR     &kp RPAR    &none
+                                  &none      &none      &trans       &kp N0     &none       &none
             >;
         };
 
+        // Layer 3 — Navigation
+
         nav_layer {
             bindings = <
-&none      &out OUT_TOG  &none       &none         &none         &none         &none      &none      &kp UP_ARROW  &none      &none     &none
-&none      &kp LGUI      &kp C_PREV  &kp C_PP      &kp C_NEXT    &none         &none      &kp LEFT   &kp DOWN      &kp RIGHT  &kp INS   &none
-&kp LSHFT  &bt BT_PRV    &bt BT_NXT  &kp C_VOL_DN  &kp C_VOL_UP  &kp K_MUTE    &kp HOME   &kp PG_DN  &kp PG_UP     &kp END    &kp SLCK  &kp RSHFT
-                                     &none         &none         &trans        &kp ENTER  &kp RET    &none
+&none      &out OUT_TOG  &none       &none         &none         &none         &none      &kp PSCRN   &kp UP      &kp SLCK   &kp PAUSE_BREAK  &none
+&none      &kp LGUI      &kp C_PREV  &kp C_PP      &kp C_NEXT    &none         &none      &kp LEFT    &kp DOWN    &kp RIGHT  &kp INS           &none
+&kp LSHFT  &bt BT_PRV    &bt BT_NXT  &kp C_VOL_DN  &kp C_VOL_UP  &kp C_MUTE    &kp HOME   &kp PG_DN   &kp PG_UP   &kp END    &kp APP           &kp RSHFT
+                                     &none         &none         &trans        &kp ENTER  &kp RET     &none
             >;
         };
     };
