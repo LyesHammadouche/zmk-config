@@ -69,7 +69,7 @@
 
         Gamemod_toggle {
             bindings = <&tog 4>;
-            key-positions = <5 17 6 18>;
+            key-positions = <5 11 21 27>;
             timeout-ms = <100>;
             require-prior-idle-ms = <150>;
             layers = <0 1 2 3 4>;
