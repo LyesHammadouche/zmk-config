@@ -5,14 +5,7 @@
 
 / {
     behaviors {
-        // Tap-dance: right thumb -- 1 tap = RALT, 2 taps = RGUI (Windows key)
-
-        alt_gui: alt_gui {
-            compatible = "zmk,behavior-tap-dance";
-            #binding-cells = <0>;
-            tapping-term-ms = <200>;
-            bindings = <&kp RALT>, <&kp RGUI>;
-        };
+        // Tap-dance: left thumb L0 -- 1 tap = LALT, 2 taps = LGUI
 
         lalt_lgui: lalt_lgui {
             compatible = "zmk,behavior-tap-dance";
