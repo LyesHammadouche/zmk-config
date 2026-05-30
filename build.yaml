@@ -1,9 +1,11 @@
 # This file generates the GitHub Actions matrix
+# Uses corne_cherry_v4_left/right instead of standard corne_left/right
+# because the Cherry v4 PCB has different row pin routing.
 ---
 include:
   - board: nice_nano//zmk
-    shield: corne_left nice_view_adapter nice_view
+    shield: corne_cherry_v4_left nice_view_adapter nice_view
   - board: nice_nano//zmk
-    shield: corne_right nice_view_adapter nice_view
+    shield: corne_cherry_v4_right nice_view_adapter nice_view
   - board: nice_nano//zmk
     shield: settings_reset

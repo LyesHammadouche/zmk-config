@@ -1,0 +1,6 @@
+/*
+ * Corne Cherry v4 - Keymap
+ * References the standard corne.keymap from the config directory.
+ */
+
+#include "../../corne.keymap"

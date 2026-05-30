@@ -1,0 +1,3 @@
+# This file tells ZMK this is a valid shield
+config SHIELD_CORNE_CHERRY_V4
+    def_bool $(shields-list_contains,corne_cherry_v4)
