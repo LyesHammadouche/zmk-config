@@ -1,9 +1,9 @@
-# Corne Cherry v4 with Bongo Cat nice_view
+# Corne Cherry v4 with Bongo Cat
 ---
 include:
-  - board: nice_nano//zmk
+  - board: nice_nano
     shield: corne_cherry_v4_left nice_view_adapter nice_view_custom
-  - board: nice_nano//zmk
+  - board: nice_nano
     shield: corne_cherry_v4_right nice_view_adapter nice_view_custom
-  - board: nice_nano//zmk
+  - board: nice_nano
     shield: settings_reset
