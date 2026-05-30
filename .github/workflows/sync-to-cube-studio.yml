@@ -1,0 +1,22 @@
+name: Sync keymap to Cube Studio builder
+
+on:
+  push:
+    paths:
+      - 'config/corne.keymap'
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger Cube Studio build
+        uses: actions/github-script@v7
+        with:
+          github-token: ${{ secrets.PAT_CUBE_STUDIO }}
+          script: |
+            await github.rest.actions.createWorkflowDispatch({
+              owner: 'LyesHammadouche',
+              repo: 'zmk-corne-cube_studio',
+              workflow_id: 'build.yml',
+              ref: 'main'
+            });
