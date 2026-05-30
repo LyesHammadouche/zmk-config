@@ -1,5 +1,7 @@
+# SPDX-License-Identifier: MIT
+
 config SHIELD_CORNE_CHERRY_V4_LEFT
-    def_bool $(shields-list_contains,corne_cherry_v4_left)
+    def_bool $(shields_list_contains,corne_cherry_v4_left)
 
 config SHIELD_CORNE_CHERRY_V4_RIGHT
-    def_bool $(shields-list_contains,corne_cherry_v4_right)
+    def_bool $(shields_list_contains,corne_cherry_v4_right)
