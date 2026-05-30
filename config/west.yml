@@ -4,6 +4,8 @@ manifest:
       url-base: https://github.com/zmkfirmware
     - name: gpeye
       url-base: https://github.com/GPeye
+    - name: dsifry
+      url-base: https://github.com/dsifry
   projects:
     - name: zmk
       remote: zmkfirmware
@@ -11,6 +13,9 @@ manifest:
       import: app/west.yml
     - name: urchin-peripheral-animation
       remote: gpeye
+      revision: main
+    - name: nice-view-mod
+      remote: dsifry
       revision: main
   self:
     path: config
