@@ -5,13 +5,18 @@
 
 / {
     behaviors {
-        // Tap-dance: left thumb L0 -- 1 tap = LALT, 2 taps = LGUI
-
         lalt_lgui: lalt_lgui {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
             tapping-term-ms = <200>;
             bindings = <&kp LALT>, <&kp LGUI>;
+        };
+
+        l2_nav: l2_nav {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&mo 2>, <&mo 3>;
         };
     };
 
@@ -57,7 +62,7 @@
             timeout-ms = <40>;
             bindings = <&tog 3>;
             key-positions = <9 10 11>;
-            layers = <0 1 2>;
+            layers = <0 1 2 3>;
         };
 
         Gamemod_toggle {
@@ -72,59 +77,59 @@
     keymap {
         compatible = "zmk,keymap";
 
-        // Layer 0 -- QWERTY (base)
-
         default_layer {
+            label = "0";
             bindings = <
-&kp ESC             &kp Q  &kp W  &kp E                  &kp R  &kp T        &kp Y      &kp U  &kp I      &kp O    &kp P     &kp BSPC
-&mt LEFT_SHIFT TAB  &kp A  &kp S  &kp D                  &kp F  &kp G        &kp H      &kp J  &kp K      &kp L    &kp SEMI  &kp RSHFT
-&kp LCTRL           &kp Z  &kp X  &kp C                  &kp V  &kp B        &kp N      &kp M  &kp SQT    &kp DOT  &kp FSLH  &kp DEL
-                                  &mt LEFT_ALT LEFT_GUI  &mo 1  &kp SPACE    &kp ENTER  &mo 2  &kp RCTRL
+&kp ESCAPE   &kp Q  &kp W  &kp E  &kp R       &kp T        &kp Y      &kp U      &kp I    &kp O    &kp P     &kp BSPC
+&mt LSHFT TAB &kp A  &kp S  &kp D  &kp F       &kp G        &kp H      &kp J      &kp K    &kp L    &kp SEMI  &kp RSHFT
+&kp LCTRL    &kp Z  &kp X  &kp C  &kp V       &kp B        &kp N      &kp M      &kp SQT  &kp DOT  &kp FSLH  &kp DEL
+                             &lalt_lgui  &mo 1  &kp SPACE    &kp ENTER  &l2_nav  &kp RCTRL
             >;
         };
 
         num_layer {
+            label = "1";
             bindings = <
-&kp F1        &kp F2                             &kp F3                               &kp F4        &kp F5        &kp F6            &kp F7     &kp F8     &kp F9         &kp F10  &kp F11    &kp PRINTSCREEN
-&kp N0        &kp NUMBER_1                       &kp NUMBER_2                         &kp NUMBER_3  &kp NUMBER_4  &kp N5            &kp N6     &kp N7     &kp N8         &kp N9   &kp MINUS  &kp EQUAL
-&kp QUESTION  &mt LEFT_BRACKET LEFT_PARENTHESIS  &mt RIGHT_BRACKET RIGHT_PARENTHESIS  &kp AT_SIGN   &kp TILDE     &kp BSLH          &kp GRAVE  &kp CARET  &kp LS(SQT)    &kp SQT  &kp COMMA  &kp EXCL
-                                                                                      &trans        &kp LCTRL     &kp LEFT_SHIFT    &trans     &kp RET    &kp RIGHT_ALT
+&kp F1        &kp F2        &kp F3                &kp F4        &kp F5        &kp F6            &kp F7     &kp F8     &kp F9         &kp F10  &kp F11    &kp PRINTSCREEN
+&kp N0        &kp N1        &kp N2                &kp N3        &kp N4        &kp N5            &kp N6     &kp N7     &kp N8         &kp N9   &kp MINUS  &kp EQUAL
+&kp QUESTION  &kp LPAR      &kp RPAR              &kp AT_SIGN   &kp TILDE     &kp BSLH          &kp GRAVE  &kp CARET  &kp LS(SQT)    &kp SQT  &kp COMMA  &kp EXCL
+                                            &trans         &kp LCTRL     &kp LSHFT         &trans     &kp RET    &kp RALT
             >;
         };
 
         fr_accents_signs {
+            label = "2";
             bindings = <
-&kp INSERT       &kp HOME        &kp PAGE_UP    &kp DLLR        &kp LA(LEFT_BRACE)  &kp LA(RIGHT_BRACE)    &mt KP_NUMLOCK KP_NUMBER_7  &kp KP_NUMBER_8  &kp KP_NUMBER_9  &kp FSLH   &kp BSLH  &kp ESC
-&kp DEL          &kp END         &kp PAGE_DOWN  &kp HASH        &kp LBKT            &kp RBKT               &kp KP_NUMBER_4             &kp KP_NUMBER_5  &kp KP_NUMBER_6  &kp LT     &kp GT    &kp PRCNT
-&kp PRINTSCREEN  &kp LEFT_SHIFT  &kp LCTRL      &kp LS(MINUS)   &kp LPAR            &kp RPAR               &kp KP_NUMBER_1             &kp KP_NUMBER_2  &kp KP_NUMBER_3  &kp MINUS  &kp PLUS  &kp STAR
-                                                &kp LEFT_SHIFT  &kp LCTRL           &trans                 &kp KP_NUMBER_0             &trans           &kp PERIOD
+&kp INSERT       &kp HOME        &kp PAGE_UP    &kp DLLR        &kp LA(LBRC)  &kp LA(RBRC)    &mt KP_NUMLOCK KP_NUMBER_7  &kp KP_NUMBER_8  &kp KP_NUMBER_9  &kp FSLH   &kp BSLH  &kp ESC
+&kp DEL          &kp END         &kp PAGE_DOWN  &kp HASH        &kp LBKT      &kp RBKT        &kp KP_NUMBER_4             &kp KP_NUMBER_5  &kp KP_NUMBER_6  &kp LT     &kp GT    &kp PRCNT
+&kp PRINTSCREEN  &kp LSHFT       &kp LCTRL      &kp LS(MINUS)   &kp LPAR      &kp RPAR        &kp KP_NUMBER_1             &kp KP_NUMBER_2  &kp KP_NUMBER_3  &kp MINUS  &kp PLUS  &kp STAR
+                                               &kp LSHFT       &kp LCTRL     &trans           &kp KP_NUMBER_0             &kp KP_DOT       &trans
             >;
         };
 
         nav_layer {
+            label = "3";
             bindings = <
-&none      &out OUT_TOG  &none       &none         &none         &none         &none      &none      &kp UP     &trans     &trans    &trans
-&none      &kp LGUI      &kp C_PREV  &kp C_PP      &kp C_NEXT    &none         &none      &kp LEFT   &kp DOWN   &kp RIGHT  &kp INS   &none
-&kp LSHFT  &bt BT_PRV    &bt BT_NXT  &kp C_VOL_DN  &kp C_VOL_UP  &kp K_MUTE    &kp HOME   &kp PG_DN  &kp PG_UP  &kp END    &kp SLCK  &kp RSHFT
+&none      &out OUT_TOG  &none       &none         &none         &none         &none      &none      &kp UP     &kp BSPC   &kp DEL    &none
+&none      &kp LGUI      &kp C_PREV  &kp C_PP      &kp C_NEXT    &none         &none      &kp LEFT   &kp DOWN   &kp RIGHT  &kp INS    &none
+&kp LSHFT  &bt BT_PRV    &bt BT_NXT  &kp C_VOL_DN  &kp C_VOL_UP  &kp K_MUTE    &kp HOME   &kp PG_DN  &kp PG_UP  &kp END    &kp SLCK   &kp RSHFT
                                      &none         &none         &trans        &kp ENTER  &kp RET    &none
             >;
         };
 
         game_mod {
+            label = "4";
             bindings = <
 &kp TAB    &kp Q  &kp W  &kp E     &kp R      &kp T        &kp N1   &kp N2        &kp N3         &kp N4  &kp N5  &kp ESC
-&kp LSHFT  &kp A  &kp S  &kp D     &kp F      &kp G        &kp N6   &kp N7        &kp N8         &kp N9  &kp N0  &kp RIGHT_SHIFT
+&kp LSHFT  &kp A  &kp S  &kp D     &kp F      &kp G        &kp N6   &kp N7        &kp N8         &kp N9  &kp N0  &kp RSHFT
 &kp LCTRL  &kp Z  &kp X  &kp C     &kp V      &kp B        &kp Y    &kp H         &kp N          &kp J   &none   &kp RCTRL
-                         &kp LALT  &kp SPACE  &kp ENTER    &kp ESC  &kp CAPSLOCK  &kp RIGHT_ALT
+                             &kp LALT  &kp SPACE  &kp ENTER    &kp ESC  &kp CAPSLOCK  &kp RALT
             >;
         };
     };
 };
 
-// Soft-off config
-
 &soft_off {
     /delete-property/ split-peripheral-off-on-press;
-
     hold-time-ms = <3000>;
 };
