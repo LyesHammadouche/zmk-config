@@ -84,20 +84,20 @@
         num_layer {
             label = "1";
             bindings = <
-&kp F1        &kp F2    &kp F3    &kp F4       &kp F5     &kp F6       &kp F7     &kp F8     &kp F9       &kp F10  &kp F11    &kp PRINTSCREEN
-&kp N0        &kp N1    &kp N2    &kp N3       &kp N4     &kp N5       &kp N6     &kp N7     &kp N8       &kp N9   &kp MINUS  &kp EQUAL
-&kp QUESTION  &kp LPAR  &kp RPAR  &kp AT_SIGN  &kp TILDE  &kp BSLH     &kp GRAVE  &kp CARET  &kp LS(SQT)  &kp SQT  &kp COMMA  &kp EXCL
-                                  &trans       &kp LCTRL  &kp LSHFT    &trans     &kp RET    &kp RALT
+&kp F1        &kp F2    &kp F3    &kp F4        &kp F5     &kp F6       &kp F7      &kp F8     &kp F9       &kp F10  &kp F11    &kp PRINTSCREEN
+&kp N0        &kp N1    &kp N2    &kp N3        &kp N4     &kp N5       &kp N6      &kp N7     &kp N8       &kp N9   &kp MINUS  &kp EQUAL
+&kp QUESTION  &kp LPAR  &kp RPAR  &kp AT_SIGN   &kp TILDE  &kp BSLH     &kp GRAVE   &kp CARET  &kp LS(SQT)  &kp SQT  &kp COMMA  &kp EXCL
+                                  &kp LEFT_ALT  &trans     &kp LSHFT    &kp DELETE  &kp RET    &kp RCTRL
             >;
         };
 
         fr_accents_signs {
             label = "2";
             bindings = <
-&kp INSERT       &kp HOME   &kp PAGE_UP    &kp DLLR       &kp LA(LBRC)  &kp LA(RBRC)    &mt KP_NUMLOCK KP_NUMBER_7  &kp KP_NUMBER_8  &kp KP_NUMBER_9  &kp FSLH   &kp BSLH  &kp ESC
-&kp DEL          &kp END    &kp PAGE_DOWN  &kp HASH       &kp LBKT      &kp RBKT        &kp KP_NUMBER_4             &kp KP_NUMBER_5  &kp KP_NUMBER_6  &kp LT     &kp GT    &kp PRCNT
-&kp PRINTSCREEN  &kp LSHFT  &kp LCTRL      &kp LS(MINUS)  &kp LPAR      &kp RPAR        &kp KP_NUMBER_1             &kp KP_NUMBER_2  &kp KP_NUMBER_3  &kp MINUS  &kp PLUS  &kp STAR
-                                           &kp LSHFT      &kp LCTRL     &trans          &kp KP_NUMBER_0             &trans           &kp KP_DOT
+&kp INSERT       &kp HOME   &kp PAGE_UP    &kp DLLR       &kp LA(LBRC)  &kp LA(RBRC)       &kp KP_NUMBER_7  &kp KP_NUMBER_8  &kp KP_NUMBER_9  &kp FSLH   &kp BSLH  &kp ESC
+&kp DEL          &kp END    &kp PAGE_DOWN  &kp HASH       &kp LBKT      &kp RBKT           &kp KP_NUMBER_4  &kp KP_NUMBER_5  &kp KP_NUMBER_6  &kp LT     &kp GT    &kp PRCNT
+&kp PRINTSCREEN  &kp LSHFT  &kp LCTRL      &kp LS(MINUS)  &kp LPAR      &kp RPAR           &kp KP_NUMBER_1  &kp KP_NUMBER_2  &kp KP_NUMBER_3  &kp MINUS  &kp PLUS  &kp STAR
+                                           &kp LSHFT      &kp LCTRL     &kp LOCKING_NUM    &kp KP_NUMBER_0  &trans           &kp KP_DOT
             >;
         };
 
