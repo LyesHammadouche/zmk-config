@@ -14,285 +14,118 @@ body {
   padding: 40px 20px;
   min-height: 100vh;
 }
-.header {
-  text-align: center;
-  margin-bottom: 48px;
-}
-.header h1 {
-  font-size: 28px;
-  font-weight: 700;
-  letter-spacing: 2px;
-  color: #f1f5f9;
-}
-.header .sub {
-  font-size: 12px;
-  color: #64748b;
-  margin-top: 6px;
-  letter-spacing: 1px;
-}
-.header .dot {
-  display: inline-block;
-  width: 8px; height: 8px;
-  background: #22d3ee;
-  border-radius: 50%;
-  margin-right: 8px;
-  animation: pulse 2s ease-in-out infinite;
-}
-@keyframes pulse {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.3; }
-}
+.header { text-align: center; margin-bottom: 48px; }
+.header h1 { font-size: 28px; font-weight: 700; letter-spacing: 2px; color: #f1f5f9; }
+.header .sub { font-size: 12px; color: #64748b; margin-top: 6px; letter-spacing: 1px; }
+.header .dot { display: inline-block; width: 8px; height: 8px; background: #22d3ee; border-radius: 50%; margin-right: 8px; animation: pulse 2s ease-in-out infinite; }
+@keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
 
-.section {
-  max-width: 960px;
-  margin: 0 auto 48px;
-}
-.section-title {
-  font-size: 14px;
-  font-weight: 600;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  margin-bottom: 16px;
-  padding-left: 4px;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-.section-title .badge {
-  font-size: 9px;
-  padding: 2px 8px;
-  border-radius: 4px;
-  font-weight: 500;
-  letter-spacing: 1px;
-}
+.section { max-width: 960px; margin: 0 auto 48px; }
+.section-title { font-size: 14px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 16px; padding-left: 4px; display: flex; align-items: center; gap: 10px; }
+.section-title .badge { font-size: 9px; padding: 2px 8px; border-radius: 4px; font-weight: 500; letter-spacing: 1px; }
 .badge-base { background: rgba(34,211,238,0.15); color: #22d3ee; border: 1px solid rgba(34,211,238,0.3); }
 .badge-num { background: rgba(52,211,153,0.15); color: #34d399; border: 1px solid rgba(52,211,153,0.3); }
 .badge-sym { background: rgba(167,139,250,0.15); color: #a78bfa; border: 1px solid rgba(167,139,250,0.3); }
 .badge-nav { background: rgba(251,146,60,0.15); color: #fb923c; border: 1px solid rgba(251,146,60,0.3); }
-.badge-empty { background: rgba(100,116,139,0.15); color: #64748b; border: 1px solid rgba(100,116,139,0.3); }
+.badge-game { background: rgba(248,113,113,0.15); color: #f87171; border: 1px solid rgba(248,113,113,0.3); }
+.badge-az { background: rgba(96,165,250,0.15); color: #60a5fa; border: 1px solid rgba(96,165,250,0.3); }
 .badge-combo { background: rgba(251,113,133,0.15); color: #fb7185; border: 1px solid rgba(251,113,133,0.3); }
 .badge-tap { background: rgba(250,204,21,0.15); color: #facc15; border: 1px solid rgba(250,204,21,0.3); }
 .badge-info { background: rgba(148,163,184,0.15); color: #94a3b8; border: 1px solid rgba(148,163,184,0.3); }
 
-.keyboard {
-  display: flex;
-  justify-content: center;
-  gap: 24px;
-  flex-wrap: wrap;
-}
-.half {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-}
-.row {
-  display: flex;
-  gap: 4px;
-}
+.keyboard { display: flex; justify-content: center; gap: 24px; flex-wrap: wrap; }
+.half { display: flex; flex-direction: column; gap: 4px; }
+.row { display: flex; gap: 4px; }
 .key {
-  width: 52px;
-  height: 48px;
-  border-radius: 6px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: 11px;
-  font-weight: 500;
-  position: relative;
-  transition: all 0.15s ease;
-  cursor: default;
-  line-height: 1.2;
+  width: 52px; height: 48px; border-radius: 6px;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  font-size: 11px; font-weight: 500; position: relative;
+  transition: all 0.15s ease; cursor: default; line-height: 1.2;
 }
-.key:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0,0,0,0.4);
-}
-.key-empty {
-  background: rgba(30,41,59,0.3);
-  border: 1px solid rgba(51,65,85,0.3);
-  color: #475569;
-}
-.key-normal {
-  background: rgba(30,41,59,0.6);
-  border: 1px solid #334155;
-  color: #e2e8f0;
-}
-.key-mod {
-  background: rgba(8,51,68,0.4);
-  border: 1px solid rgba(34,211,238,0.4);
-  color: #22d3ee;
-}
-.key-layer {
-  background: rgba(52,211,153,0.12);
-  border: 1px solid rgba(52,211,153,0.4);
-  color: #34d399;
-}
-.key-combo-hl {
-  background: rgba(251,113,133,0.12);
-  border: 1px solid rgba(251,113,133,0.5);
-  color: #fb7185;
-}
-.key-trans {
-  background: rgba(30,41,59,0.15);
-  border: 1px dashed rgba(51,65,85,0.3);
-  color: #475569;
-}
-.key-mt {
-  background: rgba(250,204,21,0.08);
-  border: 1px solid rgba(250,204,21,0.35);
-  color: #facc15;
-}
-.key-dead {
-  background: rgba(167,139,250,0.12);
-  border: 1px solid rgba(167,139,250,0.4);
-  color: #a78bfa;
-}
-.key-media {
-  background: rgba(251,146,60,0.12);
-  border: 1px solid rgba(251,146,60,0.4);
-  color: #fb923c;
-}
-.key-bt {
-  background: rgba(96,165,250,0.12);
-  border: 1px solid rgba(96,165,250,0.4);
-  color: #60a5fa;
-}
+.key:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,0.4); }
+.key-empty { background: rgba(30,41,59,0.3); border: 1px solid rgba(51,65,85,0.3); color: #475569; }
+.key-normal { background: rgba(30,41,59,0.6); border: 1px solid #334155; color: #e2e8f0; }
+.key-mod { background: rgba(8,51,68,0.4); border: 1px solid rgba(34,211,238,0.4); color: #22d3ee; }
+.key-layer { background: rgba(52,211,153,0.12); border: 1px solid rgba(52,211,153,0.4); color: #34d399; }
+.key-combo-hl { background: rgba(251,113,133,0.12); border: 1px solid rgba(251,113,133,0.5); color: #fb7185; }
+.key-trans { background: rgba(30,41,59,0.15); border: 1px dashed rgba(51,65,85,0.3); color: #475569; }
+.key-mt { background: rgba(250,204,21,0.08); border: 1px solid rgba(250,204,21,0.35); color: #facc15; }
+.key-dead { background: rgba(167,139,250,0.12); border: 1px solid rgba(167,139,250,0.4); color: #a78bfa; }
+.key-media { background: rgba(251,146,60,0.12); border: 1px solid rgba(251,146,60,0.4); color: #fb923c; }
+.key-bt { background: rgba(96,165,250,0.12); border: 1px solid rgba(96,165,250,0.4); color: #60a5fa; }
+.key-game { background: rgba(248,113,113,0.1); border: 1px solid rgba(248,113,113,0.35); color: #f87171; }
+.key .sub-label { font-size: 7px; opacity: 0.5; font-weight: 300; }
 
-.key .sub-label {
-  font-size: 7px;
-  opacity: 0.5;
-  font-weight: 300;
-}
-.key .top-label {
-  font-size: 7px;
-  color: #94a3b8;
-}
+.thumb-row { display: flex; gap: 4px; margin-top: 8px; justify-content: center; }
+.thumb-row .key { width: 56px; }
 
-.thumb-row {
-  display: flex;
-  gap: 4px;
-  margin-top: 8px;
-  justify-content: center;
-}
-.thumb-row .key {
-  width: 56px;
-}
+.combos-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 12px; max-width: 960px; margin: 0 auto; }
+.combo-card { background: rgba(30,41,59,0.5); border: 1px solid #334155; border-radius: 8px; padding: 14px; display: flex; flex-direction: column; gap: 6px; }
+.combo-card .combo-name { font-size: 11px; font-weight: 600; color: #fb7185; }
+.combo-card .combo-detail { font-size: 10px; color: #94a3b8; }
+.combo-card .combo-keys { display: flex; gap: 4px; align-items: center; flex-wrap: wrap; }
+.combo-card .mini-key { background: rgba(251,113,133,0.1); border: 1px solid rgba(251,113,133,0.3); border-radius: 4px; padding: 3px 8px; font-size: 10px; color: #fb7185; }
+.combo-card .combo-arrow { color: #475569; font-size: 10px; }
+.combo-card .combo-result { background: rgba(34,211,238,0.1); border: 1px solid rgba(34,211,238,0.3); border-radius: 4px; padding: 3px 8px; font-size: 10px; color: #22d3ee; }
 
-.combos-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  gap: 12px;
-  max-width: 960px;
-  margin: 0 auto;
-}
-.combo-card {
-  background: rgba(30,41,59,0.5);
-  border: 1px solid #334155;
-  border-radius: 8px;
-  padding: 14px;
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-}
-.combo-card .combo-name {
-  font-size: 11px;
-  font-weight: 600;
-  color: #fb7185;
-}
-.combo-card .combo-detail {
-  font-size: 10px;
-  color: #94a3b8;
-}
-.combo-card .combo-keys {
-  display: flex;
-  gap: 4px;
-  align-items: center;
-}
-.combo-card .mini-key {
-  background: rgba(251,113,133,0.1);
-  border: 1px solid rgba(251,113,133,0.3);
-  border-radius: 4px;
-  padding: 3px 8px;
-  font-size: 10px;
-  color: #fb7185;
-}
-.combo-card .combo-arrow {
-  color: #475569;
-  font-size: 10px;
-}
-.combo-card .combo-result {
-  background: rgba(34,211,238,0.1);
-  border: 1px solid rgba(34,211,238,0.3);
-  border-radius: 4px;
-  padding: 3px 8px;
-  font-size: 10px;
-  color: #22d3ee;
-}
-.combo-card.stale {
-  opacity: 0.4;
-  border-style: dashed;
-}
-.combo-card.stale .combo-name {
-  color: #64748b;
-  text-decoration: line-through;
-}
+.notes { max-width: 960px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 12px; }
+.note-card { background: rgba(30,41,59,0.4); border: 1px solid #1e293b; border-radius: 8px; padding: 16px; }
+.note-card h3 { font-size: 11px; font-weight: 600; color: #94a3b8; margin-bottom: 8px; letter-spacing: 1px; }
+.note-card p { font-size: 10px; color: #64748b; line-height: 1.6; }
+.note-card code { background: rgba(34,211,238,0.1); color: #22d3ee; padding: 1px 5px; border-radius: 3px; font-size: 9px; }
 
-.notes {
-  max-width: 960px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 12px;
-}
-.note-card {
-  background: rgba(30,41,59,0.4);
-  border: 1px solid #1e293b;
-  border-radius: 8px;
-  padding: 16px;
-}
-.note-card h3 {
-  font-size: 11px;
-  font-weight: 600;
-  color: #94a3b8;
-  margin-bottom: 8px;
-  letter-spacing: 1px;
-}
-.note-card p {
-  font-size: 10px;
-  color: #64748b;
-  line-height: 1.6;
-}
-.note-card code {
-  background: rgba(34,211,238,0.1);
-  color: #22d3ee;
-  padding: 1px 5px;
-  border-radius: 3px;
-  font-size: 9px;
-}
-
-.footer {
-  text-align: center;
-  margin-top: 48px;
-  padding-top: 24px;
-  border-top: 1px solid #1e293b;
-  font-size: 10px;
-  color: #475569;
-  letter-spacing: 1px;
-}
-
-/* position numbers */
-.pos-grid {
-  max-width: 960px;
-  margin: 0 auto;
-}
+.footer { text-align: center; margin-top: 48px; padding-top: 24px; border-top: 1px solid #1e293b; font-size: 10px; color: #475569; letter-spacing: 1px; }
 </style>
 </head>
 <body>
 
 <div class="header">
   <h1><span class="dot"></span>CORNE 42 — KEYMAP REFERENCE</h1>
-  <div class="sub">nice_nano v2 + nice_view &middot; US International layout &middot; ZMK firmware</div>
+  <div class="sub">nice_nano v2 + nice_epaper &middot; US International layout &middot; ZMK v0.3.0</div>
+</div>
+
+<!-- ==================== POSITION MAP ==================== -->
+<div class="section">
+  <div class="section-title">
+    Position Map
+    <span class="badge badge-info">42 keys</span>
+  </div>
+  <div class="keyboard">
+    <div class="half">
+      <div class="row">
+        <div class="key key-empty">0</div><div class="key key-empty">1</div><div class="key key-empty">2</div>
+        <div class="key key-empty">3</div><div class="key key-empty">4</div><div class="key key-empty">5</div>
+      </div>
+      <div class="row">
+        <div class="key key-empty">6</div><div class="key key-empty">7</div><div class="key key-empty">8</div>
+        <div class="key key-empty">9</div><div class="key key-empty">10</div><div class="key key-empty">11</div>
+      </div>
+      <div class="row">
+        <div class="key key-empty">12</div><div class="key key-empty">13</div><div class="key key-empty">14</div>
+        <div class="key key-empty">15</div><div class="key key-empty">16</div><div class="key key-empty">17</div>
+      </div>
+      <div class="thumb-row">
+        <div class="key key-empty">18</div><div class="key key-empty">19</div><div class="key key-empty">20</div>
+      </div>
+    </div>
+    <div class="half">
+      <div class="row">
+        <div class="key key-empty">21</div><div class="key key-empty">22</div><div class="key key-empty">23</div>
+        <div class="key key-empty">24</div><div class="key key-empty">25</div><div class="key key-empty">26</div>
+      </div>
+      <div class="row">
+        <div class="key key-empty">27</div><div class="key key-empty">28</div><div class="key key-empty">29</div>
+        <div class="key key-empty">30</div><div class="key key-empty">31</div><div class="key key-empty">32</div>
+      </div>
+      <div class="row">
+        <div class="key key-empty">33</div><div class="key key-empty">34</div><div class="key key-empty">35</div>
+        <div class="key key-empty">36</div><div class="key key-empty">37</div><div class="key key-empty">38</div>
+      </div>
+      <div class="thumb-row">
+        <div class="key key-empty">39</div><div class="key key-empty">40</div><div class="key key-empty">41</div>
+      </div>
+    </div>
+  </div>
 </div>
 
 <!-- ==================== LAYER 0 ==================== -->
@@ -304,64 +137,42 @@ body {
   <div class="keyboard">
     <div class="half">
       <div class="row">
-        <div class="key key-normal">Esc<div class="sub-label">0</div></div>
-        <div class="key key-normal">Q<div class="sub-label">1</div></div>
-        <div class="key key-normal">W<div class="sub-label">2</div></div>
-        <div class="key key-combo-hl">E<div class="sub-label">3</div></div>
-        <div class="key key-combo-hl">R<div class="sub-label">4</div></div>
-        <div class="key key-normal">T<div class="sub-label">5</div></div>
+        <div class="key key-normal">Esc</div><div class="key key-normal">Q</div><div class="key key-normal">W</div>
+        <div class="key key-normal">E</div><div class="key key-normal">R</div><div class="key key-normal">T</div>
       </div>
       <div class="row">
-        <div class="key key-mt">⇥<div class="sub-label">hold⇧</div></div>
-        <div class="key key-normal">A<div class="sub-label">6</div></div>
-        <div class="key key-mt">S<div class="sub-label">hold⎙</div></div>
-        <div class="key key-normal">D<div class="sub-label">7</div></div>
-        <div class="key key-normal">F<div class="sub-label">8</div></div>
-        <div class="key key-normal">G<div class="sub-label">9</div></div>
+        <div class="key key-mt">Tab<div class="sub-label">hold ⇧</div></div>
+        <div class="key key-normal">A</div><div class="key key-normal">S</div><div class="key key-normal">D</div>
+        <div class="key key-normal">F</div><div class="key key-normal">G</div>
       </div>
       <div class="row">
-        <div class="key key-mod">LCtl<div class="sub-label">12</div></div>
-        <div class="key key-normal">Z<div class="sub-label">13</div></div>
-        <div class="key key-normal">X<div class="sub-label">14</div></div>
-        <div class="key key-normal">C<div class="sub-label">15</div></div>
-        <div class="key key-combo-hl">V<div class="sub-label">16</div></div>
-        <div class="key key-normal">B<div class="sub-label">17</div></div>
+        <div class="key key-mod">LCtl</div><div class="key key-normal">Z</div><div class="key key-normal">X</div>
+        <div class="key key-normal">C</div><div class="key key-normal">V</div><div class="key key-normal">B</div>
       </div>
       <div class="thumb-row">
-        <div class="key key-layer">→L1<div class="sub-label">&to 1</div></div>
-        <div class="key key-mod">LAlt<div class="sub-label">19</div></div>
-        <div class="key key-normal">Space<div class="sub-label">20</div></div>
+        <div class="key key-mt">LAlt<div class="sub-label">2×=LGui</div></div>
+        <div class="key key-layer">mo 1</div>
+        <div class="key key-normal">Space</div>
       </div>
     </div>
     <div class="half">
       <div class="row">
-        <div class="key key-normal">Y<div class="sub-label">21</div></div>
-        <div class="key key-normal">U<div class="sub-label">22</div></div>
-        <div class="key key-normal">I<div class="sub-label">23</div></div>
-        <div class="key key-normal">O<div class="sub-label">24</div></div>
-        <div class="key key-normal">P<div class="sub-label">25</div></div>
-        <div class="key key-normal">⌫<div class="sub-label">26</div></div>
+        <div class="key key-normal">Y</div><div class="key key-normal">U</div><div class="key key-normal">I</div>
+        <div class="key key-normal">O</div><div class="key key-normal">P</div><div class="key key-normal">Bksp</div>
       </div>
       <div class="row">
-        <div class="key key-normal">H<div class="sub-label">27</div></div>
-        <div class="key key-normal">J<div class="sub-label">28</div></div>
-        <div class="key key-combo-hl">K<div class="sub-label">29</div></div>
-        <div class="key key-combo-hl">L<div class="sub-label">30</div></div>
-        <div class="key key-normal">;<div class="sub-label">31</div></div>
-        <div class="key key-mod">R⇧<div class="sub-label">32</div></div>
+        <div class="key key-normal">H</div><div class="key key-normal">J</div><div class="key key-normal">K</div>
+        <div class="key key-normal">L</div><div class="key key-normal">;</div><div class="key key-mod">R⇧</div>
       </div>
       <div class="row">
-        <div class="key key-normal">N<div class="sub-label">33</div></div>
-        <div class="key key-normal">M<div class="sub-label">34</div></div>
-        <div class="key key-dead">'<div class="sub-label">35 · dead</div></div>
-        <div class="key key-normal">.<div class="sub-label">36</div></div>
-        <div class="key key-normal">/<div class="sub-label">37</div></div>
-        <div class="key key-normal">Del<div class="sub-label">38</div></div>
+        <div class="key key-normal">N</div><div class="key key-normal">M</div>
+        <div class="key key-dead">'<div class="sub-label">dead</div></div>
+        <div class="key key-normal">.</div><div class="key key-normal">/</div><div class="key key-normal">Del</div>
       </div>
       <div class="thumb-row">
-        <div class="key key-normal">Enter<div class="sub-label">39</div></div>
-        <div class="key key-mod">RCtl<div class="sub-label">40</div></div>
-        <div class="key key-layer">→L2<div class="sub-label">&to 2</div></div>
+        <div class="key key-normal">Enter</div>
+        <div class="key key-mt">L2<div class="sub-label">2×=L3</div></div>
+        <div class="key key-mod">RCtl</div>
       </div>
     </div>
   </div>
@@ -371,69 +182,48 @@ body {
 <div class="section">
   <div class="section-title">
     Layer 1 — Num / Sym
-    <span class="badge badge-num">&to 1 (left thumb inner)</span>
+    <span class="badge badge-num">&mo 1 (left thumb mid)</span>
   </div>
   <div class="keyboard">
     <div class="half">
       <div class="row">
-        <div class="key key-normal">F1</div>
-        <div class="key key-normal">F2</div>
-        <div class="key key-normal">F3</div>
-        <div class="key key-mt">F4<div class="sub-label">hold⌥F4</div></div>
-        <div class="key key-normal">F5</div>
-        <div class="key key-normal">F6</div>
+        <div class="key key-normal">F1</div><div class="key key-normal">F2</div><div class="key key-normal">F3</div>
+        <div class="key key-normal">F4</div><div class="key key-normal">F5</div><div class="key key-normal">F6</div>
       </div>
       <div class="row">
-        <div class="key key-normal">0</div>
-        <div class="key key-normal">1</div>
-        <div class="key key-normal">2</div>
-        <div class="key key-normal">3</div>
-        <div class="key key-normal">4</div>
-        <div class="key key-normal">5</div>
+        <div class="key key-normal">0</div><div class="key key-normal">1</div><div class="key key-normal">2</div>
+        <div class="key key-normal">3</div><div class="key key-normal">4</div><div class="key key-normal">5</div>
       </div>
       <div class="row">
-        <div class="key key-normal">?</div>
-        <div class="key key-mt">[<div class="sub-label">hold(</div></div>
-        <div class="key key-mt">]<div class="sub-label">hold)</div></div>
-        <div class="key key-normal">@</div>
-        <div class="key key-normal">~</div>
-        <div class="key key-normal">\</div>
+        <div class="key key-normal">?</div><div class="key key-normal">(</div><div class="key key-normal">)</div>
+        <div class="key key-normal">@</div><div class="key key-normal">~</div><div class="key key-normal">\</div>
       </div>
       <div class="thumb-row">
-        <div class="key key-empty">—</div>
-        <div class="key key-empty">—</div>
+        <div class="key key-mod">LAlt</div>
         <div class="key key-trans">trans</div>
+        <div class="key key-mod">L⇧</div>
       </div>
     </div>
     <div class="half">
       <div class="row">
-        <div class="key key-normal">F7</div>
-        <div class="key key-normal">F8</div>
-        <div class="key key-normal">F9</div>
-        <div class="key key-normal">F10</div>
-        <div class="key key-normal">F11</div>
-        <div class="key key-normal">F12</div>
+        <div class="key key-normal">F7</div><div class="key key-normal">F8</div><div class="key key-normal">F9</div>
+        <div class="key key-normal">F10</div><div class="key key-normal">F11</div><div class="key key-normal">PSc</div>
       </div>
       <div class="row">
-        <div class="key key-normal">6</div>
-        <div class="key key-normal">7</div>
-        <div class="key key-normal">8</div>
-        <div class="key key-normal">9</div>
-        <div class="key key-normal">-</div>
-        <div class="key key-normal">=</div>
+        <div class="key key-normal">6</div><div class="key key-normal">7</div><div class="key key-normal">8</div>
+        <div class="key key-normal">9</div><div class="key key-normal">-</div><div class="key key-normal">=</div>
       </div>
       <div class="row">
-        <div class="key key-normal">/</div>
-        <div class="key key-normal">,</div>
-        <div class="key key-normal">.</div>
-        <div class="key key-normal">;</div>
-        <div class="key key-normal">'</div>
-        <div class="key key-normal">!</div>
+        <div class="key key-dead">`<div class="sub-label">dead</div></div>
+        <div class="key key-dead">^<div class="sub-label">dead</div></div>
+        <div class="key key-dead">¨<div class="sub-label">dead</div></div>
+        <div class="key key-dead">'<div class="sub-label">dead</div></div>
+        <div class="key key-normal">,</div><div class="key key-normal">!</div>
       </div>
       <div class="thumb-row">
-        <div class="key key-empty">—</div>
+        <div class="key key-normal">Del</div>
         <div class="key key-normal">Ret</div>
-        <div class="key key-empty">—</div>
+        <div class="key key-mod">RCtl</div>
       </div>
     </div>
   </div>
@@ -442,70 +232,46 @@ body {
 <!-- ==================== LAYER 2 ==================== -->
 <div class="section">
   <div class="section-title">
-    Layer 2 — Symboles + Numpad
-    <span class="badge badge-sym">&to 2 (right thumb inner)</span>
+    Layer 2 — Utilitaire (Nav + Sym + Numpad)
+    <span class="badge badge-sym">&mo 2 (right thumb mid, tap-dance hold)</span>
   </div>
   <div class="keyboard">
     <div class="half">
       <div class="row">
-        <div class="key key-normal">Ins</div>
-        <div class="key key-normal">Home</div>
-        <div class="key key-normal">PgUp</div>
-        <div class="key key-normal">$</div>
-        <div class="key key-normal">⌥[</div>
-        <div class="key key-normal">⌥]</div>
+        <div class="key key-normal">Ins</div><div class="key key-normal">Home</div><div class="key key-normal">PgUp</div>
+        <div class="key key-normal">$</div><div class="key key-normal">⌥[</div><div class="key key-normal">⌥]</div>
       </div>
       <div class="row">
-        <div class="key key-normal">Del</div>
-        <div class="key key-normal">End</div>
-        <div class="key key-normal">PgDn</div>
-        <div class="key key-normal">#</div>
-        <div class="key key-normal">[</div>
-        <div class="key key-normal">]</div>
+        <div class="key key-normal">Del</div><div class="key key-normal">End</div><div class="key key-normal">PgDn</div>
+        <div class="key key-normal">#</div><div class="key key-normal">[</div><div class="key key-normal">]</div>
       </div>
       <div class="row">
-        <div class="key key-normal">PSc</div>
-        <div class="key key-mod">L⇧</div>
-        <div class="key key-mod">LCtl</div>
-        <div class="key key-normal">_</div>
-        <div class="key key-normal">(</div>
-        <div class="key key-normal">)</div>
+        <div class="key key-normal">PSc</div><div class="key key-mod">L⇧</div><div class="key key-mod">LCtl</div>
+        <div class="key key-normal">_</div><div class="key key-normal">(</div><div class="key key-normal">)</div>
       </div>
       <div class="thumb-row">
-        <div class="key key-empty">—</div>
-        <div class="key key-empty">—</div>
-        <div class="key key-trans">trans</div>
+        <div class="key key-mod">L⇧</div>
+        <div class="key key-mod">LCtl</div>
+        <div class="key key-mod">NumLk</div>
       </div>
     </div>
     <div class="half">
       <div class="row">
-        <div class="key key-mt">Num7<div class="sub-label">holdNumLk</div></div>
-        <div class="key key-normal">Num8</div>
-        <div class="key key-normal">Num9</div>
-        <div class="key key-normal">/</div>
-        <div class="key key-normal">\</div>
-        <div class="key key-normal">Esc</div>
+        <div class="key key-normal">Np7</div><div class="key key-normal">Np8</div><div class="key key-normal">Np9</div>
+        <div class="key key-normal">/</div><div class="key key-normal">\</div><div class="key key-normal">Esc</div>
       </div>
       <div class="row">
-        <div class="key key-normal">Num4</div>
-        <div class="key key-normal">Num5</div>
-        <div class="key key-normal">Num6</div>
-        <div class="key key-normal">&lt;</div>
-        <div class="key key-normal">&gt;</div>
-        <div class="key key-normal">%</div>
+        <div class="key key-normal">Np4</div><div class="key key-normal">Np5</div><div class="key key-normal">Np6</div>
+        <div class="key key-normal">&lt;</div><div class="key key-normal">&gt;</div><div class="key key-normal">%</div>
       </div>
       <div class="row">
-        <div class="key key-normal">Num1</div>
-        <div class="key key-normal">Num2</div>
-        <div class="key key-normal">Num3</div>
-        <div class="key key-normal">-</div>
-        <div class="key key-normal">+</div>
-        <div class="key key-normal">*</div>
+        <div class="key key-normal">Np1</div><div class="key key-normal">Np2</div><div class="key key-normal">Np3</div>
+        <div class="key key-normal">-</div><div class="key key-normal">+</div><div class="key key-normal">*</div>
       </div>
       <div class="thumb-row">
-        <div class="key key-normal">Num0</div>
-        <div class="key key-normal">Num.</div>
-        <div class="key key-empty">—</div>
+        <div class="key key-normal">Np0</div>
+        <div class="key key-trans">trans</div>
+        <div class="key key-normal">Np.</div>
       </div>
     </div>
   </div>
@@ -514,70 +280,136 @@ body {
 <!-- ==================== LAYER 3 ==================== -->
 <div class="section">
   <div class="section-title">
-    Layer 3 — Nav
-    <span class="badge badge-nav">&tog 3 (combo S+D+F left hand)</span>
+    Layer 3 — Nav / Media / BT
+    <span class="badge badge-nav">&tog 3 (combo D+F+G or tap-dance 2×hold)</span>
   </div>
   <div class="keyboard">
     <div class="half">
       <div class="row">
-        <div class="key key-empty">—</div>
-        <div class="key key-mod">⌥Tog</div>
-        <div class="key key-empty">—</div>
-        <div class="key key-empty">—</div>
-        <div class="key key-empty">—</div>
-        <div class="key key-empty">—</div>
+        <div class="key key-empty">—</div><div class="key key-mod">OutTog</div><div class="key key-empty">—</div>
+        <div class="key key-empty">—</div><div class="key key-empty">—</div><div class="key key-empty">—</div>
       </div>
       <div class="row">
-        <div class="key key-empty">—</div>
-        <div class="key key-mod">LGui</div>
-        <div class="key key-media">⏮</div>
-        <div class="key key-media">⏯</div>
-        <div class="key key-media">⏭</div>
-        <div class="key key-empty">—</div>
+        <div class="key key-empty">—</div><div class="key key-mod">LGui</div><div class="key key-media">⏮</div>
+        <div class="key key-media">⏯</div><div class="key key-media">⏭</div><div class="key key-empty">—</div>
       </div>
       <div class="row">
-        <div class="key key-mod">L⇧</div>
-        <div class="key key-bt">BT◀</div>
-        <div class="key key-bt">BT▶</div>
-        <div class="key key-media">🔉</div>
-        <div class="key key-media">🔊</div>
-        <div class="key key-media">🔇</div>
+        <div class="key key-mod">L⇧</div><div class="key key-bt">BT◀</div><div class="key key-bt">BT▶</div>
+        <div class="key key-media">🔉</div><div class="key key-media">🔊</div><div class="key key-media">🔇</div>
       </div>
       <div class="thumb-row">
-        <div class="key key-empty">—</div>
-        <div class="key key-empty">—</div>
-        <div class="key key-trans">trans</div>
+        <div class="key key-empty">—</div><div class="key key-empty">—</div><div class="key key-trans">trans</div>
       </div>
     </div>
     <div class="half">
       <div class="row">
-        <div class="key key-empty">—</div>
-        <div class="key key-empty">—</div>
-        <div class="key key-normal">↑</div>
-        <div class="key key-empty">—</div>
-        <div class="key key-empty">—</div>
-        <div class="key key-empty">—</div>
+        <div class="key key-empty">—</div><div class="key key-empty">—</div><div class="key key-normal">↑</div>
+        <div class="key key-normal">Bksp</div><div class="key key-normal">Del</div><div class="key key-empty">—</div>
       </div>
       <div class="row">
-        <div class="key key-empty">—</div>
-        <div class="key key-normal">←</div>
-        <div class="key key-normal">↓</div>
-        <div class="key key-normal">→</div>
-        <div class="key key-normal">Ins</div>
-        <div class="key key-empty">—</div>
+        <div class="key key-empty">—</div><div class="key key-normal">←</div><div class="key key-normal">↓</div>
+        <div class="key key-normal">→</div><div class="key key-normal">Ins</div><div class="key key-empty">—</div>
       </div>
       <div class="row">
-        <div class="key key-normal">Home</div>
-        <div class="key key-normal">PgDn</div>
-        <div class="key key-normal">PgUp</div>
-        <div class="key key-normal">End</div>
-        <div class="key key-normal">Slck</div>
-        <div class="key key-mod">R⇧</div>
+        <div class="key key-normal">Home</div><div class="key key-normal">PgDn</div><div class="key key-normal">PgUp</div>
+        <div class="key key-normal">End</div><div class="key key-normal">SLck</div><div class="key key-mod">R⇧</div>
+      </div>
+      <div class="thumb-row">
+        <div class="key key-normal">Enter</div><div class="key key-normal">Ret</div><div class="key key-empty">—</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== LAYER 4 ==================== -->
+<div class="section">
+  <div class="section-title">
+    Layer 4 — Gaming
+    <span class="badge badge-game">&tog 4 (combo T+B+G+Space)</span>
+  </div>
+  <div class="keyboard">
+    <div class="half">
+      <div class="row">
+        <div class="key key-game">Tab</div><div class="key key-game">Q</div><div class="key key-game">W</div>
+        <div class="key key-game">E</div><div class="key key-game">R</div><div class="key key-game">T</div>
+      </div>
+      <div class="row">
+        <div class="key key-game">L⇧</div><div class="key key-game">A</div><div class="key key-game">S</div>
+        <div class="key key-game">D</div><div class="key key-game">F</div><div class="key key-game">G</div>
+      </div>
+      <div class="row">
+        <div class="key key-game">LCtl</div><div class="key key-game">Z</div><div class="key key-game">X</div>
+        <div class="key key-game">C</div><div class="key key-game">V</div><div class="key key-game">B</div>
+      </div>
+      <div class="thumb-row">
+        <div class="key key-game">LAlt</div><div class="key key-game">Space</div><div class="key key-game">Enter</div>
+      </div>
+    </div>
+    <div class="half">
+      <div class="row">
+        <div class="key key-game">1</div><div class="key key-game">2</div><div class="key key-game">3</div>
+        <div class="key key-game">4</div><div class="key key-game">5</div><div class="key key-game">Esc</div>
+      </div>
+      <div class="row">
+        <div class="key key-game">6</div><div class="key key-game">7</div><div class="key key-game">8</div>
+        <div class="key key-game">9</div><div class="key key-game">0</div><div class="key key-game">R⇧</div>
+      </div>
+      <div class="row">
+        <div class="key key-game">Y</div><div class="key key-game">H</div><div class="key key-game">N</div>
+        <div class="key key-game">J</div><div class="key key-empty">—</div><div class="key key-game">RCtl</div>
+      </div>
+      <div class="thumb-row">
+        <div class="key key-game">Esc</div><div class="key key-game">Caps</div><div class="key key-game">RAlt</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== LAYER 5 ==================== -->
+<div class="section">
+  <div class="section-title">
+    Layer 5 — AZERTY
+    <span class="badge badge-az">&tog 5 (combo Q+W+E+R)</span>
+  </div>
+  <div class="keyboard">
+    <div class="half">
+      <div class="row">
+        <div class="key key-normal">Esc</div><div class="key key-normal">A</div><div class="key key-normal">Z</div>
+        <div class="key key-normal">E</div><div class="key key-normal">R</div><div class="key key-normal">T</div>
+      </div>
+      <div class="row">
+        <div class="key key-mt">Tab<div class="sub-label">hold ⇧</div></div>
+        <div class="key key-normal">Q</div><div class="key key-normal">S</div><div class="key key-normal">D</div>
+        <div class="key key-normal">F</div><div class="key key-normal">G</div>
+      </div>
+      <div class="row">
+        <div class="key key-mod">LCtl</div><div class="key key-normal">W</div><div class="key key-normal">X</div>
+        <div class="key key-normal">C</div><div class="key key-normal">V</div><div class="key key-normal">B</div>
+      </div>
+      <div class="thumb-row">
+        <div class="key key-mt">LAlt<div class="sub-label">2×=LGui</div></div>
+        <div class="key key-layer">mo 1</div>
+        <div class="key key-normal">Space</div>
+      </div>
+    </div>
+    <div class="half">
+      <div class="row">
+        <div class="key key-normal">Y</div><div class="key key-normal">U</div><div class="key key-normal">I</div>
+        <div class="key key-normal">O</div><div class="key key-normal">P</div><div class="key key-normal">Bksp</div>
+      </div>
+      <div class="row">
+        <div class="key key-normal">H</div><div class="key key-normal">J</div><div class="key key-normal">K</div>
+        <div class="key key-normal">L</div><div class="key key-normal">M</div><div class="key key-mod">R⇧</div>
+      </div>
+      <div class="row">
+        <div class="key key-normal">N</div><div class="key key-normal">,</div>
+        <div class="key key-dead">'<div class="sub-label">dead</div></div>
+        <div class="key key-normal">.</div><div class="key key-normal">/</div><div class="key key-normal">Del</div>
       </div>
       <div class="thumb-row">
         <div class="key key-normal">Enter</div>
-        <div class="key key-normal">Ret</div>
-        <div class="key key-empty">—</div>
+        <div class="key key-mt">L2<div class="sub-label">2×=L3</div></div>
+        <div class="key key-mod">RCtl</div>
       </div>
     </div>
   </div>
@@ -587,108 +419,79 @@ body {
 <div class="section">
   <div class="section-title">
     Combos
-    <span class="badge badge-combo">40ms timeout</span>
+    <span class="badge badge-combo">all active</span>
   </div>
   <div class="combos-grid">
     <div class="combo-card">
-      <div class="combo-name">Cut</div>
-      <div class="combo-detail">Layer 0 only</div>
-      <div class="combo-keys">
-        <span class="mini-key">E (3)</span>
-        <span class="combo-arrow">+</span>
-        <span class="mini-key">R (4)</span>
-        <span class="combo-arrow">→</span>
-        <span class="combo-result">X (Cut)</span>
-      </div>
-    </div>
-    <div class="combo-card">
-      <div class="combo-name">Copy</div>
-      <div class="combo-detail">Layer 0 only</div>
-      <div class="combo-keys">
-        <span class="mini-key">C (15)</span>
-        <span class="combo-arrow">+</span>
-        <span class="mini-key">V (16)</span>
-        <span class="combo-arrow">→</span>
-        <span class="combo-result">C (Copy)</span>
-      </div>
-    </div>
-    <div class="combo-card">
-      <div class="combo-name">Paste</div>
-      <div class="combo-detail">Layer 0 only</div>
-      <div class="combo-keys">
-        <span class="mini-key">V (16)</span>
-        <span class="combo-arrow">+</span>
-        <span class="mini-key">B (17)</span>
-        <span class="combo-arrow">→</span>
-        <span class="combo-result">V (Paste)</span>
-      </div>
-    </div>
-    <div class="combo-card">
       <div class="combo-name">Caps Lock</div>
-      <div class="combo-detail">Layer 0 only</div>
+      <div class="combo-detail">L0 · 40ms</div>
       <div class="combo-keys">
-        <span class="mini-key">Esc (0)</span>
-        <span class="combo-arrow">+</span>
-        <span class="mini-key">P (11)</span>
-        <span class="combo-arrow">→</span>
+        <span class="mini-key">Esc (0)</span><span class="combo-arrow">+</span>
+        <span class="mini-key">F (11)</span><span class="combo-arrow">→</span>
         <span class="combo-result">CLCK</span>
       </div>
     </div>
     <div class="combo-card">
       <div class="combo-name">Caps Word</div>
-      <div class="combo-detail">Layer 0 only · auto-caps until space</div>
+      <div class="combo-detail">L0 · 40ms · auto-caps until space</div>
       <div class="combo-keys">
-        <span class="mini-key">K (29)</span>
-        <span class="combo-arrow">+</span>
-        <span class="mini-key">L (30)</span>
-        <span class="combo-arrow">→</span>
+        <span class="mini-key">K (29)</span><span class="combo-arrow">+</span>
+        <span class="mini-key">L (30)</span><span class="combo-arrow">→</span>
         <span class="combo-result">CapsWord</span>
       </div>
     </div>
     <div class="combo-card">
       <div class="combo-name">Nav Toggle</div>
-      <div class="combo-detail">Layers 0, 1, 2</div>
+      <div class="combo-detail">L0–3 · 40ms</div>
       <div class="combo-keys">
-        <span class="mini-key">F (8)</span>
-        <span class="combo-arrow">+</span>
-        <span class="mini-key">G (9)</span>
-        <span class="combo-arrow">+</span>
-        <span class="mini-key">H (10)</span>
-        <span class="combo-arrow">→</span>
+        <span class="mini-key">F (9)</span><span class="combo-arrow">+</span>
+        <span class="mini-key">G (10)</span><span class="combo-arrow">+</span>
+        <span class="mini-key">H (11)</span><span class="combo-arrow">→</span>
         <span class="combo-result">&tog 3</span>
       </div>
     </div>
-    <div class="combo-card stale">
-      <div class="combo-name">→ AZERTY</div>
-      <div class="combo-detail">To delete</div>
+    <div class="combo-card">
+      <div class="combo-name">Game Mode</div>
+      <div class="combo-detail">L0–4 · 100ms · idle 150ms</div>
       <div class="combo-keys">
-        <span class="mini-key">A (6)</span>
-        <span class="combo-arrow">+</span>
-        <span class="mini-key">T (5)</span>
-        <span class="combo-arrow">→</span>
-        <span class="combo-result">&to 0</span>
+        <span class="mini-key">T (5)</span><span class="combo-arrow">+</span>
+        <span class="mini-key">B (17)</span><span class="combo-arrow">+</span>
+        <span class="mini-key">Space (18)</span><span class="combo-arrow">+</span>
+        <span class="mini-key">A (6)</span><span class="combo-arrow">→</span>
+        <span class="combo-result">&tog 4</span>
       </div>
     </div>
-    <div class="combo-card stale">
-      <div class="combo-name">→ QWERTY</div>
-      <div class="combo-detail">To delete</div>
+    <div class="combo-card">
+      <div class="combo-name">AZERTY Toggle</div>
+      <div class="combo-detail">L0–5 · 100ms · idle 150ms</div>
       <div class="combo-keys">
-        <span class="mini-key">B (17)</span>
-        <span class="combo-arrow">+</span>
-        <span class="mini-key">Thumb (18)</span>
-        <span class="combo-arrow">→</span>
-        <span class="combo-result">&to 0</span>
+        <span class="mini-key">Q (1)</span><span class="combo-arrow">+</span>
+        <span class="mini-key">W (2)</span><span class="combo-arrow">+</span>
+        <span class="mini-key">E (3)</span><span class="combo-arrow">+</span>
+        <span class="mini-key">R (4)</span><span class="combo-arrow">→</span>
+        <span class="combo-result">&tog 5</span>
       </div>
     </div>
-    <div class="combo-card stale">
-      <div class="combo-name">Layer 1+2</div>
-      <div class="combo-detail">To delete</div>
+    <div class="combo-card">
+      <div class="combo-name">NumLock</div>
+      <div class="combo-detail">L0 · 40ms</div>
       <div class="combo-keys">
-        <span class="mini-key">. (36)</span>
-        <span class="combo-arrow">+</span>
-        <span class="mini-key">RCtl (41)</span>
-        <span class="combo-arrow">→</span>
-        <span class="combo-result">&to 4</span>
+        <span class="mini-key">F (11)</span><span class="combo-arrow">+</span>
+        <span class="mini-key">Z (12)</span><span class="combo-arrow">+</span>
+        <span class="mini-key">Esc (0)</span><span class="combo-arrow">+</span>
+        <span class="mini-key">I (23)</span><span class="combo-arrow">→</span>
+        <span class="combo-result">NumLk</span>
+      </div>
+    </div>
+    <div class="combo-card">
+      <div class="combo-name">Bootloader</div>
+      <div class="combo-detail">L0 · 100ms · idle 150ms · R+E+S+T</div>
+      <div class="combo-keys">
+        <span class="mini-key">E (3)</span><span class="combo-arrow">+</span>
+        <span class="mini-key">R (4)</span><span class="combo-arrow">+</span>
+        <span class="mini-key">X (14)</span><span class="combo-arrow">+</span>
+        <span class="mini-key">T (5)</span><span class="combo-arrow">→</span>
+        <span class="combo-result">&bootloader</span>
       </div>
     </div>
   </div>
@@ -702,15 +505,23 @@ body {
   </div>
   <div class="combos-grid">
     <div class="combo-card">
-      <div class="combo-name">Right Thumb (alt_gui)</div>
-      <div class="combo-detail">1 tap = RAlt · 2 taps = RGui (Win key)</div>
+      <div class="combo-name">Left Thumb (lalt_lgui)</div>
+      <div class="combo-detail">1 tap = LAlt · 2 taps = LGui (Win key)</div>
       <div class="combo-keys">
-        <span class="mini-key">1× tap</span>
-        <span class="combo-arrow">→</span>
-        <span class="combo-result">RAlt</span>
-        <span style="margin-left:8px" class="mini-key">2× tap</span>
-        <span class="combo-arrow">→</span>
-        <span class="combo-result">RGui</span>
+        <span class="mini-key">1× tap</span><span class="combo-arrow">→</span>
+        <span class="combo-result">LAlt</span>
+        <span style="margin-left:8px" class="mini-key">2× tap</span><span class="combo-arrow">→</span>
+        <span class="combo-result">LGui</span>
+      </div>
+    </div>
+    <div class="combo-card">
+      <div class="combo-name">Right Thumb (l2_nav)</div>
+      <div class="combo-detail">1 hold = L2 (mo) · 2× hold = L3 (mo)</div>
+      <div class="combo-keys">
+        <span class="mini-key">hold</span><span class="combo-arrow">→</span>
+        <span class="combo-result">L2</span>
+        <span style="margin-left:8px" class="mini-key">2× hold</span><span class="combo-arrow">→</span>
+        <span class="combo-result">L3</span>
       </div>
     </div>
   </div>
@@ -728,32 +539,40 @@ body {
       <p>
         <code>'</code> + e → é · <code>'</code> + c → ç<br>
         <code>`</code> + a → à · <code>`</code> + e → è<br>
-        <code>LS(N6)</code> + e → ê · <code>LS(SQT)</code> + e → ë<br>
-        Works on Windows, iPad, macOS — no firmware layer needed.
+        <code>^</code> + e → ê · <code>¨</code> + e → ë<br>
+        Dead keys on L1: `, ^, ¨, '<br>
+        Works on Windows, iPad — no firmware layer needed.
       </p>
     </div>
     <div class="note-card">
       <h3>LAYER ACCESS</h3>
       <p>
-        <code>&to 1</code> = toggle to L1 (left thumb inner)<br>
-        <code>&to 2</code> = toggle to L2 (right thumb inner)<br>
-        <code>&tog 3</code> = toggle L3 on/off (combo F+G+H)<br>
-        Layer 4 + combos AZERTY/QWERTY = to delete
+        <code>&mo 1</code> = hold L1 (left thumb mid)<br>
+        <code>&mo 2</code> = hold L2 (right thumb mid)<br>
+        <code>&tog 3</code> = toggle L3 (combo F+G+H or tap-dance 2×)<br>
+        <code>&tog 4</code> = toggle L4 (combo T+B+Space+A)<br>
+        <code>&tog 5</code> = toggle L5 (combo Q+W+E+R)
+      </p>
+    </div>
+    <div class="note-card">
+      <h3>BOOTLOADER</h3>
+      <p>
+        Combo R+E+S+T → UF2 bootloader mode.<br>
+        No need to open the case or double-tap reset button.
       </p>
     </div>
     <div class="note-card">
       <h3>SOFT OFF</h3>
       <p>
         Hold <code>3s</code> to power off.<br>
-        Split peripheral off-on-press disabled.<br>
-        Nice_view display active.
+        Split peripheral off-on-press disabled.
       </p>
     </div>
   </div>
 </div>
 
 <div class="footer">
-  Corne 42 · LyesHammadouche/zmk-config · ZMK firmware · <span id="date"></span>
+  Corne 42 · LyesHammadouche/zmk-config · ZMK v0.3.0 · <span id="date"></span>
 </div>
 
 <script>document.getElementById('date').textContent = new Date().toISOString().slice(0,10);</script>
