@@ -66,6 +66,14 @@
             timeout-ms = <40>;
             layers = <0>;
         };
+
+        combo_bootloader {
+            bindings = <&bootloader>;
+            key-positions = <2 3 5 7>;
+            timeout-ms = <100>;
+            require-prior-idle-ms = <150>;
+            layers = <0>;
+        };
     };
 
     keymap {
