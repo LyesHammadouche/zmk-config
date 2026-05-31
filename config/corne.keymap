@@ -67,9 +67,17 @@
             layers = <0>;
         };
 
-        combo_bootloader {
+        combo_bootloader_L {
             bindings = <&bootloader>;
             key-positions = <3 4 14 5>;
+            timeout-ms = <100>;
+            require-prior-idle-ms = <150>;
+            layers = <0>;
+        };
+
+        combo_bootloader_R {
+            bindings = <&bootloader>;
+            key-positions = <6 7 8 21>;
             timeout-ms = <100>;
             require-prior-idle-ms = <150>;
             layers = <0>;
