@@ -134,10 +134,10 @@
         nav_layer {
             label = "3";
             bindings = <
-&trans     &out OUT_TOG  &none       &none         &none         &none         &kp PAGE_DOWN   &kp DEL   &kp UP    &kp BSPC   &kp PAGE_UP  &trans
-&trans     &kp LGUI      &kp C_PREV  &kp C_PP      &kp C_NEXT    &none         &kp SCROLLLOCK  &kp LEFT  &kp DOWN  &kp RIGHT  &kp INS      &trans
-&kp LSHFT  &bt BT_PRV    &bt BT_NXT  &kp C_VOL_DN  &kp C_VOL_UP  &kp C_MUTE    &kp HOME        &kp HOME  &kp INS   &kp END    &kp TILDE2   &kp RSHFT
-                                     &kp LCTRL     &kp LEFT_ALT  &trans        &kp ENTER       &trans    &none
+&trans     &out OUT_TOG  &kp LC(LEFT)  &kp LC(RIGHT) &kp LG(LEFT)  &kp LG(RIGHT) &kp PAGE_DOWN   &kp DEL   &kp UP    &kp BSPC   &kp PAGE_UP  &trans
+&trans     &kp LGUI      &kp C_PREV    &kp C_PP      &kp C_NEXT    &kp ESCAPE    &kp SCROLLLOCK  &kp LEFT  &kp DOWN  &kp RIGHT  &none        &trans
+&kp LSHFT  &bt BT_PRV    &bt BT_NXT    &kp C_VOL_DN  &kp C_VOL_UP  &kp C_MUTE    &none           &kp HOME  &kp INS   &kp END    &kp TILDE2   &kp RSHFT
+                                       &kp LCTRL     &kp LEFT_ALT  &trans        &kp ENTER       &trans    &none
             >;
         };
 
