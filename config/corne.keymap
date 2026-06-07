@@ -82,6 +82,20 @@
             require-prior-idle-ms = <150>;
             layers = <0>;
         };
+
+        copy {
+            bindings = <&kp K_COPY>;
+            key-positions = <3 4>;
+            timeout-ms = <40>;
+            layers = <0>;
+        };
+
+        paste {
+            bindings = <&kp K_PASTE>;
+            key-positions = <16 15>;
+            timeout-ms = <40>;
+            layers = <0>;
+        };
     };
 
     keymap {
