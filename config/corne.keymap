@@ -27,8 +27,8 @@
         macro_e_acute: macro_e_acute {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            tap-ms = <10>;
-            wait-ms = <30>;
+            tap-ms = <20>;
+            wait-ms = <50>;
             bindings = <&kp SQT &kp E>;
         };
 
@@ -37,8 +37,8 @@
         macro_e_grave: macro_e_grave {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            tap-ms = <10>;
-            wait-ms = <30>;
+            tap-ms = <20>;
+            wait-ms = <50>;
             bindings = <&kp GRAVE &kp E>;
         };
 
@@ -47,8 +47,8 @@
         macro_a_grave: macro_a_grave {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            tap-ms = <10>;
-            wait-ms = <30>;
+            tap-ms = <20>;
+            wait-ms = <50>;
             bindings = <&kp GRAVE &kp A>;
         };
 
@@ -57,8 +57,8 @@
         macro_apostrophe: macro_apostrophe {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            tap-ms = <10>;
-            wait-ms = <30>;
+            tap-ms = <20>;
+            wait-ms = <50>;
             bindings = <&kp SQT &kp SPACE>;
         };
 
@@ -77,8 +77,8 @@
         macro_ccedilla: macro_ccedilla {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            tap-ms = <10>;
-            wait-ms = <30>;
+            tap-ms = <20>;
+            wait-ms = <50>;
             bindings = <&kp SQT &kp C>;
         };
 
@@ -306,9 +306,9 @@
         default_layer {
             label = "0";
             bindings = <
-&kp ESCAPE     &kp Q                  &kp W             &e_behavior AMPERSAND 0  &kp R  &sym_hold TILDE T    &y_behavior 0 Y  &kp U    &kp I      &kp O    &sym_hold PRCNT P       &kp BSPC
-&mt LSHFT TAB  &a_behavior AT_SIGN 0  &kp S             &sym_hold HASH D         &kp F  &kp G                &kp H            &kp J    &kp K      &kp L    &apo_morph              &kp RSHFT
-&kp LCTRL      &z_behavior 0 Z        &sym_hold STAR X  &c_behavior 0 0          &kp V  &kp B                &kp N            &kp M    &kp COMMA  &kp DOT  &slash_behavior BSLH 0  &kp DEL
+&kp ESCAPE     &kp Q                  &kp W             &e_behavior AMPERSAND 0  &kp R  &sym_hold TILDE T    &kp Y            &kp U    &kp I      &kp O    &sym_hold PRCNT P       &kp BSPC
+&mt LSHFT TAB  &a_behavior AT_SIGN 0  &sym_hold DLLR S  &sym_hold HASH D         &kp F  &kp G                &kp H            &kp J    &kp K      &kp L    &apo_morph              &kp RSHFT
+&kp LCTRL      &kp Z                  &sym_hold STAR X  &c_behavior 0 0          &kp V  &kp B                &kp N            &kp M    &kp COMMA  &kp DOT  &slash_behavior BSLH 0  &kp DEL
                                                         &lalt_lgui               &mo 1  &kp SPACE            &kp ENTER        &l2_nav  &kp RCTRL
             >;
         };
