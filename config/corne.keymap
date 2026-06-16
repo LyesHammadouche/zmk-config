@@ -129,7 +129,7 @@
         e_behavior: e_behavior {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
-            bindings = <&kp &e_td>;
+            bindings = <&kp>, <&e_td>;
             flavor = "tap-preferred";
             tapping-term-ms = <200>;
         };
@@ -137,7 +137,7 @@
         a_behavior: a_behavior {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
-            bindings = <&kp &a_td>;
+            bindings = <&kp>, <&a_td>;
             flavor = "tap-preferred";
             tapping-term-ms = <200>;
         };
@@ -145,7 +145,7 @@
         c_behavior: c_behavior {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
-            bindings = <&macro_dotcom &c_td>;
+            bindings = <&macro_dotcom>, <&c_td>;
             flavor = "tap-preferred";
             tapping-term-ms = <200>;
         };
@@ -153,7 +153,7 @@
         z_behavior: z_behavior {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
-            bindings = <&macro_tifinagh_z &kp>;
+            bindings = <&macro_tifinagh_z>, <&kp>;
             flavor = "tap-preferred";
             tapping-term-ms = <200>;
         };
@@ -161,7 +161,7 @@
         slash_behavior: slash_behavior {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
-            bindings = <&kp &slash_td>;
+            bindings = <&kp>, <&slash_td>;
             flavor = "tap-preferred";
             tapping-term-ms = <200>;
         };
@@ -169,8 +169,8 @@
         /* --- Mod-morph: apostrophe with Shift → colon --- */
         apo_morph: apo_morph {
             compatible = "zmk,behavior-mod-morph";
-            #binding-cells = <2>;
-            bindings = <&apo_td &kp>;
+            #binding-cells = <1>;
+            bindings = <&apo_td>, <&kp>;
             mods = <(MOD_LSFT | MOD_RSFT)>;
         };
     };
@@ -260,7 +260,7 @@
             label = "0";
             bindings = <
 &kp ESCAPE     &kp Q  &kp W  &e_behavior AMPERSAND 0  &kp R  &kp T        &kp Y      &kp U    &kp I      &kp O    &kp P     &kp BSPC
-&mt LSHFT TAB  &a_behavior AT_SIGN 0  &kp S  &kp D       &kp F  &kp G        &kp H      &kp J    &kp K      &kp L    &apo_morph 0 LS(SEMI)  &kp RSHFT
+&mt LSHFT TAB  &a_behavior AT_SIGN 0  &kp S  &kp D       &kp F  &kp G        &kp H      &kp J    &kp K      &kp L    &apo_morph LS(SEMI)  &kp RSHFT
 &kp LCTRL      &z_behavior 0 Z  &kp X  &c_behavior 0 0  &kp V  &kp B        &kp N      &kp M    &kp COMMA  &kp DOT  &slash_behavior BSLH 0  &kp DEL
                              &lalt_lgui  &mo 1  &kp SPACE    &kp ENTER  &l2_nav  &kp RCTRL
             >;
