@@ -107,35 +107,35 @@
         e_td: e_td {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
-            tapping-term-ms = <200>;
+            tapping-term-ms = <300>;
             bindings = <&kp E>, <&macro_e_acute>, <&macro_e_grave>;
         };
 
         a_td: a_td {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
-            tapping-term-ms = <200>;
+            tapping-term-ms = <300>;
             bindings = <&kp A>, <&macro_a_grave>;
         };
 
         c_td: c_td {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
-            tapping-term-ms = <200>;
+            tapping-term-ms = <300>;
             bindings = <&kp C>, <&macro_ccedilla>;
         };
 
         slash_td: slash_td {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
-            tapping-term-ms = <200>;
+            tapping-term-ms = <300>;
             bindings = <&kp FSLH>, <&kp LS(BSLH)>;
         };
 
         apo_td: apo_td {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
-            tapping-term-ms = <200>;
+            tapping-term-ms = <300>;
             bindings = <&macro_apostrophe>, <&kp SEMI>;
         };
 
