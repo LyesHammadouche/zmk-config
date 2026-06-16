@@ -69,13 +69,13 @@
             bindings = <&kp DOT &kp C &kp O &kp M>;
         };
 
-        /* CCD */
-        macro_ccd: macro_ccd {
+        /* ç = dead key SQT + C (US International) */
+        macro_ccedilla: macro_ccedilla {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             tap-ms = <10>;
-            wait-ms = <10>;
-            bindings = <&kp C &kp C &kp D>;
+            wait-ms = <30>;
+            bindings = <&kp SQT &kp C>;
         };
 
         /* ⵣ Tifinagh Yaa (U+2D63) — IBus: Ctrl+Shift+U 2D63 Enter */
@@ -107,7 +107,7 @@
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
             tapping-term-ms = <200>;
-            bindings = <&kp C>, <&macro_ccd>;
+            bindings = <&kp C>, <&macro_ccedilla>;
         };
 
         slash_td: slash_td {
