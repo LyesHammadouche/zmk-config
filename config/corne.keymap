@@ -1,7 +1,7 @@
+#include <dt-bindings/zmk/modifiers.h>
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/keys.h>
-#include <dt-bindings/zmk/modifiers.h>
 #include <dt-bindings/zmk/outputs.h>
 
 / {
@@ -21,10 +21,9 @@
         };
 
         /* ==== Layer 0 multi-tap + hold behaviors ==== */
-
         /* --- Macros --- */
-
         /* É = dead key SQT + E (US International) */
+
         macro_e_acute: macro_e_acute {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
@@ -34,6 +33,7 @@
         };
 
         /* È = dead key GRAVE + E */
+
         macro_e_grave: macro_e_grave {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
@@ -43,6 +43,7 @@
         };
 
         /* À = dead key GRAVE + A */
+
         macro_a_grave: macro_a_grave {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
@@ -52,6 +53,7 @@
         };
 
         /* Direct apostrophe = dead key SQT + SPACE */
+
         macro_apostrophe: macro_apostrophe {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
@@ -61,6 +63,7 @@
         };
 
         /* .com */
+
         macro_dotcom: macro_dotcom {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
@@ -70,6 +73,7 @@
         };
 
         /* ç = dead key SQT + C (US International) */
+
         macro_ccedilla: macro_ccedilla {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
@@ -79,6 +83,7 @@
         };
 
         /* ⵣ Tifinagh Yaa (U+2D63) — IBus: Ctrl+Shift+U 2D63 Enter */
+
         macro_tifinagh_z: macro_tifinagh_z {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
@@ -88,6 +93,7 @@
         };
 
         /* ¥ Yen (U+00A5) — IBus: Ctrl+Shift+U 00A5 Enter */
+
         macro_yen: macro_yen {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
@@ -139,6 +145,7 @@
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
             bindings = <&kp>, <&e_td>;
+
             flavor = "tap-preferred";
             tapping-term-ms = <200>;
         };
@@ -147,6 +154,7 @@
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
             bindings = <&kp>, <&a_td>;
+
             flavor = "tap-preferred";
             tapping-term-ms = <200>;
         };
@@ -155,6 +163,7 @@
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
             bindings = <&macro_dotcom>, <&c_td>;
+
             flavor = "tap-preferred";
             tapping-term-ms = <200>;
         };
@@ -163,6 +172,7 @@
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
             bindings = <&macro_tifinagh_z>, <&kp>;
+
             flavor = "tap-preferred";
             tapping-term-ms = <200>;
         };
@@ -171,33 +181,40 @@
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
             bindings = <&kp>, <&slash_td>;
+
             flavor = "tap-preferred";
             tapping-term-ms = <200>;
         };
 
         /* Generic symbol-hold: hold=symbol, tap=letter */
+
         sym_hold: sym_hold {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
             bindings = <&kp>, <&kp>;
+
             flavor = "tap-preferred";
             tapping-term-ms = <200>;
         };
 
         /* Y: tap=Y, hold=¥ */
+
         y_behavior: y_behavior {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
             bindings = <&macro_yen>, <&kp>;
+
             flavor = "tap-preferred";
             tapping-term-ms = <200>;
         };
 
         /* --- Mod-morph: apostrophe with Shift → colon --- */
+
         apo_morph: apo_morph {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             bindings = <&apo_td>, <&kp LS(SEMI)>;
+
             mods = <(MOD_LSFT | MOD_RSFT)>;
         };
     };
@@ -280,26 +297,29 @@
         };
     };
 
+    macros {
+    };
+
     keymap {
         compatible = "zmk,keymap";
 
         default_layer {
             label = "0";
             bindings = <
-&kp ESCAPE     &kp Q  &kp W  &e_behavior AMPERSAND 0  &kp R  &sym_hold TILDE T        &y_behavior 0 Y      &kp U    &kp I      &kp O    &sym_hold PRCNT P     &kp BSPC
-&mt LSHFT TAB  &a_behavior AT_SIGN 0  &kp S  &sym_hold HASH D       &kp F  &kp G        &kp H      &kp J    &kp K      &kp L    &apo_morph  &kp RSHFT
-&kp LCTRL      &z_behavior 0 Z  &sym_hold STAR X  &c_behavior 0 0  &kp V  &kp B        &kp N      &kp M    &kp COMMA  &kp DOT  &slash_behavior BSLH 0  &kp DEL
-                             &lalt_lgui  &mo 1  &kp SPACE    &kp ENTER  &l2_nav  &kp RCTRL
+&kp ESCAPE     &kp Q                  &kp W             &e_behavior AMPERSAND 0  &kp R  &sym_hold TILDE T    &y_behavior 0 Y  &kp U    &kp I      &kp O    &sym_hold PRCNT P       &kp BSPC
+&mt LSHFT TAB  &a_behavior AT_SIGN 0  &kp S             &sym_hold HASH D         &kp F  &kp G                &kp H            &kp J    &kp K      &kp L    &apo_morph              &kp RSHFT
+&kp LCTRL      &z_behavior 0 Z        &sym_hold STAR X  &c_behavior 0 0          &kp V  &kp B                &kp N            &kp M    &kp COMMA  &kp DOT  &slash_behavior BSLH 0  &kp DEL
+                                                        &lalt_lgui               &mo 1  &kp SPACE            &kp ENTER        &l2_nav  &kp RCTRL
             >;
         };
 
         num_layer {
             label = "1";
             bindings = <
-&kp F1        &kp F2    &kp F3    &kp F4        &kp F5     &kp F6       &kp F7      &kp F8     &kp F9       &kp F10  &kp F11    &kp DEL
-&kp N0        &kp N1    &kp N2    &kp N3        &kp N4     &kp N5       &kp N6      &kp N7     &kp N8       &kp N9   &kp MINUS  &kp EQUAL
-&kp QUESTION  &kp LPAR  &kp RPAR  &kp AT_SIGN   &kp TILDE  &kp BSLH     &kp GRAVE   &kp CARET  &kp LS(SQT)  &kp SQT  &kp UNDER  &kp EXCL
-                                  &kp LEFT_ALT  &trans     &kp LSHFT    &kp DELETE  &kp RET    &kp RCTRL
+&kp F1        &kp F2    &kp F3    &kp F4        &kp F5    &kp F6       &kp F7      &kp F8     &kp F9       &kp F10  &kp F11    &kp DEL
+&kp N0        &kp N1    &kp N2    &kp N3        &kp N4    &kp N5       &kp N6      &kp N7     &kp N8       &kp N9   &kp MINUS  &trans
+&kp QUESTION  &kp LPAR  &kp RPAR  &kp PIPE      &kp FSLH  &kp BSLH     &kp GRAVE   &kp CARET  &kp LS(SQT)  &kp SQT  &kp UNDER  &kp EXCL
+                                  &kp LEFT_ALT  &trans    &kp LSHFT    &kp DELETE  &kp RET    &kp RCTRL
             >;
         };
 
