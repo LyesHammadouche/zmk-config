@@ -344,7 +344,7 @@
             bindings = <
 &kp INSERT       &kp HOME   &kp PG_UP         &kp UP_ARROW    &kp PAGE_DOWN     &kp RBRC             &kp KP_NUMBER_7  &kp KP_NUMBER_8  &kp KP_NUMBER_9  &kp FSLH   &kp BSLH  &trans
 &kp DEL          &kp END    &kp LEFT_ARROW    &kp DOWN_ARROW  &kp RIGHT_ARROW   &kp LEFT_BRACE       &kp KP_NUMBER_4  &kp KP_NUMBER_5  &kp KP_NUMBER_6  &kp LT     &kp GT    &trans
-&kp PRINTSCREEN  &kp LSHFT  &kp LEFT_CONTROL  &kp K_REPEAT  &kp LEFT_BRACKET  &kp RIGHT_BRACKET    &kp KP_NUMBER_1  &kp KP_NUMBER_2  &kp KP_NUMBER_3  &kp MINUS  &kp PLUS  &trans
+&kp PRINTSCREEN  &kp LSHFT  &kp LEFT_CONTROL  &key_repeat  &kp LEFT_BRACKET  &kp RIGHT_BRACKET    &kp KP_NUMBER_1  &kp KP_NUMBER_2  &kp KP_NUMBER_3  &kp MINUS  &kp PLUS  &trans
                                               &trans          &kp UNDER         &kp LOCKING_NUM      &kp KP_NUMBER_0  &trans           &kp KP_DOT
             >;
         };
