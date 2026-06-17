@@ -296,9 +296,17 @@
             layers = <0>;
         };
 
+        combo_alt_shift_a_alt_tab {
+            bindings = <&kp LA(TAB)>;
+            key-positions = <18 6 7>;
+            timeout-ms = <30>;
+            require-prior-idle-ms = <150>;
+            layers = <0 5>;
+        };
+
         combo_shift_a_tab {
             bindings = <&kp TAB>;
-            key-positions = <12 13>;
+            key-positions = <6 7>;
             timeout-ms = <30>;
             require-prior-idle-ms = <150>;
             layers = <0 5>;
