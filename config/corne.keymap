@@ -6,11 +6,11 @@
 
 / {
     behaviors {
-        lalt_lgui: lalt_lgui {
+        mo1_gui: mo1_gui {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
             tapping-term-ms = <200>;
-            bindings = <&kp LALT>, <&kp LGUI>;
+            bindings = <&mo 1>, <&kp LGUI>;
         };
 
         l2_nav: l2_nav {
@@ -295,6 +295,14 @@
             timeout-ms = <40>;
             layers = <0>;
         };
+
+        combo_shift_a_tab {
+            bindings = <&kp TAB>;
+            key-positions = <12 13>;
+            timeout-ms = <30>;
+            require-prior-idle-ms = <150>;
+            layers = <0 5>;
+        };
     };
 
     macros {
@@ -307,9 +315,9 @@
             label = "0";
             bindings = <
 &kp ESCAPE     &kp Q                  &kp W             &e_behavior AMPERSAND 0  &kp R  &sym_hold TILDE T    &kp Y      &kp U    &kp I      &kp O    &sym_hold PRCNT P       &kp BSPC
-&mt LSHFT TAB  &a_behavior AT_SIGN 0  &sym_hold DLLR S  &sym_hold HASH D         &kp F  &kp G                &kp H      &kp J    &kp K      &kp L    &apo_morph              &kp RSHFT
+&kp LSHFT  &a_behavior AT_SIGN 0  &sym_hold DLLR S  &sym_hold HASH D         &kp F  &kp G                &kp H      &kp J    &kp K      &kp L    &apo_morph              &kp RSHFT
 &kp LCTRL      &kp Z                  &sym_hold STAR X  &c_behavior 0 0          &kp V  &kp B                &kp N      &kp M    &kp COMMA  &kp DOT  &slash_behavior BSLH 0  &kp DEL
-                                                        &lalt_lgui               &mo 1  &kp SPACE            &kp ENTER  &l2_nav  &kp RCTRL
+                                                        &kp LALT                 &mo1_gui  &kp SPACE          &kp ENTER  &l2_nav  &kp RCTRL
             >;
         };
 
@@ -357,9 +365,9 @@
             label = "5";
             bindings = <
 &kp ESCAPE     &kp A  &kp Z  &kp E       &kp R  &kp T        &kp Y      &kp U      &kp I      &kp O    &kp P     &kp BSPC
-&mt LSHFT TAB  &kp Q  &kp S  &kp D       &kp F  &kp G        &kp H      &kp J      &kp K      &kp L    &kp M     &kp RSHFT
+&kp LSHFT  &kp Q  &kp S  &kp D       &kp F  &kp G        &kp H      &kp J      &kp K      &kp L    &kp M     &kp RSHFT
 &kp LCTRL      &kp W  &kp X  &kp C       &kp V  &kp B        &kp N      &kp COMMA  &kp SQT    &kp DOT  &kp FSLH  &kp DEL
-                             &lalt_lgui  &mo 1  &kp SPACE    &kp ENTER  &l2_nav    &kp RCTRL
+                             &kp LALT  &mo1_gui  &kp SPACE    &kp ENTER  &l2_nav    &kp RCTRL
             >;
         };
     };
