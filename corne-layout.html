@@ -141,7 +141,7 @@ body {
         <div class="key key-normal">E</div><div class="key key-normal">R</div><div class="key key-normal">T</div>
       </div>
       <div class="row">
-        <div class="key key-mt">Tab<div class="sub-label">hold ⇧</div></div>
+        <div class="key key-mod">L⇧</div>
         <div class="key key-normal">A</div><div class="key key-normal">S</div><div class="key key-normal">D</div>
         <div class="key key-normal">F</div><div class="key key-normal">G</div>
       </div>
@@ -150,8 +150,8 @@ body {
         <div class="key key-normal">C</div><div class="key key-normal">V</div><div class="key key-normal">B</div>
       </div>
       <div class="thumb-row">
-        <div class="key key-mt">LAlt<div class="sub-label">2×=LGui</div></div>
-        <div class="key key-layer">mo 1</div>
+        <div class="key key-mod">LAlt</div>
+        <div class="key key-mt">mo 1<div class="sub-label">2×=LGui</div></div>
         <div class="key key-normal">Space</div>
       </div>
     </div>
@@ -378,7 +378,7 @@ body {
         <div class="key key-normal">E</div><div class="key key-normal">R</div><div class="key key-normal">T</div>
       </div>
       <div class="row">
-        <div class="key key-mt">Tab<div class="sub-label">hold ⇧</div></div>
+        <div class="key key-mod">L⇧</div>
         <div class="key key-normal">Q</div><div class="key key-normal">S</div><div class="key key-normal">D</div>
         <div class="key key-normal">F</div><div class="key key-normal">G</div>
       </div>
@@ -387,8 +387,8 @@ body {
         <div class="key key-normal">C</div><div class="key key-normal">V</div><div class="key key-normal">B</div>
       </div>
       <div class="thumb-row">
-        <div class="key key-mt">LAlt<div class="sub-label">2×=LGui</div></div>
-        <div class="key key-layer">mo 1</div>
+        <div class="key key-mod">LAlt</div>
+        <div class="key key-mt">mo 1<div class="sub-label">2×=LGui</div></div>
         <div class="key key-normal">Space</div>
       </div>
     </div>
@@ -484,6 +484,15 @@ body {
       </div>
     </div>
     <div class="combo-card">
+      <div class="combo-name">SHIFT + A → TAB</div>
+      <div class="combo-detail">L0, L5 · 30ms · idle 150ms</div>
+      <div class="combo-keys">
+        <span class="mini-key">L⇧ (12)</span><span class="combo-arrow">+</span>
+        <span class="mini-key">A (13)</span><span class="combo-arrow">→</span>
+        <span class="combo-result">TAB</span>
+      </div>
+    </div>
+    <div class="combo-card">
       <div class="combo-name">Bootloader</div>
       <div class="combo-detail">L0 · 100ms · idle 150ms · R+E+S+T</div>
       <div class="combo-keys">
@@ -505,11 +514,11 @@ body {
   </div>
   <div class="combos-grid">
     <div class="combo-card">
-      <div class="combo-name">Left Thumb (lalt_lgui)</div>
-      <div class="combo-detail">1 tap = LAlt · 2 taps = LGui (Win key)</div>
+      <div class="combo-name">Left Thumb (mo1_gui)</div>
+      <div class="combo-detail">1 hold = L1 (mo) · 2 taps = LGui (Win key)</div>
       <div class="combo-keys">
-        <span class="mini-key">1× tap</span><span class="combo-arrow">→</span>
-        <span class="combo-result">LAlt</span>
+        <span class="mini-key">hold</span><span class="combo-arrow">→</span>
+        <span class="combo-result">L1</span>
         <span style="margin-left:8px" class="mini-key">2× tap</span><span class="combo-arrow">→</span>
         <span class="combo-result">LGui</span>
       </div>
@@ -547,7 +556,7 @@ body {
     <div class="note-card">
       <h3>LAYER ACCESS</h3>
       <p>
-        <code>&mo 1</code> = hold L1 (left thumb mid)<br>
+        <code>&mo 1</code> = hold L1 (left thumb mid, tap-dance 2×=LGui)<br>
         <code>&mo 2</code> = hold L2 (right thumb mid)<br>
         <code>&tog 3</code> = toggle L3 (combo F+G+H or tap-dance 2×)<br>
         <code>&tog 4</code> = toggle L4 (combo T+B+Space+A)<br>
