@@ -336,8 +336,8 @@
             bindings = <
 &kp INSERT       &kp HOME   &kp PG_UP         &kp UP_ARROW    &kp PAGE_DOWN     &kp RBRC             &kp KP_NUMBER_7  &kp KP_NUMBER_8  &kp KP_NUMBER_9  &kp FSLH   &kp BSLH  &trans
 &kp DEL          &kp END    &kp LEFT_ARROW    &kp DOWN_ARROW  &kp RIGHT_ARROW   &kp LEFT_BRACE       &kp KP_NUMBER_4  &kp KP_NUMBER_5  &kp KP_NUMBER_6  &kp LT     &kp GT    &trans
-&kp PRINTSCREEN  &kp LSHFT  &kp LEFT_CONTROL  &none           &kp LEFT_BRACKET  &kp RIGHT_BRACKET    &kp KP_NUMBER_1  &kp KP_NUMBER_2  &kp KP_NUMBER_3  &kp MINUS  &kp PLUS  &trans
-                                              &trans          &none             &kp LOCKING_NUM      &kp KP_NUMBER_0  &trans           &kp KP_DOT
+&kp PRINTSCREEN  &kp LSHFT  &kp LEFT_CONTROL  &kp K_REPEAT  &kp LEFT_BRACKET  &kp RIGHT_BRACKET    &kp KP_NUMBER_1  &kp KP_NUMBER_2  &kp KP_NUMBER_3  &kp MINUS  &kp PLUS  &trans
+                                              &trans          &kp UNDER         &kp LOCKING_NUM      &kp KP_NUMBER_0  &trans           &kp KP_DOT
             >;
         };
 
@@ -345,9 +345,9 @@
             label = "3";
             bindings = <
 &trans     &out OUT_TOG  &kp LC(LEFT)  &kp LC(RIGHT)  &kp LG(LEFT)  &kp LG(RIGHT)    &kp PAGE_DOWN   &kp DEL   &kp UP    &kp BSPC   &kp PAGE_UP  &trans
-&trans     &kp LGUI      &kp C_PREV    &kp C_PP       &kp C_NEXT    &kp ESCAPE       &kp SCROLLLOCK  &kp LEFT  &kp DOWN  &kp RIGHT  &none        &trans
-&kp LSHFT  &bt BT_PRV    &bt BT_NXT    &kp C_VOL_DN   &kp C_VOL_UP  &kp C_MUTE       &none           &kp HOME  &kp INS   &kp END    &kp TILDE2   &kp RSHFT
-                                       &kp LCTRL      &kp LEFT_ALT  &trans           &kp ENTER       &trans    &none
+&trans     &kp LGUI      &kp C_PREV    &kp C_PP       &kp C_NEXT    &kp ESCAPE       &kp SCROLLLOCK  &kp LEFT  &kp DOWN  &kp RIGHT  &kp GRAVE      &trans
+&kp LSHFT  &bt BT_PRV    &bt BT_NXT    &kp C_VOL_DN   &kp C_VOL_UP  &kp C_MUTE       &kp INS         &kp HOME  &kp INS   &kp END    &kp TILDE2   &kp RSHFT
+                                       &kp LCTRL      &kp LEFT_ALT  &trans           &kp ENTER       &trans    &kp GRAVE
             >;
         };
 
