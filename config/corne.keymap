@@ -6,11 +6,21 @@
 
 / {
     behaviors {
+        /* Win hold: double-tap mo1_gui then hold → LGUI maintained */
+        lgui_hold: lgui_hold {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            bindings = <&kp>, <&kp>;
+
+            flavor = "hold-preferred";
+            tapping-term-ms = <50>;
+        };
+
         mo1_gui: mo1_gui {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
             tapping-term-ms = <200>;
-            bindings = <&mo 1>, <&kp LGUI>;
+            bindings = <&mo 1>, <&lgui_hold LGUI LGUI>;
         };
 
         l2_nav: l2_nav {
