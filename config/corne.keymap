@@ -114,11 +114,14 @@
             bindings = <&kp FSLH>, <&kp LS(BSLH)>;
         };
 
-        apo_td: apo_td {
-            compatible = "zmk,behavior-tap-dance";
+        /* Apostrophe: tap=' (immediate), hold=; */
+        apo_ht: apo_ht {
+            compatible = "zmk,behavior-hold-tap";
             #binding-cells = <0>;
-            tapping-term-ms = <300>;
-            bindings = <&macro_apostrophe>, <&kp SEMI>;
+            bindings = <&kp SEMI>, <&macro_apostrophe>;
+            flavor = "tap-preferred";
+            tapping-term-ms = <150>;
+            quick-tap-ms = <0>;
         };
 
         /* --- Hold-taps --- */
@@ -167,7 +170,7 @@
         apo_morph: apo_morph {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
-            bindings = <&apo_td>, <&kp LS(SEMI)>;
+            bindings = <&apo_ht>, <&kp LS(SEMI)>;
             mods = <(MOD_LSFT | MOD_RSFT)>;
         };
     };
