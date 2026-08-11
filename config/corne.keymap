@@ -260,7 +260,7 @@
             label = "0";
             bindings = <
 &kp ESCAPE  &kp Q                  &kp W             &e_behavior AMPERSAND 0  &kp R     &sym_hold TILDE T    &kp Y      &kp U    &kp I      &kp O    &sym_hold PRCNT P       &kp BSPC
-&kp LSHFT   &a_behavior AT_SIGN 0  &sym_hold DLLR S  &sym_hold HASH D         &kp F     &kp G                &kp H      &kp J    &kp K      &kp L    &apo_morph              &kp RSHFT
+&mt LSHFT TAB  &a_behavior AT_SIGN 0  &sym_hold DLLR S  &sym_hold HASH D         &kp F     &kp G                &kp H      &kp J    &kp K      &kp L    &apo_morph              &kp RSHFT
 &kp LCTRL   &kp Z                  &sym_hold STAR X  &c_behavior 0 0          &kp V     &kp B                &kp N      &kp M    &kp COMMA  &kp DOT  &slash_behavior BSLH 0  &kp DEL
                                                      &kp LALT                 &mo1_gui  &kp SPACE            &kp ENTER  &l2_nav  &kp RCTRL
             >;
