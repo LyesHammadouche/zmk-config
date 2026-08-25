@@ -114,18 +114,12 @@
             bindings = <&kp FSLH>, <&kp LS(BSLH)>;
         };
 
-        /* Apostrophe: tap=' (immediate), hold=; — hold-tap bindings must be pure
-         * phandles, so &kp SEMI is wrapped in a parameterless macro. */
-        macro_semi: macro_semi {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&kp SEMI>;
-        };
-
+        /* Apostrophe: tap=' (immediate), hold=; — parameterized hold-tap
+         * (same pattern as sym_hold): &apo_ht SEMI 0 → hold=&kp SEMI, tap=macro */
         apo_ht: apo_ht {
             compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <0>;
-            bindings = <&macro_semi>, <&macro_apostrophe>;
+            #binding-cells = <2>;
+            bindings = <&kp>, <&macro_apostrophe>;
             flavor = "tap-preferred";
             tapping-term-ms = <150>;
             quick-tap-ms = <0>;
@@ -174,16 +168,10 @@
         };
 
         /* --- Mod-morph: apostrophe with Shift → colon --- */
-        macro_colon: macro_colon {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&kp LS(SEMI)>;
-        };
-
         apo_morph: apo_morph {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
-            bindings = <&apo_ht>, <&macro_colon>;
+            bindings = <&apo_ht SEMI 0>, <&kp LS(SEMI)>;
             mods = <(MOD_LSFT | MOD_RSFT)>;
         };
     };
