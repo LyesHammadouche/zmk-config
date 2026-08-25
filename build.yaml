@@ -1,9 +1,10 @@
-# Corne Cherry v4 with nice_view
+# Corne C (choc) with nice!epaper
 ---
 include:
   - board: nice_nano//zmk
-    shield: corne_cherry_v4_left nice_view_adapter nice_view
+    shield: corne_c_left nice_view_adapter nice_epaper
+    snippet: studio-rpc-usb-uart
   - board: nice_nano//zmk
-    shield: corne_cherry_v4_right nice_view_adapter nice_view
+    shield: corne_c_right nice_view_adapter nice_epaper
   - board: nice_nano//zmk
     shield: settings_reset
