@@ -223,24 +223,23 @@
         };
 
         copy {
-            bindings = <&kp K_COPY>;
+            bindings = <&kp LC(C)>;
             key-positions = <3 4>;
             timeout-ms = <40>;
             layers = <0>;
         };
 
         paste {
-            bindings = <&kp K_PASTE>;
+            bindings = <&kp LC(V)>;
             key-positions = <16 15>;
             timeout-ms = <40>;
             layers = <0>;
         };
 
-        combo_alt_shift_a_alt_tab {
-            bindings = <&kp LA(TAB)>;
-            key-positions = <18 6 7>;
-            timeout-ms = <30>;
-            require-prior-idle-ms = <0>;
+        cut {
+            bindings = <&kp LC(X)>;
+            key-positions = <26 27>;
+            timeout-ms = <40>;
             layers = <0>;
         };
 
@@ -282,7 +281,7 @@
 &kp INSERT       &kp HOME   &kp PG_UP         &kp UP_ARROW    &kp PAGE_DOWN     &kp RBRC             &kp KP_NUMBER_7  &kp KP_NUMBER_8  &kp KP_NUMBER_9  &kp FSLH   &kp BSLH  &kp ESC
 &kp DEL          &kp END    &kp LEFT_ARROW    &kp DOWN_ARROW  &kp RIGHT_ARROW   &kp LEFT_BRACE       &kp KP_NUMBER_4  &kp KP_NUMBER_5  &kp KP_NUMBER_6  &kp LT     &kp GT    &kp SEMI
 &kp PRINTSCREEN  &kp LSHFT  &kp LEFT_CONTROL  &key_repeat     &kp LEFT_BRACKET  &kp RIGHT_BRACKET    &kp KP_NUMBER_1  &kp KP_NUMBER_2  &kp KP_NUMBER_3  &kp MINUS  &kp PLUS  &kp EQUAL
-                                              &kp LSHFT       &kp UNDER         &kp LOCKING_NUM      &kp KP_NUMBER_0  &kp RET          &kp KP_DOT
+                                              &kp LSHFT       &kp LALT          &kp UNDER            &kp KP_NUMBER_0  &kp RET          &kp KP_DOT
             >;
         };
 
