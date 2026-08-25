@@ -226,21 +226,21 @@
             bindings = <&kp LC(C)>;
             key-positions = <3 4>;
             timeout-ms = <40>;
-            layers = <0>;
+            layers = <1>;
         };
 
         paste {
             bindings = <&kp LC(V)>;
             key-positions = <16 15>;
             timeout-ms = <40>;
-            layers = <0>;
+            layers = <1>;
         };
 
         cut {
             bindings = <&kp LC(X)>;
             key-positions = <27 28>;
             timeout-ms = <40>;
-            layers = <0>;
+            layers = <1>;
         };
 
         combo_shift_a_tab {
