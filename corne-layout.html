@@ -474,7 +474,7 @@ const LAYERS = [
     sub: "Touches fonction &middot; chiffres &middot; ponctuation &middot; dead keys pour accents",
     legend: [
       {title:"Dead keys", items:[
-        {color:"#6d28d9", key:"<span class='m'>&acute;</span> aigu &rarr; &eacute; &Eacute;"},
+        {color:"#6d28d9", key:"<span class='m'>&grave;</span> tap = grave &rarr; &egrave; &agrave; &ugrave; &middot; 2&times; = aigu &rarr; &aacute; &eacute; &iacute;"},
         {color:"#6d28d9", key:"<span class='m'>&uml;</span> tr&eacute;ma &rarr; &euml; &iuml; &uuml;"},
         {color:"#6d28d9", key:"<span class='m'>^</span> circonflexe &rarr; &acirc; &ecirc; &icirc;"},
       ]},
@@ -495,7 +495,7 @@ const LAYERS = [
     right: [
       [["F7","n"],["F8","n"],["F9","n"],["F10","n"],["F11","n"],["&#8998;","n"]],
       [["6","n"],["7","n"],["8","n"],["9","n"],["-","n"],["=","n"]],
-      [["&quot;","n"],["^","dk","circ"],["&uml;","dk","tr&eacute;ma"],["&acute;","dk","aigu"],["_","n"],["!","n"]]
+      [["&quot;","n"],["^","dk","circ"],["&uml;","dk","tr&eacute;ma"],["&grave;","dk","grave &middot; 2&times; aigu"],["_","n"],["!","n"]]
     ],
     rt: [["&#8998;","n"],["&#9166;","n"],["&#8963;","m"]]
   },
@@ -609,7 +609,7 @@ const TIPS = {
   "`": "Accent grave mort : &egrave;, &agrave;, &ugrave;",
   "^": "Accent circonflexe mort : &ecirc;, &icirc;, &ocirc;",
   "&uml;": "Tr&eacute;ma mort : &euml;, &iuml;, &uuml;",
-  "&acute;": "Accent aigu mort : &aacute;, &iacute;, &oacute;",
+  "&grave;": "Tap = accent grave mort (&egrave;, &agrave;, &ugrave;) &middot; 2&times; = accent aigu mort (&aacute;, &eacute;, &iacute;)",
   "&#9198;": "Piste pr&eacute;c&eacute;dente",
   "&#9199;": "Lecture / pause",
   "&#9197;": "Piste suivante",
