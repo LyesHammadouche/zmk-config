@@ -104,7 +104,7 @@
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
             tapping-term-ms = <300>;
-            bindings = <&kp C>, <&macro_ccedilla>;
+            bindings = <&kp C>, <&macro_ccedilla>, <&macro_dotcom>;
         };
 
         slash_td: slash_td {
@@ -150,13 +150,6 @@
             tapping-term-ms = <200>;
         };
 
-        c_behavior: c_behavior {
-            compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
-            bindings = <&macro_dotcom>, <&c_td>;
-            flavor = "tap-preferred";
-            tapping-term-ms = <200>;
-        };
 
         slash_behavior: slash_behavior {
             compatible = "zmk,behavior-hold-tap";
@@ -183,15 +176,6 @@
             mods = <(MOD_LSFT | MOD_RSFT)>;
         };
 
-        /* --- Mod-morph: C becomes plain C while Ctrl is held ---
-         * Prevents .com (hold) and ç (double-tap) from firing during Ctrl+C.
-         * Same proven pattern as apo_morph (parameterized hold-tap inside morph). */
-        c_ctrl_morph: c_ctrl_morph {
-            compatible = "zmk,behavior-mod-morph";
-            #binding-cells = <0>;
-            bindings = <&c_behavior 0 0>, <&kp C>;
-            mods = <(MOD_LCTL | MOD_RCTL)>;
-        };
     };
 
     combos {
@@ -283,7 +267,7 @@
             bindings = <
 &kp ESCAPE  &kp Q                  &kp W             &e_behavior AMPERSAND 0  &kp R     &sym_hold TILDE T    &kp Y      &kp U    &kp I      &kp O    &sym_hold PRCNT P       &kp BSPC
 &mt LSHFT TAB  &a_behavior AT_SIGN 0  &sym_hold DLLR S  &sym_hold HASH D         &kp F     &kp G                &kp H      &kp J    &kp K      &kp L    &apo_morph              &kp RSHFT
-&kp LCTRL   &kp Z                  &sym_hold STAR X  &c_ctrl_morph            &kp V     &kp B                &kp N      &kp M    &kp COMMA  &kp DOT  &slash_behavior BSLH 0  &kp DEL
+&kp LCTRL   &kp Z                  &sym_hold STAR X  &c_td          &kp V     &kp B                &kp N      &kp M    &kp COMMA  &kp DOT  &slash_behavior BSLH 0  &kp DEL
                                                      &kp LALT                 &mo1_gui  &kp SPACE            &kp ENTER  &l2_nav  &kp RCTRL
             >;
         };
