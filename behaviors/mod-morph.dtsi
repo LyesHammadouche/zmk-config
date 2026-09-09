@@ -1,5 +1,0 @@
-// tap: backspace | shift + tap: delete
-ZMK_MOD_MORPH(bspc_del,
-    bindings = <&kp BSPC>, <&kp DEL>;
-    mods = <(MOD_LSFT|MOD_RSFT)>;
-)
