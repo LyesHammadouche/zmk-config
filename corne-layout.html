@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Corne 42 · Guide de Référence</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --page-bg: #ffffff;
+  --text-main: #0d0d0d;
+  --text-hd: #0d0d0d;
+  --dim: #555555;
+  --border-color: #e5e5e5;
+  --violet: #7c3aed;
+  --violet-deep: #5b21b6;
+  --violet-tint: #f3effc;
+
+  --k-n-bg: #ffffff; --k-n-border: #ddd9d2; --k-n-text: #2c2a24;
+  --k-m-bg: #f0efec; --k-m-border: #c9c6c0; --k-m-text: #4a4740;
+  --k-l-bg: #f3effc; --k-l-border: #7c3aed; --k-l-text: #5b21b6;
+  --k-h-bg: #ffffff; --k-h-border: #7c3aed; --k-h-text: #7c3aed;
+  --k-mt-bg: #faf6ea; --k-mt-border: #e3d9b8; --k-mt-text: #6e6430;
+  --k-dk-bg: #f4f0fa; --k-dk-border: #d8ccf0; --k-dk-text: #6d28d9;
+  --k-td-bg: #fbf0f6; --k-td-border: #e8c6da; --k-td-text: #86315f;
+  --k-md-bg: #fbf6ed; --k-md-border: #ebd8c3; --k-md-text: #8a5a22;
+  --k-bt-bg: #edf4f9; --k-bt-border: #c3dbeb; --k-bt-text: #1b5d7e;
+  --k-t-bg: #faf9f6; --k-t-border: #d5d2cc; --k-t-text: #b5b2ab;
+
+  --card-bg: #ffffff;
+  --combo-active: #7c3aed;
+  --combo-inactive: #d8d5cf;
+}
+
+body.dark-mode {
+  --page-bg: #141311;
+  --text-main: #e6e4de;
+  --text-hd: #ffffff;
+  --dim: #a3a09a;
+  --border-color: #2c2a26;
+  --violet: #a78bfa;
+  --violet-deep: #c4b0f5;
+  --violet-tint: #2a2140;
+
+  --k-n-bg: #232220; --k-n-border: #3e3c38; --k-n-text: #e2e0d9;
+  --k-m-bg: #2b2a27; --k-m-border: #4a4740; --k-m-text: #c9c6c0;
+  --k-l-bg: #2a2140; --k-l-border: #7c5cd6; --k-l-text: #c4b0f5;
+  --k-h-bg: #1a1622; --k-h-border: #7c5cd6; --k-h-text: #a78bfa;
+  --k-mt-bg: #302d1d; --k-mt-border: #5c5436; --k-mt-text: #ded295;
+  --k-dk-bg: #262038; --k-dk-border: #4d3f6e; --k-dk-text: #b9a5ec;
+  --k-td-bg: #381f2b; --k-td-border: #63364d; --k-td-text: #eb96be;
+  --k-md-bg: #33271d; --k-md-border: #5e4631; --k-md-text: #e6b27c;
+  --k-bt-bg: #1e2c38; --k-bt-border: #314d66; --k-bt-text: #8ec3eb;
+  --k-t-bg: #1a1917; --k-t-border: #383632; --k-t-text: #6a675f;
+
+  --card-bg: #1e1d1a;
+  --combo-active: #a78bfa;
+  --combo-inactive: #44423d;
+}
+
+body {
+  background: #eceae6;
+  color: var(--text-main);
+  font-family: 'Plus Jakarta Sans', 'Segoe UI', sans-serif;
+  padding: 10px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: background 0.3s ease;
+}
+
+.a4-page {
+  width: 794px;
+  height: 1122px;
+  padding: 25px 36px 18px;
+  background: var(--page-bg);
+  box-shadow: 0 4px 24px rgba(0,0,0,0.10);
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  transition: background 0.3s ease;
+}
+
+.page-content { display: flex; flex-direction: column; flex: 1; }
+
+/* ═ Header ═ */
+.header { text-align: center; margin-bottom: 6px; }
+.header h1 {
+  font-size: 21px; font-weight: 800; letter-spacing: 4px;
+  color: var(--text-hd); text-transform: uppercase;
+}
+.header .sub {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-style: italic; font-weight: 600;
+  font-size: 13px; color: var(--dim); margin-top: 1px;
+}
+.header .line {
+  width: 100%; height: 1px;
+  background: linear-gradient(90deg, transparent, var(--violet) 30%, var(--violet) 70%, transparent);
+  opacity: .45; margin-top: 6px;
+}
+
+/* ═ Section titles ═ */
+.section-hd {
+  font-family: 'JetBrains Mono', 'Cascadia Mono', monospace;
+  font-size: 10px; font-weight: 500; letter-spacing: 1.5px;
+  text-transform: uppercase; color: var(--violet);
+  margin: 8px 0 5px;
+  display: flex; align-items: center; gap: 6px;
+}
+.section-hd::after { content: ""; flex: 1; height: 1px; background: var(--border-color); }
+
+/* ═ Access strip ═ */
+.access-strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 7px; }
+.acc-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-left: 2px solid var(--violet);
+  border-radius: 4px;
+  padding: 6px 8px;
+  display: flex; gap: 8px; align-items: center;
+}
+.acc-kbd { flex-shrink: 0; display: flex; align-items: center; }
+.acc-txt { min-width: 0; }
+.acc-title {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 7.5px; font-weight: 700; letter-spacing: .3px;
+  text-transform: uppercase; color: var(--violet-deep);
+  margin-bottom: 2.5px;
+}
+.acc-row { font-size: 8.6px; line-height: 1.5; color: var(--text-main); white-space: nowrap; }
+.acc-row b { font-weight: 700; }
+.acc-hint { font-size: 7.2px; color: var(--dim); line-height: 1.4; }
+.pill {
+  display: inline-block;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 7.5px; font-weight: 700;
+  padding: 0 3.5px; margin: 0 1px;
+  border-radius: 2px; line-height: 1.5;
+  background: var(--violet-tint);
+  border: 1px solid var(--violet);
+  color: var(--violet-deep);
+  vertical-align: baseline;
+}
+.pill.gray { background: var(--k-m-bg); border-color: var(--k-m-border); color: var(--k-m-text); }
+
+/* ═ Layer blocks ═ */
+.layer-block { margin-top: 7px; }
+.layer-hd {
+  display: flex; align-items: baseline; gap: 7px; margin-bottom: 1px;
+}
+.layer-id {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px; font-weight: 700; color: var(--text-hd);
+}
+.layer-title {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 8.5px; font-weight: 500; color: var(--dim);
+  text-transform: uppercase; letter-spacing: .5px;
+}
+.layer-sub {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-style: italic; font-weight: 600;
+  font-size: 11px; color: var(--dim);
+  margin-bottom: 3px;
+  display: flex; align-items: baseline; gap: 8px;
+}
+.layer-badge {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 6.5px; font-weight: 500;
+  color: var(--violet-deep);
+  background: var(--violet-tint);
+  border: 1px solid var(--violet);
+  border-radius: 2px; padding: 0.5px 5px;
+  letter-spacing: .3px; white-space: nowrap;
+}
+.layer-row { display: flex; gap: 12px; align-items: flex-start; }
+
+/* ═ Legend ═ */
+.legend { flex: 0 0 138px; padding-top: 2px; }
+.leg-title {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 7px; font-weight: 700; color: var(--text-hd);
+  text-transform: uppercase; letter-spacing: .4px;
+  margin: 3px 0 1.5px;
+}
+.leg-title:first-child { margin-top: 0; }
+.leg-item { display: flex; align-items: baseline; gap: 4px; margin-bottom: 1px; }
+.leg-dot { width: 5px; height: 5px; border-radius: 1.5px; flex-shrink: 0; position: relative; top: -0.5px; }
+.leg-key { font-size: 8px; color: var(--text-main); line-height: 1.35; }
+.leg-key .m { font-family: 'JetBrains Mono', monospace; font-size: 7.3px; font-weight: 500; }
+
+/* ═ Keyboard ═ */
+.keyboard { flex: 1; display: flex; justify-content: flex-end; gap: 18px; }
+.half { display: flex; flex-direction: column; align-items: flex-start; }
+.cols { display: flex; gap: 2px; }
+.col { display: flex; flex-direction: column; gap: 2px; margin-top: var(--s, 0px); }
+
+.key {
+  width: 33px; height: 33px;
+  border-radius: 3.5px;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  font-family: 'JetBrains Mono', 'Cascadia Mono', monospace;
+  font-size: 10px; font-weight: 500; line-height: 1.05;
+  cursor: default; text-align: center;
+  position: relative;
+}
+.key[data-tip]:hover::after {
+  content: attr(data-tip);
+  position: absolute;
+  bottom: calc(100% + 5px);
+  left: 50%;
+  transform: translateX(-50%);
+  background: #1a1622;
+  color: #f3effc;
+  border: 1px solid #7c3aed;
+  border-radius: 3px;
+  padding: 3px 6px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 8.5px; font-weight: 600; line-height: 1.35;
+  white-space: normal; width: max-content; max-width: 148px;
+  text-align: center;
+  z-index: 500;
+  pointer-events: none;
+  box-shadow: 0 3px 10px rgba(0,0,0,.35);
+}
+.key .sub {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 5.6px; font-weight: 400; opacity: .68;
+  margin-top: 1px; letter-spacing: 0; line-height: 1.1;
+}
+
+.k-n  { background: var(--k-n-bg);  border: 1px solid var(--k-n-border);  color: var(--k-n-text); }
+.k-m  { background: var(--k-m-bg);  border: 1px solid var(--k-m-border);  color: var(--k-m-text); }
+.k-l  { background: var(--k-l-bg);  border: 1.5px solid var(--k-l-border); color: var(--k-l-text); box-shadow: 0 0 0 1.5px var(--page-bg), 0 1px 4px rgba(124,58,237,.25); }
+.k-h  { background: var(--k-h-bg);  border: 1.5px dashed var(--k-h-border); color: var(--k-h-text); }
+.k-mt { background: var(--k-mt-bg); border: 1px solid var(--k-mt-border); color: var(--k-mt-text); }
+.k-dk { background: var(--k-dk-bg); border: 1px solid var(--k-dk-border); color: var(--k-dk-text); }
+.k-td { background: var(--k-td-bg); border: 1px solid var(--k-td-border); color: var(--k-td-text); }
+.k-md { background: var(--k-md-bg); border: 1px solid var(--k-md-border); color: var(--k-md-text); }
+.k-bt { background: var(--k-bt-bg); border: 1px solid var(--k-bt-border); color: var(--k-bt-text); }
+.k-t  { background: var(--k-t-bg);  border: 1px dashed var(--k-t-border); color: var(--k-t-text); }
+
+.thumbs { display: flex; gap: 2px; margin-top: 6px; }
+.thumbs .key { width: 35.6px; }
+.half-l .thumbs { margin-left: calc(3 * (33px + 2px)); }
+
+/* ═ Combos ═ */
+.grid-combos { display: grid; grid-template-columns: repeat(5, 1fr); gap: 6px; }
+.combo-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  padding: 4px 6px;
+  display: flex; align-items: center; gap: 6px;
+  transition: border-color .2s ease;
+}
+.combo-card:hover { border-color: var(--combo-active); }
+.combo-card:hover .mini-key.active { fill: var(--combo-active); }
+.cb-txt { min-width: 0; }
+.card-name {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 7px; font-weight: 700; letter-spacing: .1px;
+  color: var(--text-hd); text-transform: uppercase;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+.cb-res { margin: 1.5px 0; }
+.res {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 6.8px; font-weight: 500;
+  background: var(--violet-tint); border: 1px solid var(--violet);
+  color: var(--violet-deep);
+  border-radius: 2px; padding: 0 3px;
+  display: inline-block; line-height: 1.5;
+}
+.card-det {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 5.4px; color: var(--dim); line-height: 1.3;
+}
+
+/* ═ Footer / toggle ═ */
+.page-footer {
+  margin-top: auto; padding-top: 4px;
+  border-top: 1px solid var(--border-color);
+  display: flex; justify-content: space-between;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 6.8px; color: var(--dim); letter-spacing: .4px;
+}
+.theme-toggle {
+  position: fixed; top: 16px; right: 16px;
+  background: var(--card-bg); color: var(--text-main);
+  border: 1px solid var(--border-color);
+  padding: 6px 12px; border-radius: 16px;
+  cursor: pointer; font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 10px; font-weight: 700;
+  box-shadow: 0 4px 12px rgba(0,0,0,.08);
+  z-index: 1000;
+}
+
+@media print {
+  @page { size: A4; margin: 0; }
+  .theme-toggle { display: none !important; }
+  body { background: #fff !important; padding: 0 !important; -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+  .a4-page {
+    width: 210mm !important; height: 296mm !important;
+    margin: 0 !important; box-shadow: none !important;
+    border: none !important; border-radius: 0 !important;
+    page-break-after: avoid !important; page-break-inside: avoid !important;
+  }
+}
+</style>
+</head>
+<body>
+
+<div class="a4-page" id="sheet">
+  <div class="page-content">
+    <div class="header">
+      <h1>Corne 42</h1>
+      <div class="sub">nice!nano v2 + nice!view &middot; US International &middot; ZMK &middot; guide de r&eacute;f&eacute;rence</div>
+      <div class="line"></div>
+    </div>
+
+    <div class="section-hd">&#9671; Acc&egrave;s aux couches</div>
+    <div class="access-strip" id="access"></div>
+
+    <div id="layers-container"></div>
+
+    <div class="section-hd" style="margin-top:9px;">&#9671; Combinaisons</div>
+    <div class="grid-combos" id="combos"></div>
+  </div>
+
+  <div class="page-footer">
+    <span>LyesHammadouche/zmk-config &middot; corne_c + nice_view &middot; <span id="dt"></span></span>
+    <span>Guide A4 &middot; page 1 / 1</span>
+  </div>
+</div>
+
+<script>
+document.getElementById('dt').textContent = new Date().toISOString().slice(0,10);
+
+const toggleBtn = document.createElement('button');
+toggleBtn.className = 'theme-toggle';
+toggleBtn.innerHTML = '&#127769; Sombre';
+toggleBtn.onclick = () => {
+  document.body.classList.toggle('dark-mode');
+  toggleBtn.innerHTML = document.body.classList.contains('dark-mode') ? '&#9728; Clair' : '&#127769; Sombre';
+};
+document.body.appendChild(toggleBtn);
+
+/* stagger (33px keys) */
+const SL = [13, 5, 0, 2, 9, 13];
+const SR = [13, 9, 2, 0, 5, 13];
+
+const V = getComputedStyle(document.documentElement).getPropertyValue('--violet').trim() || '#7c3aed';
+
+/* key positions for mini-SVG (L0 labels) */
+const KP = {
+  "&#9099;":{s:'l',r:0,c:0}, "Q":{s:'l',r:0,c:1}, "W":{s:'l',r:0,c:2}, "E":{s:'l',r:0,c:3}, "R":{s:'l',r:0,c:4}, "T":{s:'l',r:0,c:5},
+  "&#8677;":{s:'l',r:1,c:0}, "A":{s:'l',r:1,c:1}, "S":{s:'l',r:1,c:2}, "D":{s:'l',r:1,c:3}, "F":{s:'l',r:1,c:4}, "G":{s:'l',r:1,c:5},
+  "&#8963;":{s:'l',r:2,c:0}, "Z":{s:'l',r:2,c:1}, "X":{s:'l',r:2,c:2}, "C":{s:'l',r:2,c:3}, "V":{s:'l',r:2,c:4}, "B":{s:'l',r:2,c:5},
+  "Y":{s:'r',r:0,c:0}, "U":{s:'r',r:0,c:1}, "I":{s:'r',r:0,c:2}, "O":{s:'r',r:0,c:3}, "P":{s:'r',r:0,c:4}, "&#9003;":{s:'r',r:0,c:5},
+  "H":{s:'r',r:1,c:0}, "L":{s:'r',r:1,c:3}, "&#8679;":{s:'r',r:1,c:5},
+  "&#8998;":{s:'r',r:2,c:5},
+  "L1":{s:'l',r:'t',c:1}, "L2":{s:'r',r:'t',c:1}
+};
+
+/* mini keyboard SVG */
+function drawMiniKbd(activeKeys) {
+  const SLm = [2.2, 1.0, 0, 0.5, 1.6, 2.2];
+  const SRm = [2.2, 1.6, 0.5, 0, 1.0, 2.2];
+  const xo = 20.5, kw = 2.0, kh = 2.0, rp = 2.5, cp = 2.6;
+  const act = (s,r,c) => activeKeys.some(k => { const p = KP[k]; return p && p.s===s && p.r===r && p.c===c; });
+  let svg = `<svg width="72" height="26" viewBox="0 0 42 15" xmlns="http://www.w3.org/2000/svg">`;
+  for (let c=0;c<6;c++){
+    const st=SLm[c];
+    for (let r=0;r<3;r++){
+      svg += `<rect x="${c*cp}" y="${r*rp+st}" width="${kw}" height="${kh}" rx=".4" class="mini-key" fill="${act('l',r,c)?'var(--combo-active)':'var(--combo-inactive)'}"/>`;
+    }
+  }
+  [[3*cp+.1,9.3],[4*cp+.2,9.9],[5*cp+.3,9.6]].forEach((co,i)=>{
+    svg += `<rect x="${co[0]}" y="${co[1]}" width="${kw}" height="${kh}" rx=".4" class="mini-key" fill="${act('l','t',i)?'var(--combo-active)':'var(--combo-inactive)'}"/>`;
+  });
+  for (let c=0;c<6;c++){
+    const st=SRm[c];
+    for (let r=0;r<3;r++){
+      svg += `<rect x="${xo+c*cp}" y="${r*rp+st}" width="${kw}" height="${kh}" rx=".4" class="mini-key" fill="${act('r',r,c)?'var(--combo-active)':'var(--combo-inactive)'}"/>`;
+    }
+  }
+  [[xo-.3,9.6],[xo+cp-.2,9.9],[xo+2*cp-.1,9.3]].forEach((co,i)=>{
+    svg += `<rect x="${co[0]}" y="${co[1]}" width="${kw}" height="${kh}" rx=".4" class="mini-key" fill="${act('r','t',i)?'var(--combo-active)':'var(--combo-inactive)'}"/>`;
+  });
+  return svg + `</svg>`;
+}
+
+/* &#9;: access cards */
+const ACCESS = [
+  { kbd: ["L1"], title: "Pouce G &middot; interne",
+    rows: [
+      `maintien &rarr; <span class="pill">L1</span> chiffres &middot; F`,
+      `2&times; + maintien &rarr; <span class="pill gray">&#8984; Win</span>`,
+    ],
+    hint: "tap-dance 200 ms (mo1_gui)" },
+  { kbd: ["L2"], title: "Pouce D &middot; interne",
+    rows: [
+      `maintien &rarr; <span class="pill">L2</span> crochets &middot; pav&eacute;`,
+      `2&times; + maintien &rarr; <span class="pill">L3</span> nav &middot; m&eacute;dias &middot; BT`,
+    ],
+    hint: "tap-dance 200 ms (l2_nav)" },
+  { kbd: ["O","P","&#9003;"], title: "Combo O + P + &#9003;",
+    rows: [
+      `appui simultan&eacute; &rarr; <span class="pill">L3</span> bascule`,
+      `<span class="pill gray">&amp;tog 3</span> on / off`,
+    ],
+    hint: "actif sur L0 &ndash; L3 &middot; 40 ms" },
+];
+
+const aEl = document.getElementById('access');
+ACCESS.forEach(a => {
+  aEl.innerHTML += `
+  <div class="acc-card">
+    <div class="acc-kbd">${drawMiniKbd(a.kbd)}</div>
+    <div class="acc-txt">
+      <div class="acc-title">${a.title}</div>
+      ${a.rows.map(r => `<div class="acc-row">${r}</div>`).join('')}
+      <div class="acc-hint">${a.hint}</div>
+    </div>
+  </div>`;
+});
+
+/* layers */
+const LAYERS = [
+  {
+    id: "L0", title: "QWERTY", badge: "BASE",
+    sub: "Couche par d&eacute;faut &middot; symboles au maintien &middot; accents en multi-tap",
+    legend: [
+      {title:"Acc&egrave;s couches", items:[
+        {color:"#7c3aed", key:"Pouce G : <span class='m'>hold&rarr;L1</span> &middot; <span class='m'>2&times;hold&rarr;&#8984;</span>"},
+        {color:"#7c3aed", key:"Pouce D : <span class='m'>hold&rarr;L2</span> &middot; <span class='m'>2&times;hold&rarr;L3</span>"},
+        {color:"#7c3aed", key:"O+P+&#9003; : bascule L3"},
+      ]},
+      {title:"Modificateurs", items:[
+        {color:"#4a4740", key:"&#8677; tap = Tab &middot; hold = &#8679;"},
+        {color:"#4a4740", key:"&#8997; &#8963; &#8679; pouces + auriculaires"},
+      ]},
+      {title:"Hold &rarr; symbole", items:[
+        {color:"#6e6430", key:"<span class='m'>E&rarr;&amp; A&rarr;@ C&rarr;.com</span>"},
+        {color:"#6e6430", key:"<span class='m'>S&rarr;$ D&rarr;# X&rarr;* T&rarr;~ P&rarr;%</span>"},
+        {color:"#6e6430", key:"<span class='m'>/ &rarr; \ (2&times; = |)</span>"},
+      ]},
+      {title:"Multi-tap &middot; accents", items:[
+        {color:"#86315f", key:"<span class='m'>E 2&times;&Eacute; 3&times;&Egrave;</span> &middot; <span class='m'>A 2&times;&Agrave;</span> &middot; <span class='m'>C 2&times;&ccedil;</span>"},
+        {color:"#86315f", key:"<span class='m'>' tap=&rsquo; hold=; &#8679;= :</span>"},
+      ]},
+    ],
+    left: [
+      [["&#9099;","n"],["Q","n"],["W","n"],["E","td","hold &amp; &middot; 2&times;&Eacute; &middot; 3&times;&Egrave;"],["R","n"],["T","mt","hold ~"]],
+      [["&#8677;","mt","hold &#8679;"],["A","td","hold @ &middot; 2&times; &Agrave;"],["S","mt","hold $"],["D","mt","hold #"],["F","n"],["G","n"]],
+      [["&#8963;","m"],["Z","n"],["X","mt","hold *"],["C","td","hold .com &middot; 2&times; &ccedil;"],["V","n"],["B","n"]]
+    ],
+    lt: [["&#8997;","m"],["L1","l","hold &middot; 2&times; &#8984;"],["&#9251;","n"]],
+    right: [
+      [["Y","n"],["U","n"],["I","n"],["O","n"],["P","mt","hold %"],["&#9003;","n"]],
+      [["H","n"],["J","n"],["K","n"],["L","n"],["'","td","&rsquo; &middot; hold ; &middot; &#8679; :"],["&#8679;","m"]],
+      [["N","n"],["M","n"],[",","n"],[".","n"],["/","td","hold \\ &middot; 2&times; |"],["&#8998;","n"]]
+    ],
+    rt: [["&#9166;","n"],["L2","l","hold &middot; 2&times; L3"],["&#8963;","m"]]
+  },
+  {
+    id: "L1", title: "Chiffres / Symboles / F", badge: "ACC&Egrave;S &middot; pouce G maintenu",
+    sub: "Touches fonction &middot; chiffres &middot; ponctuation &middot; dead keys pour accents",
+    legend: [
+      {title:"Dead keys", items:[
+        {color:"#6d28d9", key:"<span class='m'>&acute;</span> aigu &rarr; &eacute; &Eacute;"},
+        {color:"#6d28d9", key:"<span class='m'>&uml;</span> tr&eacute;ma &rarr; &euml; &iuml; &uuml;"},
+        {color:"#6d28d9", key:"<span class='m'>^</span> circonflexe &rarr; &acirc; &ecirc; &icirc;"},
+      ]},
+      {title:"Contenu", items:[
+        {color:"#555555", key:"<span class='m'>F1&ndash;F11</span> &middot; chiffres <span class='m'>0&ndash;9</span>"},
+        {color:"#555555", key:"<span class='m'>? ( ) | / \\ &quot; - = _ !</span>"},
+      ]},
+      {title:"Sortie", items:[
+        {color:"#555555", key:"rel&acute;cher le pouce &rarr; retour L0"},
+      ]},
+    ],
+    left: [
+      [["F1","n"],["F2","n"],["F3","n"],["F4","n"],["F5","n"],["F6","n"]],
+      [["0","n"],["1","n"],["2","n"],["3","n"],["4","n"],["5","n"]],
+      [["?","n"],["(","n"],[")","n"],["|","n"],["/","n"],["\\","n"]]
+    ],
+    lt: [["&#8997;","m"],["L1","h","tenu"],["&#8679;","m"]],
+    right: [
+      [["F7","n"],["F8","n"],["F9","n"],["F10","n"],["F11","n"],["&#8998;","n"]],
+      [["6","n"],["7","n"],["8","n"],["9","n"],["-","n"],["=","n"]],
+      [["&quot;","n"],["^","dk","circ"],["&uml;","dk","tr&eacute;ma"],["&acute;","dk","aigu"],["_","n"],["!","n"]]
+    ],
+    rt: [["&#8998;","n"],["&#9166;","n"],["&#8963;","m"]]
+  },
+  {
+    id: "L2", title: "Crochets / Navigation / Pav&eacute;", badge: "ACC&Egrave;S &middot; pouce D maintenu",
+    sub: "Accolades et crochets &middot; fl&egrave;ches &middot; pav&eacute; num&eacute;rique &middot; key_repeat",
+    legend: [
+      {title:"Navigation", items:[
+        {color:"#555555", key:"<span class='m'>&uarr; &larr; &darr; &rarr;</span> &middot; <span class='m'>&#8670; &#8671;</span> pages"},
+        {color:"#555555", key:"<span class='m'>&#8598; &#8600;</span> D&eacute;but / Fin &middot; Ins"},
+      ]},
+      {title:"Crochets", items:[
+        {color:"#555555", key:"<span class='m'>{ } [ ]</span> &middot; <span class='m'>&lt; &gt;</span> &middot; <span class='m'>+ - = ;</span>"},
+        {color:"#555555", key:"<span class='m'>&#8635;</span> key_repeat &middot; &#9003;&#9111; Impr &eacute;cran"},
+      ]},
+      {title:"Pav&eacute;", items:[
+        {color:"#7c3aed", key:"<span class='m'>Num 0&ndash;9</span> &middot; <span class='m'>. Entr&eacute;e</span> &middot; <span class='m'>&#8997;</span> <span class='m'>_</span>"},
+      ]},
+    ],
+    left: [
+      [["Ins","n"],["&#8598;","n"],["&#8670;","n"],["&uarr;","n"],["&#8671;","n"],["}","n"]],
+      [["&#8998;","n"],["&#8600;","n"],["&larr;","n"],["&darr;","n"],["&rarr;","n"],["{","n"]],
+      [["&#9003;&#9111;","n"],["&#8679;","m"],["&#8963;","m"],["&#8635;","n","key_repeat"],["[","n"],["]","n"]]
+    ],
+    lt: [["&#8679;","m"],["&#8997;","m"],["_","n"]],
+    right: [
+      [["Num7","n"],["Num8","n"],["Num9","n"],["/","n"],["\\","n"],["&#9099;","n"]],
+      [["Num4","n"],["Num5","n"],["Num6","n"],["&lt;","n"],["&gt;","n"],[";","n"]],
+      [["Num1","n"],["Num2","n"],["Num3","n"],["-","n"],["+","n"],["=","n"]]
+    ],
+    rt: [["Num0","n"],["L2","h","tenu"],["Num.","n"]]
+  },
+  {
+    id: "L3", title: "Navigation / M&eacute;dias / Bluetooth", badge: "ACC&Egrave;S &middot; pouce D 2&times; maintenu &middot; ou combo O P &#9003;",
+    sub: "Fl&egrave;ches &middot; Ctrl/Cmd+fl&egrave;ches &middot; m&eacute;dias &middot; profils Bluetooth &middot; basculable (tog)",
+    legend: [
+      {title:"Navigation", items:[
+        {color:"#555555", key:"<span class='m'>&uarr; &larr; &darr; &rarr;</span> &middot; <span class='m'>&#8670; &#8671; &#8598; &#8600;</span>"},
+        {color:"#7c3aed", key:"<span class='m'>&#8963;&larr;&rarr;</span> mot &middot; <span class='m'>&#8984;&larr;&rarr;</span> ligne"},
+      ]},
+      {title:"M&eacute;dias", items:[
+        {color:"#8a5a22", key:"<span class='m'>&#9198; &#9199; &#9197;</span> pr&eacute;c / lecture / suiv"},
+        {color:"#8a5a22", key:"volume &minus; + muet"},
+      ]},
+      {title:"Bluetooth", items:[
+        {color:"#1b5d7e", key:"<span class='m'>BT &#9664; &#9654;</span> profils &middot; <span class='m'>OUT</span> USB&harr;BT"},
+      ]},
+    ],
+    left: [
+      [["&#8212;","t"],["OUT","bt","USB &harr; BT"],["&#8963;&larr;","n"],["&#8963;&rarr;","n"],["&#8984;&larr;","n"],["&#8984;&rarr;","n"]],
+      [["&#8212;","t"],["&#8984;","m"],["&#9198;","md","pr&eacute;c"],["&#9199;","md","lecture"],["&#9197;","md","suiv"],["&#9099;","n"]],
+      [["&#8679;","m"],["BT&#9664;","bt","profil"],["BT&#9654;","bt","profil"],["&#128265;","md","vol &minus;"],["&#128266;","md","vol +"],["&#128263;","md","muet"]]
+    ],
+    lt: [["&#8963;","m"],["&#8997;","m"],["&#8212;","t"]],
+    right: [
+      [["&#8671;","n"],["&#8998;","n"],["&uarr;","n"],["&#9003;","n"],["&#8670;","n"],["&#8212;","t"]],
+      [["&#8658;","n","ScrLk"],["&larr;","n"],["&darr;","n"],["&rarr;","n"],["`","n"],["&#8212;","t"]],
+      [["Ins","n"],["&#8598;","n"],["Ins","n"],["&#8600;","n"],["&#8776;","n","tilde2"],["&#8679;","m"]]
+    ],
+    rt: [["&#9166;","n"],["L3","h","tenu &middot; 2&times;"],["`","n"]]
+  },
+];
+
+const COMBOS = [
+  {name:"Copier", det:"L0 &middot; 40 ms", keys:["E","R"], res:"Ctrl+C"},
+  {name:"Couper", det:"L0 &middot; 40 ms", keys:["C","V"], res:"Ctrl+X"},
+  {name:"Coller", det:"L0 &middot; 40 ms", keys:["D","F"], res:"Ctrl+V"},
+  {name:"Verr Maj", det:"L0 &middot; 40 ms", keys:["&#9099;","&#9003;"], res:"CapsLock"},
+  {name:"Mot Maj", det:"L0 &middot; 40 ms", keys:["B","N"], res:"CapsWord"},
+  {name:"Verr Num", det:"L0 &middot; 80 ms", keys:["&#9003;","&#8677;","&#9099;","&#8679;"], res:"NumLock"},
+  {name:"Bascule Nav", det:"L0&ndash;L3 &middot; 40 ms", keys:["O","P","&#9003;"], res:"&amp;tog 3"},
+  {name:"Tab", det:"L0 &middot; 30 ms", keys:["&#8677;","A"], res:"Tab"},
+
+  {name:"Bootloader G", det:"L0 &middot; 100 ms &middot; idle", keys:["E","R","S","T"], res:"Flash G"},
+  {name:"Bootloader D", det:"L0 &middot; 100 ms &middot; idle", keys:["Y","U","I","L"], res:"Flash D"},
+];
+
+function k(d) {
+  const [l,c,s] = d;
+  const tip = TIPS[l] || s || "";
+  return `<div class="key k-${c}"${tip ? ` data-tip="${tip}"` : ""}>${l}${s ? `<span class="sub">${s}</span>` : ""}</div>`;
+}
+
+const TIPS = {
+  "&#9099;": "&Eacute;chap",
+  "&#9003;": "Retour arri&egrave;re : efface &agrave; gauche du curseur",
+  "&#8998;": "Suppr : efface &agrave; droite du curseur",
+  "&#8677;": "Tabulation &middot; maintien = Maj",
+  "&#8679;": "Maj (Shift)",
+  "&#8963;": "Ctrl",
+  "&#8997;": "Alt",
+  "&#8984;": "Win / Cmd",
+  "&#9166;": "Entr&eacute;e",
+  "&#9251;": "Espace",
+  "L1": "Maintien = couche 1 (chiffres, F) &middot; 2&times; + maintien = Win",
+  "L2": "Maintien = couche 2 (nav, pav&eacute;) &middot; 2&times; + maintien = couche 3",
+  "E": "E &middot; maintien = &amp; &middot; 2&times; = &Eacute; &middot; 3&times; = &Egrave;",
+  "A": "A &middot; maintien = @ &middot; 2&times; = &Agrave;",
+  "C": "C &middot; maintien = .com &middot; 2&times; = &ccedil; &middot; avec Ctrl : C simple",
+  "OUT": "Bascule la sortie : USB &harr; Bluetooth (&agrave; presser plusieurs fois pour cycler)",
+  "BT&#9664;": "Profil Bluetooth pr&eacute;c&eacute;dent",
+  "BT&#9654;": "Profil Bluetooth suivant",
+  "&#8635;": "R&eacute;p&egrave;te la derni&egrave;re touche (key repeat)",
+  "&#9003;&#9111;": "Impr &eacute;cran (PrintScreen)",
+  "&#8670;": "Page pr&eacute;c&eacute;dente",
+  "&#8671;": "Page suivante",
+  "&#8598;": "D&eacute;but (Home)",
+  "&#8600;": "Fin (End)",
+  "&#8658;": "Arr&ecirc;t d&eacute;filement (Scroll Lock)",
+  "&#8776;": "Tilde mort (~) : pour &ntilde;, &atilde;&hellip;",
+  "`": "Accent grave mort : &egrave;, &agrave;, &ugrave;",
+  "^": "Accent circonflexe mort : &ecirc;, &icirc;, &ocirc;",
+  "&uml;": "Tr&eacute;ma mort : &euml;, &iuml;, &uuml;",
+  "&acute;": "Accent aigu mort : &aacute;, &iacute;, &oacute;",
+  "&#9198;": "Piste pr&eacute;c&eacute;dente",
+  "&#9199;": "Lecture / pause",
+  "&#9197;": "Piste suivante",
+};
+
+function buildHalf(rows, thumbs, stagger) {
+  let cols = [[],[],[],[],[],[]];
+  rows.forEach(r => r.forEach((key, i) => cols[i].push(key)));
+  let h = '<div class="cols">';
+  cols.forEach((col, i) => {
+    h += `<div class="col" style="--s:${stagger[i]}px">`;
+    col.forEach(key => h += k(key));
+    h += '</div>';
+  });
+  h += '</div>';
+  h += `<div class="thumbs">${thumbs.map(k).join('')}</div>`;
+  return h;
+}
+
+function buildLayer(ly) {
+  let html = `<div class="layer-block">`;
+  html += `<div class="layer-hd"><span class="layer-id">${ly.id}</span><span class="layer-title">${ly.title}</span></div>`;
+  html += `<div class="layer-sub">${ly.sub} <span class="layer-badge">${ly.badge}</span></div>`;
+  html += `<div class="layer-row">`;
+  html += `<div class="legend">`;
+  ly.legend.forEach(g => {
+    html += `<div class="leg-title">${g.title}</div>`;
+    g.items.forEach(it => {
+      html += `<div class="leg-item"><span class="leg-dot" style="background:${it.color}"></span><span class="leg-key">${it.key}</span></div>`;
+    });
+  });
+  html += `</div>`;
+  html += `<div class="keyboard">`;
+  html += `<div class="half half-l">${buildHalf(ly.left, ly.lt, SL)}</div>`;
+  html += `<div class="half half-r">${buildHalf(ly.right, ly.rt, SR)}</div>`;
+  html += `</div></div></div>`;
+  return html;
+}
+
+const layersContainer = document.getElementById('layers-container');
+LAYERS.forEach(ly => { layersContainer.innerHTML += buildLayer(ly); });
+
+const cEl = document.getElementById('combos');
+COMBOS.forEach(c => {
+  cEl.innerHTML += `
+    <div class="combo-card">
+      <div class="acc-kbd">${drawMiniKbd(c.keys)}</div>
+      <div class="cb-txt">
+        <div class="card-name">${c.name}</div>
+        <div class="cb-res"><span class="res">${c.res}</span></div>
+        <div class="card-det">${c.det}</div>
+      </div>
+    </div>`;
+});
+</script>
+</body>
+</html>
