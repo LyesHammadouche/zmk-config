@@ -114,6 +114,14 @@
             bindings = <&kp FSLH>, <&kp LS(BSLH)>;
         };
 
+        /* Grave dead key (tap) → è à ù · aigu dead key (2×) → á é í */
+        grave_td: grave_td {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            tapping-term-ms = <300>;
+            bindings = <&kp GRAVE>, <&kp SQT>;
+        };
+
         /* Apostrophe: tap=' (immediate), hold=; — parameterized hold-tap
          * (same pattern as sym_hold): &apo_ht SEMI 0 → hold=&kp SEMI, tap=macro */
         apo_ht: apo_ht {
@@ -281,7 +289,7 @@
             bindings = <
 &kp F1        &kp F2    &kp F3    &kp F4        &kp F5    &kp F6       &kp F7             &kp F8     &kp F9       &kp F10  &kp F11    &kp DEL
 &kp N0        &kp N1    &kp N2    &kp N3        &kp N4    &kp N5       &kp N6             &kp N7     &kp N8       &kp N9   &kp MINUS  &kp EQUAL
-&kp QUESTION  &kp LPAR  &kp RPAR  &kp PIPE      &kp FSLH  &kp BSLH     &kp DOUBLE_QUOTES  &kp CARET  &kp LS(SQT)  &kp SQT  &kp UNDER  &kp EXCL
+&kp QUESTION  &kp LPAR  &kp RPAR  &kp PIPE  &kp FSLH  &kp BSLH     &kp DOUBLE_QUOTES  &kp CARET  &kp LS(SQT)  &grave_td  &kp UNDER  &kp EXCL
                                   &kp LEFT_ALT  &trans    &kp LSHFT    &kp DELETE         &kp RET    &kp RCTRL
             >;
         };
