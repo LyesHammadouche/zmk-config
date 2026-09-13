@@ -129,7 +129,7 @@
             #binding-cells = <2>;
             bindings = <&kp>, <&macro_apostrophe>;
             flavor = "tap-preferred";
-            tapping-term-ms = <150>;
+            tapping-term-ms = <200>;
             quick-tap-ms = <0>;
         };
 
