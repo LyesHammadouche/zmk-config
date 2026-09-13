@@ -49,15 +49,6 @@
             bindings = <&kp GRAVE &kp E>;
         };
 
-        /* À = dead key GRAVE + A */
-        macro_a_grave: macro_a_grave {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            tap-ms = <20>;
-            wait-ms = <50>;
-            bindings = <&kp GRAVE &kp A>;
-        };
-
         /* Direct apostrophe = dead key SQT + SPACE */
         macro_apostrophe: macro_apostrophe {
             compatible = "zmk,behavior-macro";
@@ -91,20 +82,6 @@
             #binding-cells = <0>;
             tapping-term-ms = <300>;
             bindings = <&kp E>, <&macro_e_acute>, <&macro_e_grave>;
-        };
-
-        a_td: a_td {
-            compatible = "zmk,behavior-tap-dance";
-            #binding-cells = <0>;
-            tapping-term-ms = <300>;
-            bindings = <&kp A>, <&macro_a_grave>;
-        };
-
-        c_td: c_td {
-            compatible = "zmk,behavior-tap-dance";
-            #binding-cells = <0>;
-            tapping-term-ms = <300>;
-            bindings = <&kp C>, <&macro_ccedilla>, <&macro_dotcom>;
         };
 
         slash_td: slash_td {
@@ -144,14 +121,7 @@
             tapping-term-ms = <250>;
         };
 
-        a_behavior: a_behavior {
-            compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
-            bindings = <&kp>, <&a_td>;
-            flavor = "tap-preferred";
-            tapping-term-ms = <250>;
-        };
-
+        /* A: tap=a instant (Ctrl+A lag fix), hold=@ — À via L1 dead-key ` + a */
 
         slash_behavior: slash_behavior {
             compatible = "zmk,behavior-hold-tap";
@@ -168,6 +138,28 @@
             bindings = <&kp>, <&kp>;
             flavor = "tap-preferred";
             tapping-term-ms = <250>;
+        };
+
+        /* .com on hold: tap=. immediate, hold=.com macro
+         * (moved off the C tap-dance: triple-tap was too slow and
+         * degenerated into "..." during fast typing) */
+        dot_ht: dot_ht {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <0>;
+            bindings = <&macro_dotcom>, <&kp DOT>;
+            flavor = "tap-preferred";
+            tapping-term-ms = <250>;
+            quick-tap-ms = <0>;
+        };
+
+        /* ç on hold: tap=c immediate (Ctrl+C fix), hold=ç dead-key macro */
+        c_ht: c_ht {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <0>;
+            bindings = <&macro_ccedilla>, <&kp C>;
+            flavor = "tap-preferred";
+            tapping-term-ms = <250>;
+            quick-tap-ms = <0>;
         };
 
         /* --- Mod-morph: apostrophe with Shift → colon --- */
@@ -268,8 +260,8 @@
             label = "0";
             bindings = <
 &kp ESCAPE  &kp Q                  &kp W             &e_behavior AMPERSAND 0  &kp R     &sym_hold TILDE T    &kp Y      &kp U    &kp I      &kp O    &sym_hold PRCNT P       &kp BSPC
-&kp LSHFT  &a_behavior AT_SIGN 0  &sym_hold DLLR S  &sym_hold HASH D         &kp F     &kp G                &kp H      &kp J    &kp K      &kp L    &apo_morph              &kp RSHFT
-&kp LCTRL   &kp Z                  &sym_hold STAR X  &c_td          &kp V     &kp B                &kp N      &kp M    &kp COMMA  &kp DOT  &slash_behavior BSLH 0  &kp DEL
+&kp LSHFT  &sym_hold AT_SIGN A     &sym_hold DLLR S  &sym_hold HASH D         &kp F     &kp G                &kp H      &kp J    &kp K      &kp L    &apo_morph              &kp RSHFT
+&kp LCTRL   &kp Z                  &sym_hold STAR X  &c_ht                    &kp V     &kp B                &kp N      &kp M    &kp COMMA  &dot_ht  &slash_behavior BSLH 0  &kp DEL
                                                      &kp LALT                 &mo1_gui  &kp SPACE            &kp ENTER  &l2_nav  &kp RCTRL
             >;
         };
