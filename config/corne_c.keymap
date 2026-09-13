@@ -146,7 +146,7 @@
         dot_ht: dot_ht {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <0>;
-            bindings = <&macro_dotcom>, <&kp DOT>;
+            bindings = <&macro_dotcom &kp DOT>;
             flavor = "tap-preferred";
             tapping-term-ms = <250>;
             quick-tap-ms = <0>;
@@ -156,7 +156,7 @@
         c_ht: c_ht {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <0>;
-            bindings = <&macro_ccedilla>, <&kp C>;
+            bindings = <&macro_ccedilla &kp C>;
             flavor = "tap-preferred";
             tapping-term-ms = <250>;
             quick-tap-ms = <0>;
