@@ -443,7 +443,7 @@ const LAYERS = [
         {color:"#7c3aed", key:"O+P+&#9003; : bascule L3"},
       ]},
       {title:"Modificateurs", items:[
-        {color:"#4a4740", key:"&#8677; tap = Tab &middot; hold = &#8679;"},
+        {color:"#4a4740", key:"&#8679; Maj permanente &middot; Tab = combo &#8679;+A"},
         {color:"#4a4740", key:"&#8997; &#8963; &#8679; pouces + auriculaires"},
       ]},
       {title:"Hold &rarr; symbole", items:[
@@ -458,7 +458,7 @@ const LAYERS = [
     ],
     left: [
       [["&#9099;","n"],["Q","n"],["W","n"],["E","td","hold &amp; &middot; 2&times;&Eacute; &middot; 3&times;&Egrave;"],["R","n"],["T","mt","hold ~"]],
-      [["&#8677;","mt","hold &#8679;"],["A","td","hold @ &middot; 2&times; &Agrave;"],["S","mt","hold $"],["D","mt","hold #"],["F","n"],["G","n"]],
+      [["&#8679;","m"],["A","td","hold @ &middot; 2&times; &Agrave;"],["S","mt","hold $"],["D","mt","hold #"],["F","n"],["G","n"]],
       [["&#8963;","m"],["Z","n"],["X","mt","hold *"],["C","td","2&times; &ccedil; &middot; 3&times; .com"],["V","n"],["B","n"]]
     ],
     lt: [["&#8997;","m"],["L1","l","hold &middot; 2&times; &#8984;"],["&#9251;","n"]],
@@ -565,9 +565,9 @@ const COMBOS = [
   {name:"Coller", det:"L0 &middot; 40 ms &middot; idle", keys:["D","F"], res:"Ctrl+V"},
   {name:"Verr Maj", det:"L0 &middot; 40 ms", keys:["&#9099;","&#9003;"], res:"CapsLock"},
   {name:"Mot Maj", det:"L0 &middot; 40 ms", keys:["B","N"], res:"CapsWord"},
-  {name:"Verr Num", det:"L0 &middot; 80 ms &middot; idle", keys:["&#9003;","&#8677;","&#9099;","&#8679;"], res:"NumLock"},
+  {name:"Verr Num", det:"L0 &middot; 80 ms &middot; idle", keys:["&#9099;","&#8679;","&#8677;","&#8679;"], res:"NumLock"},
   {name:"Bascule Nav", det:"L0&ndash;L3 &middot; 40 ms", keys:["O","P","&#9003;"], res:"&amp;tog 3"},
-  {name:"Tab", det:"L0 &middot; 30 ms", keys:["&#8677;","A"], res:"Tab"},
+  {name:"Tab", det:"L0 &middot; 30 ms", keys:["&#8679;","A"], res:"Tab"},
 
   {name:"Bootloader G", det:"L0 &middot; 100 ms &middot; idle", keys:["E","R","S","T"], res:"Flash G"},
   {name:"Bootloader D", det:"L0 &middot; 100 ms &middot; idle", keys:["Y","U","I","L"], res:"Flash D"},
@@ -583,7 +583,7 @@ const TIPS = {
   "&#9099;": "&Eacute;chap",
   "&#9003;": "Retour arri&egrave;re : efface &agrave; gauche du curseur",
   "&#8998;": "Suppr : efface &agrave; droite du curseur",
-  "&#8677;": "Tabulation &middot; maintien = Maj",
+  "&#8677;": "Tabulation (via combo Maj + A sur L0)",
   "&#8679;": "Maj (Shift)",
   "&#8963;": "Ctrl",
   "&#8997;": "Alt",
