@@ -40,13 +40,22 @@
             bindings = <&kp SQT &kp E>;
         };
 
-        /* È = dead key GRAVE + E */
+        /* È = dead key GRAVE + E (réserve : È accessible via L1 ` + e) */
         macro_e_grave: macro_e_grave {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             tap-ms = <20>;
             wait-ms = <50>;
             bindings = <&kp GRAVE &kp E>;
+        };
+
+        /* "ee" anglais: double-tap E émet deux e d'un coup */
+        macro_ee: macro_ee {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            tap-ms = <10>;
+            wait-ms = <10>;
+            bindings = <&kp E &kp E>;
         };
 
         /* Direct apostrophe = dead key SQT + SPACE */
@@ -77,11 +86,12 @@
         };
 
         /* --- Tap dances --- */
+        /* E: 1×=e, 2×=ee, 3×=& — É déplacé sur le maintien (2026-09-21) */
         e_td: e_td {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
             tapping-term-ms = <300>;
-            bindings = <&kp E>, <&macro_e_acute>, <&macro_e_grave>;
+            bindings = <&kp E>, <&macro_ee>, <&kp AMPERSAND>;
         };
 
         slash_td: slash_td {
@@ -113,12 +123,15 @@
         /* --- Hold-taps --- */
         /* tapping-term 250 ms (was 200): symbol holds fired too early when the
          * key lingered slightly during normal typing; 250 ms = deliberate hold */
+        /* E: tap = e_td (e / ee / &), hold = É (l'esperluette était ici avant 2026-09-21).
+         * Parameterized pattern dot_ht/c_ht: slot1 = hold macro (0 cells), slot2 = tap dance */
         e_behavior: e_behavior {
             compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
-            bindings = <&kp>, <&e_td>;
+            #binding-cells = <0>;
+            bindings = <&macro_e_acute>, <&e_td>;
             flavor = "tap-preferred";
             tapping-term-ms = <250>;
+            quick-tap-ms = <0>;
         };
 
         /* A: tap=a instant (Ctrl+A lag fix), hold=@ — À via L1 dead-key ` + a */
@@ -262,7 +275,7 @@
         default_layer {
             label = "0";
             bindings = <
-&kp ESCAPE  &kp Q                  &kp W             &e_behavior AMPERSAND 0  &kp R     &sym_hold TILDE T    &kp Y      &kp U    &kp I      &kp O    &sym_hold PRCNT P       &kp BSPC
+&kp ESCAPE  &kp Q                  &kp W             &e_behavior  &kp R     &sym_hold TILDE T    &kp Y      &kp U    &kp I      &kp O    &sym_hold PRCNT P       &kp BSPC
 &kp LSHFT  &sym_hold AT_SIGN A     &sym_hold DLLR S  &sym_hold HASH D         &kp F     &kp G                &kp H      &kp J    &kp K      &kp L    &apo_morph              &kp RSHFT
 &kp LCTRL   &kp Z                  &sym_hold STAR X  &c_ht 0 C                &kp V     &kp B                &kp N      &kp M    &kp COMMA  &dot_ht 0 DOT  &slash_behavior BSLH 0  &kp DEL
                                                      &kp LALT                 &mo1_gui  &kp SPACE            &kp ENTER  &l2_nav  &kp RCTRL
