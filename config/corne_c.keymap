@@ -40,6 +40,26 @@
             bindings = <&kp SQT &kp E>;
         };
 
+        /* É = dead key SQT + E explicitement shifté (2026-09-21)
+         * Contre-intuitif mais vérifié: sans ce macro dédié, le Shift physique
+         * transforme SQT en touche morte trema (" en US-Intl) -> Ë */
+        macro_e_acute_cap: macro_e_acute_cap {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            tap-ms = <20>;
+            wait-ms = <50>;
+            bindings = <&kp SQT &kp LS(E)>;
+        };
+
+        /* E majuscule (1 touche, macro pour être strip-safe dans le morph) */
+        macro_cap_e: macro_cap_e {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            tap-ms = <10>;
+            wait-ms = <10>;
+            bindings = <&kp LS(E)>;
+        };
+
         /* È = dead key GRAVE + E (réserve : È accessible via L1 ` + e) */
         macro_e_grave: macro_e_grave {
             compatible = "zmk,behavior-macro";
@@ -171,6 +191,29 @@
             mods = <(MOD_LSFT | MOD_RSFT)>;
         };
 
+        /* --- Mod-morph: E avec Shift --- ATTENTION le morph STRIP le shift
+         * dans la branche déclenchée (lesson 2026-09-09) : chaque branche
+         * re-shift explicitement ce qui doit l'être.
+         * Branche shiftée = hold-tap complet, sinon Shift+tap E donnerait É
+         * et tuerait le E majuscule normal :
+         *   Shift+tap E  -> macro_cap_e  = E
+         *   Shift+hold E -> macro_e_acute_cap = É (SQT propre, pas de trema) --- */
+        e_shift_ht: e_shift_ht {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            bindings = <&macro_e_acute_cap>, <&macro_cap_e>;
+            flavor = "tap-preferred";
+            tapping-term-ms = <250>;
+            quick-tap-ms = <0>;
+        };
+
+        e_morph: e_morph {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&e_behavior 0 E>, <&e_shift_ht 0 0>;
+            mods = <(MOD_LSFT | MOD_RSFT)>;
+        };
+
     };
 
     combos {
@@ -260,7 +303,7 @@
         default_layer {
             label = "0";
             bindings = <
-&kp ESCAPE  &kp Q                  &sym_hold AMPERSAND W  &e_behavior 0 E  &kp R     &sym_hold TILDE T    &kp Y      &kp U    &kp I      &kp O    &sym_hold PRCNT P       &kp BSPC
+&kp ESCAPE  &kp Q                  &sym_hold AMPERSAND W  &e_morph  &kp R     &sym_hold TILDE T    &kp Y      &kp U    &kp I      &kp O    &sym_hold PRCNT P       &kp BSPC
 &kp LSHFT  &sym_hold AT_SIGN A     &sym_hold DLLR S  &sym_hold HASH D         &kp F     &kp G                &kp H      &kp J    &kp K      &kp L    &apo_morph              &kp RSHFT
 &kp LCTRL   &kp Z                  &sym_hold STAR X  &c_ht 0 C                &kp V     &kp B                &kp N      &kp M    &kp COMMA  &dot_ht 0 DOT  &slash_behavior BSLH 0  &kp DEL
                                                      &kp LALT                 &mo1_gui  &kp SPACE            &kp ENTER  &l2_nav  &kp RCTRL
