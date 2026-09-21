@@ -49,15 +49,6 @@
             bindings = <&kp GRAVE &kp E>;
         };
 
-        /* "ee" anglais: double-tap E émet deux e d'un coup */
-        macro_ee: macro_ee {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            tap-ms = <10>;
-            wait-ms = <10>;
-            bindings = <&kp E &kp E>;
-        };
-
         /* Direct apostrophe = dead key SQT + SPACE */
         macro_apostrophe: macro_apostrophe {
             compatible = "zmk,behavior-macro";
@@ -86,14 +77,6 @@
         };
 
         /* --- Tap dances --- */
-        /* E: 1×=e, 2×=ee, 3×=& — É déplacé sur le maintien (2026-09-21) */
-        e_td: e_td {
-            compatible = "zmk,behavior-tap-dance";
-            #binding-cells = <0>;
-            tapping-term-ms = <300>;
-            bindings = <&kp E>, <&macro_ee>, <&kp AMPERSAND>;
-        };
-
         slash_td: slash_td {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
@@ -123,13 +106,14 @@
         /* --- Hold-taps --- */
         /* tapping-term 250 ms (was 200): symbol holds fired too early when the
          * key lingered slightly during normal typing; 250 ms = deliberate hold */
-        /* E: tap = e_td (e / ee / &), hold = É (l'esperluette était ici avant 2026-09-21).
-         * cells DOIT rester 2 (const du yaml hold-tap) — les 2 params de la
-         * référence sont des factices, ignorés par les enfants 0-cellules (pattern apo_ht inversé) */
+        /* E: tap = e TOUJOURS instantané (même au repos — pas de tap-dance,
+         * le comptage vers un triple-tap imposait son délai à chaque appui),
+         * hold = É. Pattern c_ht exact. "ee" anglais = deux taps naturels.
+         * L'esperluette a déménagé sur hold W (2026-09-21). */
         e_behavior: e_behavior {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
-            bindings = <&macro_e_acute>, <&e_td>;
+            bindings = <&macro_e_acute>, <&kp>;
             flavor = "tap-preferred";
             tapping-term-ms = <250>;
             quick-tap-ms = <0>;
@@ -276,7 +260,7 @@
         default_layer {
             label = "0";
             bindings = <
-&kp ESCAPE  &kp Q                  &kp W             &e_behavior 0 0  &kp R     &sym_hold TILDE T    &kp Y      &kp U    &kp I      &kp O    &sym_hold PRCNT P       &kp BSPC
+&kp ESCAPE  &kp Q                  &sym_hold AMPERSAND W  &e_behavior 0 E  &kp R     &sym_hold TILDE T    &kp Y      &kp U    &kp I      &kp O    &sym_hold PRCNT P       &kp BSPC
 &kp LSHFT  &sym_hold AT_SIGN A     &sym_hold DLLR S  &sym_hold HASH D         &kp F     &kp G                &kp H      &kp J    &kp K      &kp L    &apo_morph              &kp RSHFT
 &kp LCTRL   &kp Z                  &sym_hold STAR X  &c_ht 0 C                &kp V     &kp B                &kp N      &kp M    &kp COMMA  &dot_ht 0 DOT  &slash_behavior BSLH 0  &kp DEL
                                                      &kp LALT                 &mo1_gui  &kp SPACE            &kp ENTER  &l2_nav  &kp RCTRL
