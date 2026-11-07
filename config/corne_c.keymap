@@ -231,15 +231,6 @@
             mods = <(MOD_LSFT | MOD_RSFT)>;
         };
 
-        /* — tiret cadratin = Alt+0151 */
-        macro_cadratin: macro_cadratin {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            wait-ms = <40>;
-            tap-ms = <40>;
-            bindings = <&macro_press &kp LALT>, <&macro_tap &kp KP_NUMBER_0 &kp KP_NUMBER_1 &kp KP_NUMBER_5 &kp KP_NUMBER_1>, <&macro_release &kp LALT>;
-        };
-
         /* Grave dead key (tap) → è à ù · aigu dead key (2×) → á é í */
         grave_td: grave_td {
             compatible = "zmk,behavior-tap-dance";
@@ -404,7 +395,7 @@
             label = "4";
             bindings = <
 &kp ESCAPE  &kp AT_SIGN   &kp AMPERSAND    &e_aigu_morph  &e_grave_morph  &kp TILDE    &macro_euro  &u_grave_morph  &macro_yen  &macro_degre  &kp PRCNT        &kp BSPC
-&kp LSHFT   &a_grave_morph &kp DLLR        &kp HASH       &kp GRAVE      &kp SQT      &kp MINUS    &kp J           &macro_livre &semi_morph    &macro_cadratin  &kp RSHFT
+&kp LSHFT   &a_grave_morph &kp DLLR        &kp HASH       &kp GRAVE      &kp SQT      &kp MINUS    &kp J           &macro_livre &kp L          &semi_morph      &kp RSHFT
 &kp LCTRL   &kp Z          &kp STAR        &c_ced_morph   &kp LPAR       &macro_guillemet_o  &macro_guillemet_f &kp RPAR  &kp COMMA  &macro_dotcom  &macro_plusminus  &kp BSPC
                                              &kp LALT      &mo 4          &kp SPACE    &kp ENTER    &mo 4           &kp RCTRL
             >;
