@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Corne 42 · Guide de Référence</title>
+<link rel="icon" type="image/svg+xml" href="corne-favicon.svg">
 <style>
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -114,7 +115,7 @@ body {
 .section-hd::after { content: ""; flex: 1; height: 1px; background: var(--border-color); }
 
 /* ═ Access strip ═ */
-.access-strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 7px; }
+.access-strip { display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; }
 .acc-card {
   background: var(--card-bg);
   border: 1px solid var(--border-color);
@@ -312,6 +313,29 @@ body {
     page-break-after: avoid !important; page-break-inside: avoid !important;
   }
 }
+
+/* V2-SIGNES · densification 5 couches (A4 1 page) */
+.key { width: 29px; height: 29px; }
+.key .sub { font-size: 5.2px; }
+.thumbs .key { width: 31.6px; }
+.thumbs { margin-top: 4px; margin-left: calc(3 * (29px + 2px)); }
+.layer-block { margin-top: 5px; }
+.layer-row { gap: 10px; }
+.grid-combos { gap: 5px; }
+
+/* V2-SIGNES passe 2 */
+.key { width: 27px; height: 27px; }
+.key .sub { font-size: 4.9px; margin-top: 0.5px; }
+.thumbs .key { width: 29.6px; }
+.thumbs { margin-top: 3px; margin-left: calc(3 * (27px + 2px)); }
+.layer-block { margin-top: 4px; }
+.layer-sub { font-size: 10px; margin-bottom: 0; }
+.layer-hd { margin-bottom: 0; }
+.acc-card { padding: 5px 8px; }
+.acc-row { line-height: 1.4; }
+.combo-card { padding: 3px 5px; }
+.grid-combos { gap: 4px; }
+.legend { padding-top: 1px; }
 </style>
 </head>
 <body>
@@ -416,6 +440,12 @@ const ACCESS = [
       `<span class="pill gray">&amp;tog 3</span> on / off`,
     ],
     hint: "actif sur L0 &ndash; L3 &middot; 40 ms" },
+  { kbd: ["L1","L2"], title: "Deux pouces tenus ensemble",
+    rows: [
+      `maintien G + maintien D &rarr; <span class="pill">L4</span> signes &amp; accents`,
+      `accents directs &middot; symboles &middot; monnaies &middot; guillemets`,
+    ],
+    hint: "le layer le plus haut gagne (&mo 4)" },
 ];
 
 const aEl = document.getElementById('access');
@@ -435,37 +465,31 @@ ACCESS.forEach(a => {
 const LAYERS = [
   {
     id: "L0", title: "QWERTY", badge: "BASE",
-    sub: "Couche par d&eacute;faut &middot; symboles au maintien &middot; accents en multi-tap",
+    sub: "Couche par d&eacute;faut &middot; lettres pures &middot; &eacute; au maintien de E &middot; symboles en couche signes (L4)",
     legend: [
-      {title:"Acc&egrave;s couches", items:[
-        {color:"#7c3aed", key:"Pouce G : <span class='m'>hold&rarr;L1</span> &middot; <span class='m'>2&times;hold&rarr;&#8984;</span>"},
-        {color:"#7c3aed", key:"Pouce D : <span class='m'>hold&rarr;L2</span> &middot; <span class='m'>2&times;hold&rarr;L3</span>"},
-        {color:"#7c3aed", key:"O+P+&#9003; : bascule L3"},
+      {title:"Acc&egrave;s", items:[
+        {color:"#7c3aed", key:"Pouce G : <span class='m'>hold&rarr;L1</span> &middot; <span class='m'>2&times;&rarr;&#8984;</span>"},
+        {color:"#7c3aed", key:"Pouce D : <span class='m'>hold&rarr;L2</span> &middot; <span class='m'>2&times;&rarr;L3</span>"},
       ]},
-      {title:"Modificateurs", items:[
-        {color:"#4a4740", key:"Maj permanente &middot; Tab = &#8679;+A"},
-        {color:"#4a4740", key:"&#8997; &#8963; &#8679; pouces + auriculaires"},
+      {title:"Symboles &rarr; L4", items:[
+        {color:"#6e6430", key:"Deux pouces tenus (L1+L2)"},
+        {color:"#6e6430", key:"<span class='m'>&amp; $ # * ~ @ % ; : \ ( ) .com</span>"},
       ]},
-      {title:"Hold &rarr; symbole", items:[
-        {color:"#6e6430", key:"<span class='m'>E&rarr;&amp; &middot; A&rarr;@ &middot; C&rarr;&ccedil; &middot; . &rarr;.com</span>"},
-        {color:"#6e6430", key:"<span class='m'>S&rarr;$ D&rarr;# X&rarr;* T&rarr;~ P&rarr;%</span>"},
-        {color:"#6e6430", key:"<span class='m'>/ &rarr; \ (2&times; = |)</span>"},
-      ]},
-      {title:"Multi-tap &middot; accents", items:[
-        {color:"#86315f", key:"<span class='m'>hold E = &eacute; &middot; hold W = &amp;</span>"},
+      {title:"Accents", items:[
+        {color:"#86315f", key:"<span class='m'>hold E = &eacute;</span> &middot; <span class='m'>&#8679;hold = &Eacute;</span>"},
         {color:"#86315f", key:"<span class='m'>' tap=&rsquo; hold=; &#8679;= :</span>"},
       ]},
-    ],
+       ],
     left: [
-      [["&#9099;","n"],["Q","n"],["W","mt","hold &amp;"],["E","mt","hold &eacute;"],["R","n"],["T","mt","hold ~"]],
-      [["&#8679;","m"],["A","mt","hold @ &middot; &Agrave; = L1 ` + a"],["S","mt","hold $"],["D","mt","hold #"],["F","n"],["G","n"]],
-      [["&#8963;","m"],["Z","n"],["X","mt","hold *"],["C","mt","hold &ccedil;"],["V","n"],["B","n"]]
+      [["&#9099;","n"],["Q","n"],["W","n"],["E","mt","hold &eacute;"],["R","n"],["T","n"]],
+      [["&#8679;","m"],["A","n"],["S","n"],["D","n"],["F","n"],["G","n"]],
+      [["&#8963;","m"],["Z","n"],["X","n"],["C","n"],["V","n"],["B","n"]]
     ],
     lt: [["&#8997;","m"],["L1","l","hold &middot; 2&times; &#8984;"],["&#9251;","n"]],
     right: [
-      [["Y","n"],["U","n"],["I","n"],["O","n"],["P","mt","hold %"],["&#9003;","n"]],
+      [["Y","n"],["U","n"],["I","n"],["O","n"],["P","n"],["&#9003;","n"]],
       [["H","n"],["J","n"],["K","n"],["L","n"],["'","td","&rsquo; &middot; hold ; &middot; &#8679; :"],["&#8679;","m"]],
-      [["N","n"],["M","n"],[",","n"],[".","mt","hold .com"],["/","td","hold \\ &middot; 2&times; |"],["&#8998;","n"]]
+      [["N","n"],["M","n"],[",","n"],[".","n"],["/","n"],["&#8998;","n"]]
     ],
     rt: [["&#9166;","n"],["L2","l","hold &middot; 2&times; L3"],["&#8963;","m"]]
   },
@@ -474,18 +498,14 @@ const LAYERS = [
     sub: "Touches fonction &middot; chiffres &middot; ponctuation &middot; dead keys pour accents",
     legend: [
       {title:"Dead keys", items:[
-        {color:"#6d28d9", key:"<span class='m'>&grave;</span> tap = grave &rarr; &egrave; &agrave; &ugrave; &middot; 2&times; = aigu &rarr; &aacute; &eacute; &iacute;"},
-        {color:"#6d28d9", key:"<span class='m'>&uml;</span> tr&eacute;ma &rarr; &euml; &iuml; &uuml;"},
-        {color:"#6d28d9", key:"<span class='m'>^</span> circonflexe &rarr; &acirc; &ecirc; &icirc;"},
+        {color:"#6d28d9", key:"<span class='m'>&grave;</span> &rarr; &egrave; &agrave; &ugrave; &middot; <span class='m'>2&times;</span> aigu"},
+        {color:"#6d28d9", key:"<span class='m'>&uml;</span> tr&eacute;ma &middot; <span class='m'>^</span> circonflexe"},
       ]},
       {title:"Contenu", items:[
         {color:"#555555", key:"<span class='m'>F1&ndash;F11</span> &middot; chiffres <span class='m'>0&ndash;9</span>"},
-        {color:"#555555", key:"<span class='m'>? ( ) | / \\ &quot; - = _ !</span>"},
+        {color:"#7c3aed", key:"+ pouce D &rarr; <span class='m'>L4 signes</span>"},
       ]},
-      {title:"Sortie", items:[
-        {color:"#555555", key:"rel&acute;cher le pouce &rarr; retour L0"},
-      ]},
-    ],
+       ],
     left: [
       [["F1","n"],["F2","n"],["F3","n"],["F4","n"],["F5","n"],["F6","n"]],
       [["0","n"],["1","n"],["2","n"],["3","n"],["4","n"],["5","n"]],
@@ -497,53 +517,77 @@ const LAYERS = [
       [["6","n"],["7","n"],["8","n"],["9","n"],["-","n"],["=","n"]],
       [["&quot;","n"],["^","dk","circ"],["&uml;","dk","tr&eacute;ma"],["&grave;","dk","grave &middot; 2&times; aigu"],["_","n"],["!","n"]]
     ],
-    rt: [["&#8998;","n"],["&#9166;","n"],["&#8963;","m"]]
+    rt: [["&#8998;","n"],["L4","l","+ pouce G tenu"],["&#8963;","m"]]
   },
   {
     id: "L2", title: "Crochets / Navigation / Pav&eacute;", badge: "ACC&Egrave;S &middot; pouce D maintenu",
     sub: "Accolades et crochets &middot; fl&egrave;ches &middot; pav&eacute; num&eacute;rique &middot; key_repeat",
     legend: [
       {title:"Navigation", items:[
-        {color:"#555555", key:"<span class='m'>&uarr; &larr; &darr; &rarr;</span> &middot; <span class='m'>&#8670; &#8671;</span> pages"},
-        {color:"#555555", key:"<span class='m'>&#8598; &#8600;</span> D&eacute;but / Fin &middot; Ins"},
+        {color:"#555555", key:"<span class='m'>&#8593; &#8592; &#8595; &#8594;</span> &middot; <span class='m'>&#8670; &#8671; &#8598; &#8600;</span> &middot; Ins"},
       ]},
       {title:"Crochets", items:[
-        {color:"#555555", key:"<span class='m'>{ } [ ]</span> &middot; <span class='m'>&lt; &gt;</span> &middot; <span class='m'>+ - = ;</span>"},
-        {color:"#555555", key:"<span class='m'>&#8635;</span> key_repeat &middot; &#9003;&#9111; Impr &eacute;cran"},
+        {color:"#555555", key:"<span class='m'>{ } [ ] &lt; &gt; + - = ;</span>"},
+        {color:"#555555", key:"<span class='m'>&#8635;</span> key_repeat &middot; Impr &eacute;cran"},
+        {color:"#7c3aed", key:"+ pouce G &rarr; <span class='m'>L4 signes</span>"},
       ]},
-      {title:"Pav&eacute;", items:[
-        {color:"#7c3aed", key:"<span class='m'>Num 0&ndash;9</span> &middot; <span class='m'>. Entr&eacute;e</span> &middot; <span class='m'>&#8997;</span> <span class='m'>_</span>"},
-      ]},
-    ],
+       ],
     left: [
       [["Ins","n"],["&#8598;","n"],["&#8670;","n"],["&uarr;","n"],["&#8671;","n"],["}","n"]],
-      [["&#8998;","n"],["&#8600;","n"],["&larr;","n"],["&darr;","n"],["&rarr;","n"],["{","n"]],
+      [["&#8677;","n","tab"],["&#8600;","n"],["&larr;","n"],["&darr;","n"],["&rarr;","n"],["{","n"]],
       [["&#9003;&#9111;","n"],["&#8679;","m"],["&#8963;","m"],["&#8635;","n","key_repeat"],["[","n"],["]","n"]]
     ],
-    lt: [["&#8679;","m"],["&#8997;","m"],["_","n"]],
+    lt: [["&#8679;","m"],["L4","l","+ pouce D tenu"],["_","n"]],
     right: [
-      [["Num7","n"],["Num8","n"],["Num9","n"],["/","n"],["\\","n"],["&#9099;","n"]],
+      [["Num7","n"],["Num8","n"],["Num9","n"],["/","n"],["\\","n"],["&#8998;","n","suppr"]],
       [["Num4","n"],["Num5","n"],["Num6","n"],["&lt;","n"],["&gt;","n"],[";","n"]],
       [["Num1","n"],["Num2","n"],["Num3","n"],["-","n"],["+","n"],["=","n"]]
     ],
-    rt: [["Num0","n"],["L2","h","tenu"],["Num.","n"]]
+    rt: [["Num0","n"],["L4","l","+ pouce G tenu"],["Num.","n"]]
+  },
+  {
+    id: "L4", title: "Signes &amp; Accents", badge: "ACC&Egrave;S &middot; les deux pouces tenus (L1 + L2)",
+    sub: "Accents directs &middot; symboles d&eacute;plac&eacute;s de L0 &middot; monnaies &middot; guillemets",
+    legend: [
+      {title:"Accents directs", items:[
+        {color:"#7c3aed", key:"<span class='m'>&ocirc; E &middot; &ecirc; R &middot; &agrave; A &middot; &ugrave; U &middot; &ccedil; C</span>"},
+        {color:"#7c3aed", key:"<span class='m'>&#8679;</span> = &Ocirc; &Ecirc; &Agrave; &Ugrave; &Ccedil; &middot; morts <span class='m'>` &acute;</span>"},
+      ]},
+      {title:"Symboles d&eacute;plac&eacute;s", items:[
+        {color:"#555555", key:"<span class='m'>&amp; $ # * ~ @ %</span> W S D X T P Q"},
+        {color:"#555555", key:"<span class='m'>; : \ / ( ) - .com</span>"},
+      ]},
+      {title:"Monnaies", items:[
+        {color:"#7c3aed", key:"<span class='m'>&euro; &yen; &pound; &deg; &laquo; &raquo;</span> &middot; Alt-codes"},
+      ]},
+       ],
+    left: [
+      [["&#9099;","n","&eacute;chap"],["@","n"],["&amp;","n"],["&ocirc;","n"],["&ecirc;","n"],["~","n"]],
+      [["&#8679;","m"],["&agrave;","n"],["$","n"],["#","n"],["`","n","grave"],["&acute;","n","aigu"]],
+      [["&#8963;","m"],["Z","n"],["*","n"],["&ccedil;","n"],["(","n"],["&laquo;","n"]]
+    ],
+    lt: [["&#8997;","m"],["L1+L2","h","tenu"],["&#9251;","n"]],
+    right: [
+      [["&euro;","n"],["&ugrave;","n"],["&yen;","n"],["&deg;","n"],["%","n"],["&#9003;","n"]],
+      [["-","n","trait d&rsquo;union"],["J","n"],["&pound;","n"],[";","n"],[":","n"],["&#8679;","m"]],
+      [["&raquo;","n"],[")","n"],[",","n"],[".com","n","point"],["\\","n","&#8679; |"],["&#8998;","n"]]
+    ],
+    rt: [["&#9166;","n"],["L1+L2","h","tenu"],["&#8963;","m"]]
   },
   {
     id: "L3", title: "Navigation / M&eacute;dias / Bluetooth", badge: "ACC&Egrave;S &middot; pouce D 2&times; maintenu &middot; ou combo O P &#9003;",
     sub: "Fl&egrave;ches &middot; Ctrl/Cmd+fl&egrave;ches &middot; m&eacute;dias &middot; profils Bluetooth &middot; basculable (tog)",
     legend: [
       {title:"Navigation", items:[
-        {color:"#555555", key:"<span class='m'>&uarr; &larr; &darr; &rarr;</span> &middot; <span class='m'>&#8670; &#8671; &#8598; &#8600;</span>"},
-        {color:"#7c3aed", key:"<span class='m'>&#8963;&larr;&rarr;</span> mot &middot; <span class='m'>&#8984;&larr;&rarr;</span> ligne"},
+        {color:"#555555", key:"<span class='m'>&#8963;&larr;&rarr;</span> mot &middot; <span class='m'>&#8984;&larr;&rarr;</span> ligne &middot; pages"},
       ]},
       {title:"M&eacute;dias", items:[
-        {color:"#8a5a22", key:"<span class='m'>&#9198; &#9199; &#9197;</span> pr&eacute;c / lecture / suiv"},
-        {color:"#8a5a22", key:"volume &minus; + muet"},
+        {color:"#8a5a22", key:"<span class='m'>&#9198; &#9199; &#9197;</span> &middot; volume &middot; muet"},
       ]},
       {title:"Bluetooth", items:[
         {color:"#1b5d7e", key:"<span class='m'>BT &#9664; &#9654;</span> profils &middot; <span class='m'>OUT</span> USB&harr;BT"},
       ]},
-    ],
+       ],
     left: [
       [["&#8212;","t"],["OUT","bt","USB &harr; BT"],["&#8963;&larr;","n"],["&#8963;&rarr;","n"],["&#8984;&larr;","n"],["&#8984;&rarr;","n"]],
       [["&#8212;","t"],["&#8984;","m"],["&#9198;","md","pr&eacute;c"],["&#9199;","md","lecture"],["&#9197;","md","suiv"],["&#9099;","n"]],
@@ -583,7 +627,7 @@ const TIPS = {
   "&#9099;": "&Eacute;chap",
   "&#9003;": "Retour arri&egrave;re : efface &agrave; gauche du curseur",
   "&#8998;": "Suppr : efface &agrave; droite du curseur",
-  "&#8677;": "Tabulation (via combo Maj + A sur L0)",
+  "&#8677;": "Tabulation (touche L2 &middot; L0 via combo Maj + A)",
   "&#8679;": "Maj (Shift)",
   "&#8963;": "Ctrl",
   "&#8997;": "Alt",
@@ -592,11 +636,25 @@ const TIPS = {
   "&#9251;": "Espace",
   "L1": "Maintien = couche 1 (chiffres, F) &middot; 2&times; + maintien = Win",
   "L2": "Maintien = couche 2 (nav, pav&eacute;) &middot; 2&times; + maintien = couche 3",
+  "L4": "Couche signes : les deux pouces tenus ensemble (L1 + L2)",
+  "L1+L2": "Les deux pouces tenus = couche signes L4",
+  "&euro;": "Euro &middot; Alt+0128 pav&eacute; num (NumLock actif)",
+  "&yen;": "Yen &middot; Alt+0165",
+  "&pound;": "Livre sterling &middot; Alt+0163",
+  "&deg;": "Degr&eacute; &middot; Alt+0176",
+  "&laquo;": "Guillemet ouvrant &middot; Alt+0171",
+  "&raquo;": "Guillemet fermant &middot; Alt+0187",
+  ".com": "Macro .com",
+  "&ocirc;": "Accent direct &middot; &#8679; = &Ocirc;",
+  "&ecirc;": "Accent direct &middot; &#8679; = &Ecirc;",
+  "&agrave;": "Accent direct &middot; &#8679; = &Agrave;",
+  "&ugrave;": "Accent direct &middot; &#8679; = &Ugrave;",
+  "&ccedil;": "Accent direct &middot; &#8679; = &Ccedil;",
   "E": "E &middot; maintien = &eacute; (&#8679; maintenu = &Eacute;)",
-  "W": "W &middot; maintien = &amp;",
-  "A": "A &middot; maintien = @ &middot; &Agrave; = L1 ` + a",
-  "C": "C &middot; maintien = &ccedil;",
-  ".": "Point &middot; maintien = .com",
+  "W": "W &middot; lettre pure (&amp; en couche L4)",
+  "A": "A &middot; lettre pure (&agrave; direct en couche L4)",
+  "C": "C &middot; lettre pure (&ccedil; direct en couche L4)",
+  ".": "Point &middot; lettre pure (.com en couche L4)",
   "OUT": "Bascule la sortie : USB &harr; Bluetooth (&agrave; presser plusieurs fois pour cycler)",
   "BT&#9664;": "Profil Bluetooth pr&eacute;c&eacute;dent",
   "BT&#9654;": "Profil Bluetooth suivant",
