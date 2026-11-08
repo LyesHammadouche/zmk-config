@@ -401,7 +401,7 @@
 &kp INSERT       &kp HOME   &kp PG_UP         &kp UP_ARROW    &kp PAGE_DOWN     &kp BSPC             &kp KP_NUMBER_7  &kp KP_NUMBER_8  &kp KP_NUMBER_9  &kp FSLH   &kp BSLH  &kp DEL
 &kp TAB          &kp END    &kp LEFT_ARROW    &kp DOWN_ARROW  &kp RIGHT_ARROW   &kp KP_DIVIDE       &kp KP_NUMBER_4  &kp KP_NUMBER_5  &kp KP_NUMBER_6  &kp LT     &kp GT    &kp KP_MULTIPLY
 &kp PRINTSCREEN  &kp LSHFT  &kp LEFT_CONTROL  &key_repeat     &kp LEFT_BRACKET  &kp RIGHT_BRACKET    &kp KP_NUMBER_1  &kp KP_NUMBER_2  &kp KP_NUMBER_3  &kp MINUS  &kp PLUS  &kp EQUAL
-                                              &kp LSHFT       &mo 4             &kp UNDER            &kp KP_NUMBER_0  &kp RET          &kp KP_DOT
+                                              &kp LALT        &mo 4             &kp UNDER            &kp KP_NUMBER_0  &kp RET          &kp KP_DOT
             >;
         };
 
