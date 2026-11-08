@@ -426,13 +426,13 @@ const ACCESS = [
   { kbd: ["L1"], title: "Pouce G &middot; interne",
     rows: [
       `maintien &rarr; <span class="pill">L1</span> chiffres &middot; F`,
-      `maintien seul &rarr; <span class="pill gray">L1</span> instantan&eacute;`,
+      `maintien &rarr; <span class="pill gray">L1</span> &middot; 2&times; + maintien &rarr; <span class="pill gray">&#8984; Win</span>`,
     ],
     hint: "tap-dance 200 ms (mo1_gui)" },
   { kbd: ["L2"], title: "Pouce D &middot; interne",
     rows: [
       `maintien &rarr; <span class="pill">L2</span> crochets &middot; pav&eacute;`,
-      `maintien seul &rarr; <span class="pill">L2</span> instantan&eacute; &middot; L3 = pouce Entr&eacute;e maintenu`,
+      `maintien &rarr; <span class="pill">L2</span> &middot; 2&times; + maintien &rarr; <span class="pill">L3</span>`,
     ],
     hint: "tap-dance 200 ms (l2_nav)" },
   { kbd: ["O","P","&#9003;"], title: "Combo O + P + &#9003;",
@@ -469,8 +469,8 @@ const LAYERS = [
     sub: "Couche par d&eacute;faut &middot; 100 % lettres pures &middot; symboles et accents en couche signes (L4)",
     legend: [
       {title:"Acc&egrave;s", items:[
-        {color:"#7c3aed", key:"Pouce G : <span class='m'>hold&rarr;L1</span> instantan&eacute; &middot; les 2 pouces &rarr; <span class='m'>L4</span>"},
-        {color:"#7c3aed", key:"Pouce D : <span class='m'>hold&rarr;L2</span> &middot; pouce Entr&eacute;e maintenu &rarr; <span class='m'>L3</span>"},
+        {color:"#7c3aed", key:"Pouce G : <span class='m'>hold&rarr;L1</span> &middot; <span class='m'>2&times;&rarr;&#8984;</span> &middot; 2 pouces &rarr; <span class='m'>L4</span>"},
+        {color:"#7c3aed", key:"Pouce D : <span class='m'>hold&rarr;L2</span> &middot; <span class='m'>2&times;&rarr;L3</span>"},
       ]},
       {title:"Symboles &rarr; L4", items:[
         {color:"#6e6430", key:"Deux pouces tenus (L1+L2)"},
@@ -487,13 +487,13 @@ const LAYERS = [
       [["&#8679;","m"],["A","n"],["S","n"],["D","n"],["F","n"],["G","n"]],
       [["&#8963;","m"],["Z","n"],["X","n"],["C","n"],["V","n"],["B","n"]]
     ],
-    lt: [["&#8997;","m"],["L1","l","hold"],["&#9251;","n"]],
+    lt: [["&#8997;","m"],["L1","l","hold &middot; 2&times; &#8984;"],["&#9251;","n"]],
     right: [
       [["Y","n"],["U","n"],["I","n"],["O","n"],["P","n"],["&#9003;","n"]],
       [["H","n"],["J","n"],["K","n"],["L","n"],["'","n","&rsquo;"],["&#8679;","m"]],
       [["N","n"],["M","n"],[",","n"],[".","n"],["/","td","hold \\ &middot; 2&times; |"],["&#8998;","n"]]
     ],
-    rt: [["&#9166;","lt","hold = L3"],["L2","l","hold"],["&#8963;","m"]]
+    rt: [["&#9166;","n"],["L2","l","hold &middot; 2&times; L3"],["&#8963;","m"]]
   },
   {
     id: "L1", title: "Chiffres / Symboles / F", badge: "ACC&Egrave;S &middot; pouce G maintenu",
@@ -548,7 +548,7 @@ const LAYERS = [
     rt: [["Num0","n"],["L2","h","tenu"],["Num.","n"]]
   },
   {
-    id: "L3", title: "Navigation / M&eacute;dias / Bluetooth", badge: "ACC&Egrave;S &middot; pouce Entr&eacute;e maintenu &middot; ou combo O P &#9003;",
+    id: "L3", title: "Navigation / M&eacute;dias / Bluetooth", badge: "ACC&Egrave;S &middot; pouce D 2&times; maintenu &middot; ou combo O P &#9003;",
     sub: "Fl&egrave;ches &middot; Ctrl/Cmd+fl&egrave;ches &middot; m&eacute;dias &middot; profils Bluetooth &middot; basculable (tog)",
     legend: [
       {title:"Navigation", items:[
@@ -572,7 +572,7 @@ const LAYERS = [
       [["&#8658;","n","ScrLk"],["&larr;","n"],["&darr;","n"],["&rarr;","n"],["`","n"],["&#8212;","t"]],
       [["Ins","n"],["&#8598;","n"],["Ins","n"],["&#8600;","n"],["&#8776;","n","tilde2"],["&#8679;","m"]]
     ],
-    rt: [["&#9166;","n"],["L3","h","tenu"],["`","n"]]
+    rt: [["&#9166;","n"],["L3","h","tenu &middot; 2&times;"],["`","n"]]
   },
   {
     id: "L4", title: "Signes &amp; Accents", badge: "ACC&Egrave;S &middot; les deux pouces tenus (L1 + L2)",
@@ -636,8 +636,8 @@ const TIPS = {
   "&#8984;": "Win / Cmd",
   "&#9166;": "Entr&eacute;e",
   "&#9251;": "Espace",
-  "L1": "Maintien = couche 1 (chiffres, F), instantan&eacute; &middot; avec pouce D = L4",
-  "L2": "Maintien = couche 2 (nav, pav&eacute;), instantan&eacute; &middot; avec pouce G = L4",
+  "L1": "Maintien = couche 1 (chiffres, F) &middot; 2&times; + maintien = Win &middot; avec pouce D = L4",
+  "L2": "Maintien = couche 2 (nav, pav&eacute;) &middot; 2&times; + maintien = L3 &middot; avec pouce G = L4",
   "L4": "Couche signes : les deux pouces tenus ensemble (L1 + L2)",
   "&euro;": "Euro &middot; Alt+0128 pav&eacute; num (NumLock actif)",
   "&yen;": "Yen &middot; Alt+0165",
