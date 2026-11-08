@@ -364,6 +364,17 @@
             require-prior-idle-ms = <250>;
         };
 
+        /* L1+L2 = L4 : les deux pouces internes presses ensemble (deterministe,
+         * indépendant des tap-dances des pouces) · les chemins séquentiels
+         * restent couverts par les &mo 4 posés sur L1/L2 */
+        combo_layer4 {
+            bindings = <&mo 4>;
+            key-positions = <19 40>;
+            timeout-ms = <200>;
+            require-prior-idle-ms = <0>;
+            layers = <0>;
+        };
+
         combo_shift_a_tab {
             bindings = <&kp TAB>;
             key-positions = <12 13>;
@@ -402,7 +413,7 @@
 &kp INSERT       &kp HOME   &kp PG_UP         &kp UP_ARROW    &kp PAGE_DOWN     &kp BSPC             &kp KP_NUMBER_7  &kp KP_NUMBER_8  &kp KP_NUMBER_9  &kp FSLH   &kp BSLH  &kp DEL
 &kp TAB          &kp END    &kp LEFT_ARROW    &kp DOWN_ARROW  &kp RIGHT_ARROW   &kp KP_DIVIDE       &kp KP_NUMBER_4  &kp KP_NUMBER_5  &kp KP_NUMBER_6  &kp LT     &kp GT    &kp KP_MULTIPLY
 &kp PRINTSCREEN  &kp LSHFT  &kp LEFT_CONTROL  &key_repeat     &kp LEFT_BRACKET  &kp RIGHT_BRACKET    &kp KP_NUMBER_1  &kp KP_NUMBER_2  &kp KP_NUMBER_3  &kp MINUS  &kp PLUS  &kp EQUAL
-                                              &kp LSHFT       &mo 4             &kp UNDER            &kp KP_NUMBER_0  &mo 4            &kp KP_DOT
+                                              &kp LSHFT       &mo 4             &kp UNDER            &kp KP_NUMBER_0  &kp RET          &kp KP_DOT
             >;
         };
 
