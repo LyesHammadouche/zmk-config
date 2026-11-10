@@ -274,7 +274,7 @@ body {
 .cb-res { margin: 1.5px 0; }
 .res {
   font-family: 'JetBrains Mono', monospace;
-  font-size: 6.8px; font-weight: 500;
+  font-size: 6.4px; font-weight: 500;
   background: var(--violet-tint); border: 1px solid var(--violet);
   color: var(--violet-deep);
   border-radius: 2px; padding: 0 3px;
@@ -282,7 +282,7 @@ body {
 }
 .card-det {
   font-family: 'JetBrains Mono', monospace;
-  font-size: 5.2px; color: var(--dim); line-height: 1.3;
+  font-size: 5px; color: var(--dim); line-height: 1.25;
 }
 
 /* ═ Footer / toggle ═ */
@@ -333,8 +333,8 @@ body {
 .layer-hd { margin-bottom: 0; }
 .acc-card { padding: 4px 7px; }
 .acc-row { line-height: 1.4; }
-.combo-card { padding: 2px 5px; }
-.grid-combos { gap: 3px; grid-template-columns: repeat(2, 1fr); }
+.combo-card { padding: 2px 3px; gap: 4px; }
+.grid-combos { gap: 3px 4px; grid-template-columns: repeat(4, 1fr); }
 .combos-cell .section-hd { margin: 1px 0 3px; }
 </style>
 </head>
@@ -395,7 +395,7 @@ function drawMiniKbd(activeKeys) {
   const SRm = [2.2, 1.0, 0, 0.5, 1.6, 2.2];
   const xo = 20.5, kw = 2.0, kh = 2.0, rp = 2.5, cp = 2.6;
   const act = (s,r,c) => activeKeys.some(k => { const p = KP[k]; return p && p.s===s && p.r===r && p.c===c; });
-  let svg = `<svg width="72" height="26" viewBox="0 0 42 15" xmlns="http://www.w3.org/2000/svg">`;
+  let svg = `<svg width="54" height="19" viewBox="0 0 42 15" xmlns="http://www.w3.org/2000/svg">`;
   for (let c=0;c<6;c++){
     const st=SLm[c];
     for (let r=0;r<3;r++){
