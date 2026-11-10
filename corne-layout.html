@@ -73,9 +73,9 @@ body {
 }
 
 .a4-page {
-  width: 794px;
-  height: 1122px;
-  padding: 25px 36px 18px;
+  width: 1122px;
+  height: 793px;
+  padding: 11px 24px 8px;
   background: var(--page-bg);
   box-shadow: 0 4px 24px rgba(0,0,0,0.10);
   display: flex;
@@ -88,20 +88,20 @@ body {
 .page-content { display: flex; flex-direction: column; flex: 1; }
 
 /* ═ Header ═ */
-.header { text-align: center; margin-bottom: 6px; }
+.header { text-align: center; margin-bottom: 4px; }
 .header h1 {
-  font-size: 21px; font-weight: 800; letter-spacing: 4px;
+  font-size: 18px; font-weight: 800; letter-spacing: 4px;
   color: var(--text-hd); text-transform: uppercase;
 }
 .header .sub {
   font-family: 'Cormorant Garamond', Georgia, serif;
   font-style: italic; font-weight: 600;
-  font-size: 13px; color: var(--dim); margin-top: 1px;
+  font-size: 12px; color: var(--dim); margin-top: 0;
 }
 .header .line {
   width: 100%; height: 1px;
   background: linear-gradient(90deg, transparent, var(--violet) 30%, var(--violet) 70%, transparent);
-  opacity: .45; margin-top: 6px;
+  opacity: .45; margin-top: 4px;
 }
 
 /* ═ Section titles ═ */
@@ -109,7 +109,7 @@ body {
   font-family: 'JetBrains Mono', 'Cascadia Mono', monospace;
   font-size: 10px; font-weight: 500; letter-spacing: 1.5px;
   text-transform: uppercase; color: var(--violet);
-  margin: 8px 0 5px;
+  margin: 5px 0 4px;
   display: flex; align-items: center; gap: 6px;
 }
 .section-hd::after { content: ""; flex: 1; height: 1px; background: var(--border-color); }
@@ -117,6 +117,7 @@ body {
 /* ═ Access strip ═ */
 .access-strip { display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; }
 .acc-card {
+  min-width: 0;
   background: var(--card-bg);
   border: 1px solid var(--border-color);
   border-left: 2px solid var(--violet);
@@ -132,7 +133,7 @@ body {
   text-transform: uppercase; color: var(--violet-deep);
   margin-bottom: 2.5px;
 }
-.acc-row { font-size: 8.6px; line-height: 1.5; color: var(--text-main); white-space: nowrap; }
+.acc-row { font-size: 8.6px; line-height: 1.5; color: var(--text-main); }
 .acc-row b { font-weight: 700; }
 .acc-hint { font-size: 7.2px; color: var(--dim); line-height: 1.4; }
 .pill {
@@ -281,7 +282,7 @@ body {
 }
 .card-det {
   font-family: 'JetBrains Mono', monospace;
-  font-size: 5.4px; color: var(--dim); line-height: 1.3;
+  font-size: 5.2px; color: var(--dim); line-height: 1.3;
 }
 
 /* ═ Footer / toggle ═ */
@@ -304,39 +305,37 @@ body {
 }
 
 @media print {
-  @page { size: A4; margin: 0; }
+  @page { size: A4 landscape; margin: 0; }
   .theme-toggle { display: none !important; }
   body { background: #fff !important; padding: 0 !important; -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
   .a4-page {
-    width: 210mm !important; height: 296mm !important;
+    width: 297mm !important; height: 209mm !important;
     margin: 0 !important; box-shadow: none !important;
     border: none !important; border-radius: 0 !important;
     page-break-after: avoid !important; page-break-inside: avoid !important;
   }
 }
 
-/* V2-SIGNES · densification 5 couches (A4 1 page) */
-.key { width: 29px; height: 29px; }
-.key .sub { font-size: 5.2px; }
-.thumbs .key { width: 31.6px; }
-.thumbs { margin-top: 4px; margin-left: 0; }
-.layer-block { margin-top: 5px; }
+/* V3-PAYSAGE · A4 horizontal 1 page : grille 2 colonnes, pouces alignes sous les colonnes internes */
+:root { --kw: 27px; --kg: 2px; }
+.key { width: var(--kw); height: var(--kw); font-size: 10.5px; }
+.key .sub { font-size: 5.4px; margin-top: 0.5px; }
+.thumbs .key { width: calc(var(--kw) + 2.6px); }
+.thumbs { margin-top: 3px; }
+.half-l .thumbs { margin-left: calc(3 * (var(--kw) + var(--kg))); }
+.half-r .thumbs { margin-left: 0; }
+#layers-container { display: grid; grid-template-columns: 1fr 1fr; column-gap: 16px; row-gap: 5px; align-items: start; }
+.layer-block { margin-top: 0; }
 .layer-row { gap: 10px; }
-.grid-combos { gap: 5px; }
-
-/* V2-SIGNES passe 2 */
-.key { width: 27px; height: 27px; }
-.key .sub { font-size: 4.9px; margin-top: 0.5px; }
-.thumbs .key { width: 29.6px; }
-.thumbs { margin-top: 3px; margin-left: 0; }
-.layer-block { margin-top: 4px; }
+.legend { flex: 0 0 124px; padding-top: 1px; }
+.keyboard { gap: 14px; justify-content: flex-start; }
 .layer-sub { font-size: 10px; margin-bottom: 0; }
 .layer-hd { margin-bottom: 0; }
-.acc-card { padding: 5px 8px; }
+.acc-card { padding: 4px 7px; }
 .acc-row { line-height: 1.4; }
-.combo-card { padding: 3px 5px; }
-.grid-combos { gap: 4px; }
-.legend { padding-top: 1px; }
+.combo-card { padding: 2px 5px; }
+.grid-combos { gap: 3px; grid-template-columns: repeat(2, 1fr); }
+.combos-cell .section-hd { margin: 1px 0 3px; }
 </style>
 </head>
 <body>
@@ -352,10 +351,7 @@ body {
     <div class="section-hd">&#9671; Acc&egrave;s aux couches</div>
     <div class="access-strip" id="access"></div>
 
-    <div id="layers-container"></div>
-
-    <div class="section-hd" style="margin-top:9px;">&#9671; Combinaisons</div>
-    <div class="grid-combos" id="combos"></div>
+    <div id="layers-container"><div class="combos-cell"><div class="section-hd">&#9671; Combinaisons</div><div class="grid-combos" id="combos"></div></div></div>
   </div>
 
   <div class="page-footer">
